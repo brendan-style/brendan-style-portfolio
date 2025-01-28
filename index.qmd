@@ -1,5 +1,5 @@
 ---
-title: "Brendan Style's Blog" 
+title: "YOUR NAME" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
   image: img/profile.png
