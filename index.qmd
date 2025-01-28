@@ -1,8 +1,8 @@
 ---
-title: "Brendan Style's Blog" 
+title: "Brendan Style" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: img/profile.png
+  image: img/just_face_headshot.png
   image-width: 16em
   image-shape: rounded # rectangle  round  rounded
   
