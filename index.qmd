@@ -3,26 +3,26 @@ title: "Brendan Style"
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
   image: img/just_face_headshot.png
-  image-width: 16em
+  image-width: 20em
   image-shape: rounded # rectangle  round  rounded
   
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/brendan-style-2139ab260/
     - icon: instagram
       text: Instagram
       href: https://instagram.com
     - icon: github
       text: GitHub
-      href: https://github.com
+      href: https://github.com/brendan-style
     - icon: file-earmark-pdf
       text: Resumé
-      href: resume-example.pdf
+      href: 25_style_resume.pdf
       target: _blank
     - icon: mailbox
       text: Email
-      href: mailto:YOUR_EMAIL@geneseo.edu
+      href: mailto:bjs100@geneseo.edu
 
 ---
 
