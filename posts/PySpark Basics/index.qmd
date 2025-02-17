@@ -1,0 +1,18 @@
+---
+title: "PySpark Basics"
+author: "Brendan Style"
+date: 2025-02-17
+categories: [spark,python,learning]
+image: "image.png"
+
+---
+This is a blog post explaining some of the basics of Apache Hadoop, Apache Spark, and PySpark that we have learned so far in class.
+
+### Apache Hadoop
+Apache Hadoop was created explicitly to help analysts deal with storing large datasets(usually exceeding 1gb). The primary way it does this is by breaking up the data into blocks and storing those blocks across different servers. This allows for both faster run times, by minimizing data movement through MapReduce, as well as minimizing errors, since, even if one of the blocks fails, the rest can still be altered successfully. The main drawback of Hadoop is that it cannot process events happening in real time, such the fluctuation of stock prices.
+
+### Apache Spark
+Apache Spark deals more with the data analysis side of the datasets. It accomplishes these queries of large datasets by utilizing a structure of clusters that able to potentially take big applications and divide them into smaller tasks that take overall less computing power. Though this is a very powerful tool for creating queries, a shortcoming of Spark is a lack of a personal storage system, which is why many will use it in tandem with the storage capabilities of Hadoop, since Spark's cluster-based method of applying queries was designed for Hadoop's block storage.
+
+### PySpark
+PySpark is a Python library that allows the user to run a number of Apache Spark functions on Python. The storage methods oh a pyspark dataframe are similar to what we discussed earlier, with different blocks of data being stored on multiple different machines, which allows for loading datasets and performing queries that may be beyond the capabilities of one device. It optimizes query speed by not actually performing the query until an action is called that makes it necessary, a process referred to as "lazy evaluation". Another feature of pyspark is the ability to recovery the data if one of these blocks/nodes of data fails at any point.

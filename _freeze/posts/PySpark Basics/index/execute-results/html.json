@@ -1,0 +1,15 @@
+{
+  "hash": "01ff28c0469c9af5da5876df696baeed",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"PySpark Basics\"\nauthor: \"Brendan Style\"\ndate: 2025-01-22\ncategories: [news, code, analysis]\nimage: \"image.jpg\"\n---\n\n\n\n\nThis is a post with executable code with no space in the folder name.\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n\n\n\n![](image.jpg)\n\n---\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="YOUR NAME">
-<meta name="dcterms.date" content="2025-01-22">
+<meta name="author" content="Brendan Style">
+<meta name="dcterms.date" content="2025-02-17">
 
-<title>Welcome To My Blog – Brendan Style</title>
+<title>PySpark Basics – Brendan Style</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,9 +126,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">PySpark Basics</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">spark</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">learning</div>
               </div>
                   </div>
   </div>
@@ -139,14 +141,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>YOUR NAME </p>
+               <p>Brendan Style </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 22, 2025</p>
+        <p class="date">February 17, 2025</p>
       </div>
     </div>
     
@@ -165,11 +167,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p>This is a blog post explaining some of the basics of Apache Hadoop, Apache Spark, and PySpark that we have learned so far in class.</p>
+<section id="apache-hadoop" class="level3">
+<h3 class="anchored" data-anchor-id="apache-hadoop">Apache Hadoop</h3>
+<p>Apache Hadoop was created explicitly to help analysts deal with storing large datasets(usually exceeding 1gb). The primary way it does this is by breaking up the data into blocks and storing those blocks across different servers. This allows for both faster run times, by minimizing data movement through MapReduce, as well as minimizing errors, since, even if one of the blocks fails, the rest can still be altered successfully. The main drawback of Hadoop is that it cannot process events happening in real time, such the fluctuation of stock prices.</p>
+</section>
+<section id="apache-spark" class="level3">
+<h3 class="anchored" data-anchor-id="apache-spark">Apache Spark</h3>
+<p>Apache Spark deals more with the data analysis side of the datasets. It accomplishes these queries of large datasets by utilizing a structure of clusters that able to potentially take big applications and divide them into smaller tasks that take overall less computing power. Though this is a very powerful tool for creating queries, a shortcoming of Spark is a lack of a personal storage system, which is why many will use it in tandem with the storage capabilities of Hadoop, since Spark’s cluster-based method of applying queries was designed for Hadoop’s block storage.</p>
+</section>
+<section id="pyspark" class="level3">
+<h3 class="anchored" data-anchor-id="pyspark">PySpark</h3>
+<p>PySpark is a Python library that allows the user to run a number of Apache Spark functions on Python. The storage methods oh a pyspark dataframe are similar to what we discussed earlier, with different blocks of data being stored on multiple different machines, which allows for loading datasets and performing queries that may be beyond the capabilities of one device. It optimizes query speed by not actually performing the query until an action is called that makes it necessary, a process referred to as “lazy evaluation”. Another feature of pyspark is the ability to recovery the data if one of these blocks/nodes of data fails at any point.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script type="text/javascript" src="links.js"></script>

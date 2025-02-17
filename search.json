@@ -4,7 +4,7 @@
     "href": "blog-listing.html",
     "title": "Insightful Analytics",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\nJan 22, 2025\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\nJan 22, 2025\n\n\nYour Name\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\nJan 22, 2025\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nPySpark Basics\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nBrendan Style\n\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\nJan 22, 2025\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\nJan 22, 2025\n\n\nYour Name\n\n\n3 min\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\nJan 22, 2025\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/starwars/starwars_df.html",
@@ -138,5 +138,40 @@
     "title": "Pandas Basics",
     "section": "Adding a New Column",
     "text": "Adding a New Column\n\n\n# Adding a new column\ndf[\"Salary\"] = [50000, 60000, 70000]\ndf\n\n\n  \n    \n\n\n\n\n\n\nName\nAge\nCity\nSalary\n\n\n\n\n0\nAlice\n25\nNew York\n50000\n\n\n1\nBob\n30\nLos Angeles\n60000\n\n\n2\nCharlie\n35\nChicago\n70000\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n  \n    \n    \n\n  \n    \n  \n    \n    \n  \n\n    \n  \n\n\n    ## Conclusion\n\n    This notebook covers the basic operations of pandas. You can explore more advanced features like merging,\n    joining, and working with time series data in pandas documentation: https://pandas.pydata.org/docs/"
+  },
+  {
+    "objectID": "posts/pyspark/posts/welcome/index.html",
+    "href": "posts/pyspark/posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/pyspark/index.html",
+    "href": "posts/pyspark/index.html",
+    "title": "pyspark",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nFeb 17, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nFeb 14, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/pyspark/about.html",
+    "href": "posts/pyspark/about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/pyspark/posts/post-with-code/index.html",
+    "href": "posts/pyspark/posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/PySpark Basics/index.html",
+    "href": "posts/PySpark Basics/index.html",
+    "title": "PySpark Basics",
+    "section": "",
+    "text": "This is a blog post explaining some of the basics of Apache Hadoop, Apache Spark, and PySpark that we have learned so far in class.\n\nApache Hadoop\nApache Hadoop was created explicitly to help analysts deal with storing large datasets(usually exceeding 1gb). The primary way it does this is by breaking up the data into blocks and storing those blocks across different servers. This allows for both faster run times, by minimizing data movement through MapReduce, as well as minimizing errors, since, even if one of the blocks fails, the rest can still be altered successfully. The main drawback of Hadoop is that it cannot process events happening in real time, such the fluctuation of stock prices.\n\n\nApache Spark\nApache Spark deals more with the data analysis side of the datasets. It accomplishes these queries of large datasets by utilizing a structure of clusters that able to potentially take big applications and divide them into smaller tasks that take overall less computing power. Though this is a very powerful tool for creating queries, a shortcoming of Spark is a lack of a personal storage system, which is why many will use it in tandem with the storage capabilities of Hadoop, since Spark’s cluster-based method of applying queries was designed for Hadoop’s block storage.\n\n\nPySpark\nPySpark is a Python library that allows the user to run a number of Apache Spark functions on Python. The storage methods oh a pyspark dataframe are similar to what we discussed earlier, with different blocks of data being stored on multiple different machines, which allows for loading datasets and performing queries that may be beyond the capabilities of one device. It optimizes query speed by not actually performing the query until an action is called that makes it necessary, a process referred to as “lazy evaluation”. Another feature of pyspark is the ability to recovery the data if one of these blocks/nodes of data fails at any point."
   }
 ]
