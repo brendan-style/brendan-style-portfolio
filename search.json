@@ -60,7 +60,7 @@
     "href": "index.html#experience",
     "title": "Brendan Style",
     "section": "Experience",
-    "text": "Experience\nStarbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024"
+    "text": "Experience\nSUNY Geneseo | Data Analytics Tutor | August 2024 - Current"
   },
   {
     "objectID": "danl_proj_nba.html#salary-distribution-among-teams",
@@ -173,5 +173,26 @@
     "title": "PySpark Basics",
     "section": "",
     "text": "This is a blog post explaining some of the basics of Apache Hadoop, Apache Spark, and PySpark that we have learned so far in class.\n\nApache Hadoop\nApache Hadoop was created explicitly to help analysts deal with storing large datasets(usually exceeding 1gb). The primary way it does this is by breaking up the data into blocks and storing those blocks across different servers. This allows for both faster run times, by minimizing data movement through MapReduce, as well as minimizing errors, since, even if one of the blocks fails, the rest can still be altered successfully. The main drawback of Hadoop is that it cannot process events happening in real time, such the fluctuation of stock prices.\n\n\nApache Spark\nApache Spark deals more with the data analysis side of the datasets. It accomplishes these queries of large datasets by utilizing a structure of clusters that able to potentially take big applications and divide them into smaller tasks that take overall less computing power. Though this is a very powerful tool for creating queries, a shortcoming of Spark is a lack of a personal storage system, which is why many will use it in tandem with the storage capabilities of Hadoop, since Spark’s cluster-based method of applying queries was designed for Hadoop’s block storage.\n\n\nPySpark\nPySpark is a Python library that allows the user to run a number of Apache Spark functions on Python. The storage methods oh a pyspark dataframe are similar to what we discussed earlier, with different blocks of data being stored on multiple different machines, which allows for loading datasets and performing queries that may be beyond the capabilities of one device. It optimizes query speed by not actually performing the query until an action is called that makes it necessary, a process referred to as “lazy evaluation”. Another feature of pyspark is the ability to recovery the data if one of these blocks/nodes of data fails at any point."
+  },
+  {
+    "objectID": "posts/welcome/index.html#experience",
+    "href": "posts/welcome/index.html#experience",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "#\n\n#\n\nStarbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024\n\nThis is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "great_day.html",
+    "href": "great_day.html",
+    "title": "GREAT Day Projects",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWhat is GREAT Day?\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nBrendan Style\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "great_day/post-with-code/index.html",
+    "href": "great_day/post-with-code/index.html",
+    "title": "What is GREAT Day?",
+    "section": "",
+    "text": "This will be a blog with a short write-up about what GREAT day is all about"
   }
 ]

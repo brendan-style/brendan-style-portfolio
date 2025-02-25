@@ -14,5 +14,11 @@
       "/posts/pyspark/posts/post-with-code/index.html",
       "/posts/pyspark/posts/welcome/index.html"
     ]
+  },
+  {
+    "listing": "/great_day.html",
+    "items": [
+      "/great_day/post-with-code/index.html"
+    ]
   }
 ]

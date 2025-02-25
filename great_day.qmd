@@ -1,0 +1,15 @@
+---
+title: "GREAT Day Projects"
+listing:
+  contents: great_day
+  type: default
+  sort:
+    - "date desc"
+    - "title desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, author, reading-time]
+
+page-layout: full
+---
