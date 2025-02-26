@@ -184,9 +184,9 @@
   {
     "objectID": "great_day.html",
     "href": "great_day.html",
-    "title": "GREAT Day Projects",
+    "title": "Projects",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nWhat is GREAT Day?\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nBrendan Style\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "great_day/post-with-code/index.html",
@@ -194,5 +194,26 @@
     "title": "What is GREAT Day?",
     "section": "",
     "text": "This will be a blog with a short write-up about what GREAT day is all about"
+  },
+  {
+    "objectID": "projects/proj_1/index.html",
+    "href": "projects/proj_1/index.html",
+    "title": "NFL Draft Trends Analyzed and Visualized",
+    "section": "",
+    "text": "This will be a blog post recapping my findings from my project for Geneseo’s GREAT Day in 2024, as a part of my Data Visualization class"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNFL Draft Trends Analyzed and Visualized\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nBrendan Style\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/proj_1/index.html#goals",
+    "href": "projects/proj_1/index.html#goals",
+    "title": "NFL Draft Trends Analyzed and Visualized",
+    "section": "Goals",
+    "text": "Goals\nWhen beginning this project, I had 3 questions I wanted to answer: 1. What impact does"
   }
 ]

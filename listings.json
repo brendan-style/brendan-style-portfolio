@@ -17,8 +17,12 @@
   },
   {
     "listing": "/great_day.html",
+    "items": []
+  },
+  {
+    "listing": "/projects.html",
     "items": [
-      "/great_day/post-with-code/index.html"
+      "/projects/proj_1/index.html"
     ]
   }
 ]

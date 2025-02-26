@@ -1,0 +1,13 @@
+---
+title: "NFL Draft Trends Analyzed and Visualized"
+author: "Brendan Style"
+date: 2025-02-25
+image: "draft_logo.png"
+---
+
+This will be a blog post recapping my findings from my project for Geneseo's
+GREAT Day in 2024, as a part of my Data Visualization class
+
+## Goals
+When beginning this project, I had 3 questions I wanted to answer:
+1. What impact does 

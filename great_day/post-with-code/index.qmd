@@ -1,8 +1,0 @@
----
-title: "What is GREAT Day?"
-author: "Brendan Style"
-date: 2025-02-25
-image: "great_day.jpg"
----
-
-This will be a blog with a short write-up about what GREAT day is all about

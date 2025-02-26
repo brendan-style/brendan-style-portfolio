@@ -10,8 +10,8 @@ website:
     left:
       - text: Blog
         href: blog-listing.qmd
-      - text: GREAT Day Projects
-        href: great_day.qmd
+      - text: Projects
+        href: projects.qmd
       - text: Python Data Analysis
         menu:
           - text: Pandas Basics
