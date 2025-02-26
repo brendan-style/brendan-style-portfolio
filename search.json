@@ -214,6 +214,20 @@
     "href": "projects/proj_1/index.html#goals",
     "title": "NFL Draft Trends Analyzed and Visualized",
     "section": "Goals",
-    "text": "Goals\nWhen beginning this project, I had 3 questions I wanted to answer: 1. What impact does"
+    "text": "Goals\nWhen beginning this project, I had 3 questions I wanted to answer:\n\nWhat impact does drafting have on overall team success?\nWhat Impact does prior drafting success have on future drafting success?\nHow has the shift in NFL playstyle impacted overall draft strategy?"
+  },
+  {
+    "objectID": "projects/proj_1/index.html#dataset-acquisitioncleaning-and-variable-creation",
+    "href": "projects/proj_1/index.html#dataset-acquisitioncleaning-and-variable-creation",
+    "title": "NFL Draft Trends Analyzed and Visualized",
+    "section": "Dataset Acquisition/Cleaning and Variable Creation",
+    "text": "Dataset Acquisition/Cleaning and Variable Creation"
+  },
+  {
+    "objectID": "projects/proj_1/index.html#dataset-acquisitioncleaning",
+    "href": "projects/proj_1/index.html#dataset-acquisitioncleaning",
+    "title": "NFL Draft Trends Analyzed and Visualized",
+    "section": "Dataset Acquisition/Cleaning",
+    "text": "Dataset Acquisition/Cleaning\nCreation of the dataset was quite simple. Thanks to the draft library from nfl-data-py, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe."
   }
 ]

@@ -10,4 +10,11 @@ GREAT Day in 2024, as a part of my Data Visualization class
 
 ## Goals
 When beginning this project, I had 3 questions I wanted to answer:
-1. What impact does 
+
+1. What impact does drafting have on overall team success?
+2. What Impact does prior drafting success have on future drafting success?
+3. How has the shift in NFL playstyle impacted overall draft strategy?
+
+## Dataset Acquisition/Cleaning
+
+Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe.
