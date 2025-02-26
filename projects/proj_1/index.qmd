@@ -1,5 +1,5 @@
 ---
-title: "NFL Draft Trends Analyzed and Visualized"
+title: "NFL Draft Trends Analyzed and Visualized(Work In Progress)"
 author: "Brendan Style"
 date: 2025-02-25
 image: "draft_logo.png"
