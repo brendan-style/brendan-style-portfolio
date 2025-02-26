@@ -171,11 +171,49 @@ ul.task-list li input[type="checkbox"] {
 <li>How has the shift in NFL playstyle impacted overall draft strategy?</li>
 </ol>
 </section>
-<section id="dataset-acquisitioncleaning" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-acquisitioncleaning">Dataset Acquisition/Cleaning</h2>
-<p>Creation of the dataset was quite simple. Thanks to the draft library from <em>nfl-data-py</em>, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe.</p>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<section id="acquisition" class="level3">
+<h3 class="anchored" data-anchor-id="acquisition">Acquisition</h3>
+<p>Creation of the dataset was quite simple. Thanks to the draft library from <em>nfl-data-py</em>, I was able to load all NFL draft selections from 1980 onward into a dataframe, which I have provided a snapshot of below.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 5
+   season round  pick pfr_player_name     position
+    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;   
+ 1   1987     1    10 Rod Woodson         DB      
+ 2   1997     1    13 Tony Gonzalez       TE      
+ 3   1985     1    16 Jerry Rice          WR      
+ 4   1996     1    26 Ray Lewis           LB      
+ 5   1985     1     1 Bruce Smith         DE      
+ 6   1989     1     5 Deion Sanders       DB      
+ 7   2013     3    63 Travis Kelce        TE      
+ 8   1981     1     2 Lawrence Taylor     LB      
+ 9   1981     1     8 Ronnie Lott         DB      
+10   1994     1     2 Marshall Faulk      RB      
+11   1995     1    28 Derrick Brooks      LB      
+12   1983     1     9 Bruce Matthews      G       
+13   1990     1    17 Emmitt Smith        RB      
+14   2001     1     5 LaDainian Tomlinson RB      
+15   1990     7   192 Shannon Sharpe      TE      
+16   1999     1     7 Champ Bailey        DB      
+17   2003     3    69 Jason Witten        TE      
+18   1998     1     4 Charles Woodson     DB      
+19   1990     1     5 Junior Seau         LB      
+20   2010     2    42 Rob Gronkowski      TE      </code></pre>
+</div>
+</div>
+<p>All told this dataset comes in at well over 10,000 observations, and porvides much more data about the players than what is shown above. Things like career stats/accolades, college attended, etc.</p>
+</section>
+<section id="cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning">Cleaning</h3>
+<section id="cutoff-point" class="level4">
+<h4 class="anchored" data-anchor-id="cutoff-point">Cutoff Point</h4>
+<p>Since this research is attempting to overall career value as the main metric, it would be unfair to incorperate recent draft classes, since they haven’t had enough time to accrue a high enough overall career value. I picked the cutoff point as 2014, since, at the time, that meant that every player in the dataset had been drafted at least 10 seasons ago, which gave players enough time to rack up AV(approximate Value), which is Pro Football Reference’s take on WAR, or Wins Above Replacement, commonly seen in baseball. It is by no means perfect, but in a game like football where discerning a player’s lone contribution to the team is tricky to do, it is the best metric we have at our disposal. This left us with 9,647 players left to analyze.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

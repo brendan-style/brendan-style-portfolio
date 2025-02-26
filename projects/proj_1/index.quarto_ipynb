@@ -1,0 +1,54 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"NFL Draft Trends Analyzed and Visualized\"\n",
+        "author: \"Brendan Style\"\n",
+        "date: 2025-02-25\n",
+        "image: \"draft_logo.png\"\n",
+        "---\n",
+        "\n",
+        "\n",
+        "This will be a blog post recapping my findings from my project for Geneseo's\n",
+        "GREAT Day in 2024, as a part of my Data Visualization class\n",
+        "\n",
+        "## Goals\n",
+        "When beginning this project, I had 3 questions I wanted to answer:\n",
+        "\n",
+        "1. What impact does drafting have on overall team success?\n",
+        "2. What Impact does prior drafting success have on future drafting success?\n",
+        "3. How has the shift in NFL playstyle impacted overall draft strategy?\n",
+        "\n",
+        "## Dataset Acquisition/Cleaning\n",
+        "\n",
+        "Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe. boont\n"
+      ],
+      "id": "8ccdf812"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "data = pd.read_excel((\"C:\\Users\\brend\\Desktop\\DANL-320\\brendan-style.github.io\\ds_try_2_WB.xlsx\"))\n",
+        "data.head(20)"
+      ],
+      "id": "7e2b5b52",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\brend\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

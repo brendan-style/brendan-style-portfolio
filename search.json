@@ -207,7 +207,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNFL Draft Trends Analyzed and Visualized\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nBrendan Style\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNFL Draft Trends Analyzed and Visualized\n\n\n\n\n\n\n\n\nFeb 25, 2025\n\n\nBrendan Style\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/proj_1/index.html#goals",
@@ -229,5 +229,12 @@
     "title": "NFL Draft Trends Analyzed and Visualized",
     "section": "Dataset Acquisition/Cleaning",
     "text": "Dataset Acquisition/Cleaning\nCreation of the dataset was quite simple. Thanks to the draft library from nfl-data-py, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe."
+  },
+  {
+    "objectID": "projects/proj_1/index.html#dataset",
+    "href": "projects/proj_1/index.html#dataset",
+    "title": "NFL Draft Trends Analyzed and Visualized",
+    "section": "Dataset",
+    "text": "Dataset\n\nAcquisition\nCreation of the dataset was quite simple. Thanks to the draft library from nfl-data-py, I was able to load all NFL draft selections from 1980 onward into a dataframe, which I have provided a snapshot of below.\n\n\n# A tibble: 20 × 5\n   season round  pick pfr_player_name     position\n    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;   \n 1   1987     1    10 Rod Woodson         DB      \n 2   1997     1    13 Tony Gonzalez       TE      \n 3   1985     1    16 Jerry Rice          WR      \n 4   1996     1    26 Ray Lewis           LB      \n 5   1985     1     1 Bruce Smith         DE      \n 6   1989     1     5 Deion Sanders       DB      \n 7   2013     3    63 Travis Kelce        TE      \n 8   1981     1     2 Lawrence Taylor     LB      \n 9   1981     1     8 Ronnie Lott         DB      \n10   1994     1     2 Marshall Faulk      RB      \n11   1995     1    28 Derrick Brooks      LB      \n12   1983     1     9 Bruce Matthews      G       \n13   1990     1    17 Emmitt Smith        RB      \n14   2001     1     5 LaDainian Tomlinson RB      \n15   1990     7   192 Shannon Sharpe      TE      \n16   1999     1     7 Champ Bailey        DB      \n17   2003     3    69 Jason Witten        TE      \n18   1998     1     4 Charles Woodson     DB      \n19   1990     1     5 Junior Seau         LB      \n20   2010     2    42 Rob Gronkowski      TE      \n\n\nAll told this dataset comes in at well over 10,000 observations, and porvides much more data about the players than what is shown above. Things like career stats/accolades, college attended, etc.\n\n\nCleaning\n\nCutoff Point\nSince this research is attempting to overall career value as the main metric, it would be unfair to incorperate recent draft classes, since they haven’t had enough time to accrue a high enough overall career value. I picked the cutoff point as 2014, since, at the time, that meant that every player in the dataset had been drafted at least 10 seasons ago, which gave players enough time to rack up AV(approximate Value), which is Pro Football Reference’s take on WAR, or Wins Above Replacement, commonly seen in baseball. It is by no means perfect, but in a game like football where discerning a player’s lone contribution to the team is tricky to do, it is the best metric we have at our disposal. This left us with 9,647 players left to analyze."
   }
 ]

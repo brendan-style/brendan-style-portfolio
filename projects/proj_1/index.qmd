@@ -15,6 +15,21 @@ When beginning this project, I had 3 questions I wanted to answer:
 2. What Impact does prior drafting success have on future drafting success?
 3. How has the shift in NFL playstyle impacted overall draft strategy?
 
-## Dataset Acquisition/Cleaning
+## Dataset 
 
-Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe.
+### Acquisition
+
+Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a dataframe, which I have provided a snapshot of below.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(readxl)
+library(dplyr)
+data <- read_excel("C:/Users/brend/Desktop/DANL-320/brendan-style.github.io/ds_try_2_WB.xlsx")
+data <- select(data,c('season','round','pick','pfr_player_name','position'))
+head(data,20)
+```
+All told this dataset comes in at well over 10,000 observations, and porvides much more data about the players than what is shown above. Things like career stats/accolades, college attended, etc. 
+
+### Cleaning
+
+#### Cutoff Point
+Since this research is attempting to overall career value as the main metric, it would be unfair to incorperate recent draft classes, since they haven't had enough time to accrue a high enough overall career value. I picked the cutoff point as 2014, since, at the time, that meant that every player in the dataset had been drafted at least 10 seasons ago, which gave players enough time to rack up AV(approximate Value), which is Pro Football Reference's take on WAR, or Wins Above Replacement, commonly seen in baseball. It is by no means perfect, but in a game like football where discerning a player's lone contribution to the team is tricky to do, it is the best metric we have at our disposal. This left us with 9,647 players left to analyze.
