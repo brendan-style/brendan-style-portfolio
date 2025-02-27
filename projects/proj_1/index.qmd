@@ -51,6 +51,7 @@ Now that we have the position-agnostic swAV, or Standardized Weighted Approximat
 
 ![](norm_wav_totals.png)
 
+
 Because of this, if we want to create these dummy variables, we will have to do so based on our perception of average roster construction, which isn't an exact science. nonetheless, here are the groupings we came up with:
 
 - Bad: swAV <= -0.70
@@ -61,6 +62,7 @@ Because of this, if we want to create these dummy variables, we will have to do 
 - Great: swAV > 2.5
 
 These partitions created this distribution, which we believe to be a fair assesment of the average NFL roster:
+
 ![](dummy_breakdown.png)
 
 Now that we have our new variables, we can finally dive into the analysis.
