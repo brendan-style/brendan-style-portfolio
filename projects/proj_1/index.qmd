@@ -20,12 +20,10 @@ When beginning this project, I had 3 questions I wanted to answer:
 ### Acquisition
 
 Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a dataframe, which I have provided a snapshot of below.
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-library(readxl)
-library(dplyr)
-data <- read_excel("C:/Users/brend/Desktop/DANL-320/brendan-style.github.io/ds_try_2_WB.xlsx")
-data <- select(data,c('season','round','pick','pfr_player_name','position'))
-head(data,20)
+```{python}
+import pandas as pd
+data = pd.read_excel("C:\Users\brend\Desktop\DANL-320\brendan-style.github.io\ds_try_2_WB.xlsx")
+data.head(20)
 ```
 All told this dataset comes in at well over 10,000 observations, and porvides much more data about the players than what is shown above. Things like career stats/accolades, college attended, etc. 
 

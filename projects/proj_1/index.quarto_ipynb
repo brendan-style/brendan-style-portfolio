@@ -5,7 +5,7 @@
       "metadata": {},
       "source": [
         "---\n",
-        "title: \"NFL Draft Trends Analyzed and Visualized\"\n",
+        "title: \"NFL Draft Trends Analyzed and Visualized(Work In Progress)\"\n",
         "author: \"Brendan Style\"\n",
         "date: 2025-02-25\n",
         "image: \"draft_logo.png\"\n",
@@ -22,31 +22,45 @@
         "2. What Impact does prior drafting success have on future drafting success?\n",
         "3. How has the shift in NFL playstyle impacted overall draft strategy?\n",
         "\n",
-        "## Dataset Acquisition/Cleaning\n",
+        "## Dataset \n",
         "\n",
-        "Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a python pandas dataframe. boont\n"
+        "### Acquisition\n",
+        "\n",
+        "Creation of the dataset was quite simple. Thanks to the draft library from *nfl-data-py*, I was able to load all NFL draft selections from 1980 onward into a dataframe, which I have provided a snapshot of below."
       ],
-      "id": "8ccdf812"
+      "id": "a1a960d4"
     },
     {
       "cell_type": "code",
       "metadata": {},
       "source": [
         "import pandas as pd\n",
-        "data = pd.read_excel((\"C:\\Users\\brend\\Desktop\\DANL-320\\brendan-style.github.io\\ds_try_2_WB.xlsx\"))\n",
+        "data = pd.read_excel(\"C:\\Users\\brend\\Desktop\\DANL-320\\brendan-style.github.io\\ds_try_2_WB.xlsx\")\n",
         "data.head(20)"
       ],
-      "id": "7e2b5b52",
+      "id": "8c2e466d",
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "All told this dataset comes in at well over 10,000 observations, and porvides much more data about the players than what is shown above. Things like career stats/accolades, college attended, etc. \n",
+        "\n",
+        "### Cleaning\n",
+        "\n",
+        "#### Cutoff Point\n",
+        "Since this research is attempting to overall career value as the main metric, it would be unfair to incorperate recent draft classes, since they haven't had enough time to accrue a high enough overall career value. I picked the cutoff point as 2014, since, at the time, that meant that every player in the dataset had been drafted at least 10 seasons ago, which gave players enough time to rack up AV(approximate Value), which is Pro Football Reference's take on WAR, or Wins Above Replacement, commonly seen in baseball. It is by no means perfect, but in a game like football where discerning a player's lone contribution to the team is tricky to do, it is the best metric we have at our disposal. This left us with 9,647 players left to analyze."
+      ],
+      "id": "60ba8741"
     }
   ],
   "metadata": {
     "kernelspec": {
-      "name": "python3",
+      "display_name": "Python 3",
       "language": "python",
-      "display_name": "Python 3 (ipykernel)",
-      "path": "C:\\Users\\brend\\anaconda3\\share\\jupyter\\kernels\\python3"
+      "name": "python3"
     }
   },
   "nbformat": 4,
