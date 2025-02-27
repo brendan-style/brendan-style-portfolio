@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This will be a blog post recapping my findings from my project for Geneseo’s GREAT Day in 2024, as a part of my Data Visualization class</p>
+<p>This will be a blog post recapping my findings from my project for Geneseo’s GREAT Day in 2024, as a part of my Data Visualization Final Project.</p>
 <section id="goals" class="level2">
 <h2 class="anchored" data-anchor-id="goals">Goals</h2>
 <p>When beginning this project, I had 3 questions I wanted to answer:</p>
@@ -177,43 +177,216 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="acquisition">Acquisition</h3>
 <p>Creation of the dataset was quite simple. Thanks to the draft library from <em>nfl-data-py</em>, I was able to load all NFL draft selections from 1980 onward into a dataframe, which I have provided a snapshot of below.</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 5
-   season round  pick pfr_player_name     position
-    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;   
- 1   1987     1    10 Rod Woodson         DB      
- 2   1997     1    13 Tony Gonzalez       TE      
- 3   1985     1    16 Jerry Rice          WR      
- 4   1996     1    26 Ray Lewis           LB      
- 5   1985     1     1 Bruce Smith         DE      
- 6   1989     1     5 Deion Sanders       DB      
- 7   2013     3    63 Travis Kelce        TE      
- 8   1981     1     2 Lawrence Taylor     LB      
- 9   1981     1     8 Ronnie Lott         DB      
-10   1994     1     2 Marshall Faulk      RB      
-11   1995     1    28 Derrick Brooks      LB      
-12   1983     1     9 Bruce Matthews      G       
-13   1990     1    17 Emmitt Smith        RB      
-14   2001     1     5 LaDainian Tomlinson RB      
-15   1990     7   192 Shannon Sharpe      TE      
-16   1999     1     7 Champ Bailey        DB      
-17   2003     3    69 Jason Witten        TE      
-18   1998     1     4 Charles Woodson     DB      
-19   1990     1     5 Junior Seau         LB      
-20   2010     2    42 Rob Gronkowski      TE      </code></pre>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">season</th>
+<th style="text-align: right;">round</th>
+<th style="text-align: right;">pick</th>
+<th style="text-align: left;">pfr_player_name</th>
+<th style="text-align: left;">position</th>
+<th style="text-align: right;">w_av</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1987</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Rod Woodson</td>
+<td style="text-align: left;">DB</td>
+<td style="text-align: right;">142</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1997</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">Tony Gonzalez</td>
+<td style="text-align: left;">TE</td>
+<td style="text-align: right;">95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1985</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">Jerry Rice</td>
+<td style="text-align: left;">WR</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1996</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">Ray Lewis</td>
+<td style="text-align: left;">LB</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1985</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Bruce Smith</td>
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">152</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1989</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Deion Sanders</td>
+<td style="text-align: left;">DB</td>
+<td style="text-align: right;">127</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: left;">Travis Kelce</td>
+<td style="text-align: left;">TE</td>
+<td style="text-align: right;">86</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1981</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Lawrence Taylor</td>
+<td style="text-align: left;">LB</td>
+<td style="text-align: right;">146</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1981</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Ronnie Lott</td>
+<td style="text-align: left;">DB</td>
+<td style="text-align: right;">123</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1994</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Marshall Faulk</td>
+<td style="text-align: left;">RB</td>
+<td style="text-align: right;">132</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1995</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">Derrick Brooks</td>
+<td style="text-align: left;">LB</td>
+<td style="text-align: right;">142</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1983</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Bruce Matthews</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: right;">138</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1990</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">Emmitt Smith</td>
+<td style="text-align: left;">RB</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2001</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">LaDainian Tomlinson</td>
+<td style="text-align: left;">RB</td>
+<td style="text-align: right;">129</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1990</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: left;">Shannon Sharpe</td>
+<td style="text-align: left;">TE</td>
+<td style="text-align: right;">82</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1999</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Champ Bailey</td>
+<td style="text-align: left;">DB</td>
+<td style="text-align: right;">117</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2003</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">Jason Witten</td>
+<td style="text-align: left;">TE</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1998</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Charles Woodson</td>
+<td style="text-align: left;">DB</td>
+<td style="text-align: right;">115</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1990</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Junior Seau</td>
+<td style="text-align: left;">LB</td>
+<td style="text-align: right;">133</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2010</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: left;">Rob Gronkowski</td>
+<td style="text-align: left;">TE</td>
+<td style="text-align: right;">78</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>All told this dataset comes in at well over 10,000 observations, and porvides much more data about the players than what is shown above. Things like career stats/accolades, college attended, etc.</p>
 </section>
 <section id="cleaning" class="level3">
 <h3 class="anchored" data-anchor-id="cleaning">Cleaning</h3>
-<section id="cutoff-point" class="level4">
-<h4 class="anchored" data-anchor-id="cutoff-point">Cutoff Point</h4>
 <p>Since this research is attempting to overall career value as the main metric, it would be unfair to incorperate recent draft classes, since they haven’t had enough time to accrue a high enough overall career value. I picked the cutoff point as 2014, since, at the time, that meant that every player in the dataset had been drafted at least 10 seasons ago, which gave players enough time to rack up AV(approximate Value), which is Pro Football Reference’s take on WAR, or Wins Above Replacement, commonly seen in baseball. It is by no means perfect, but in a game like football where discerning a player’s lone contribution to the team is tricky to do, it is the best metric we have at our disposal. This left us with 9,647 players left to analyze.</p>
-
-
+<p>It should also be noted that, for most of this analysis, I only included players who actually played a snap if the NFL. This removed almost 3000 more players from the dataset, leaving us with just over 6,500 obervations remaining.</p>
+</section>
+<section id="standardizing-wav" class="level3">
+<h3 class="anchored" data-anchor-id="standardizing-wav">Standardizing wAV</h3>
+<p>As previously mentioned, I will be using PFR’s Weighted Approximate Value(wAV) metric to determine draft pick success. However, there are issues with this metric, and chief among them is the fact that not all positions accrue value at the same rate. For example, if a Center has a particularly good year, they will probably be worth somewhere around 16 AV. However, that number is routinely passed by 4-6 QB’s every year. Because of this, I decided to standardize every player’s wAV realitve to their position. In doing this, we achieve what can be considered to be a more fair way of evaluating players across different positions. Here’s an example of how it works:</p>
+<p><em>Player X plays at a position where the average wAV for a player’s career was 5, and the standard deviation is 2. If player X’s wAV for his career is 9, then his standardized wAV would be 2.0, since his wAV is 4 higher than the average, which is 2 standard deviaitons.</em></p>
+<p>For a real world example, Peyton Manning, who plays QB, and Zach Thomas, who plays LB, have a dispairty of over 60 wAV between their career totals(176 vs 115). Using just that stat, you would think that Manning was far and beyond the better player, but according to their position-weighted standardized values, they were of equal relative value, both being rated at 3.67 standard deviations above their positional average. This means that Manning was of similar value to QB’s as Thomas was to LB’s.</p>
+<p>Now, this still isn’t a perfect measurement of a player’s value. The main issue is that this metric tends to <em>undervalue</em> QB’s as opposed to overvaluing. This is because QB’s and other positions like TE that have a smaller pool of players to draw from, so outlier careers, such as Manning or Kelce, can significantly influence the overall mean for the position group. This explains why Rod Woodson, who was certainly one of the best DB’s to ever play, is rated as far and beyond the most valuable player in NFL history by this new metric; he was a great player who had a long career, and did so at a position that sees more players take snaps than any other, meaning the positional mean is very low. For the entire sample, there wer 341 drafted QB’s who took a snap, as opposed to 400 drafted DB’s that took a snap… <strong>in the 80’s</strong>.</p>
+</section>
+<section id="dummy-variables" class="level3">
+<h3 class="anchored" data-anchor-id="dummy-variables">Dummy Variables</h3>
+<p>Now that we have the position-agnostic swAV, or Standardized Weighted Approximate Value, we can create a set of dummy variables that can categorize a player’s career. Now, it is worth noting that, as the graph below indicates, there is a serious skew towards numbers between 0 and -1. <img src="norm_wav_totals.png" class="img-fluid"> Because of this, if we want to create these dummy variables, we will have to do so based on our perception of average roster construction, which isn’t an exact science. nonetheless, here are the groupings we came up with:</p>
+<ul>
+<li>Bad: swAV &lt;= -0.70</li>
+<li>Below Average: -0.70 &lt; swAV &lt;= -0.20</li>
+<li>Average: -0.20 &lt; swAV &lt;= 0.70</li>
+<li>Above Average: 0.70 &lt; swAV &lt;= 1.50</li>
+<li>Good: 1.5 &lt; swAV &lt;= 2.5</li>
+<li>Great: swAV &gt; 2.5</li>
+</ul>
+<p>These partitions created this distribution, which we believe to be a fair assesment of the average NFL roster: <img src="dummy_breakdown.png" class="img-fluid"></p>
+<p>Now that we have our new variables, we can finally dive into the analysis.</p>
 </section>
 </section>
+<section id="impact-of-draft-success-on-winning" class="level2">
+<h2 class="anchored" data-anchor-id="impact-of-draft-success-on-winning">Impact of Draft Success on Winning</h2>
+
+
 </section>
 
 </main> <!-- /main -->
