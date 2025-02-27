@@ -47,8 +47,10 @@ Now, this still isn't a perfect measurement of a player's value. The main issue 
 
 ### Dummy Variables
 
-Now that we have the position-agnostic swAV, or Standardized Weighted Approximate Value, we can create a set of dummy variables that can categorize a player's career. Now, it is worth noting that, as the graph below indicates, there is a serious skew towards numbers between 0 and -1.
+Now that we have the position-agnostic swAV, or Standardized Weighted Approximate Value, we can create a set of dummy variables that can categorize a player's career. It is worth noting that, as the graph below indicates, there is a serious skew towards numbers between 0 and -1.
+
 ![](norm_wav_totals.png)
+
 Because of this, if we want to create these dummy variables, we will have to do so based on our perception of average roster construction, which isn't an exact science. nonetheless, here are the groupings we came up with:
 
 - Bad: swAV <= -0.70
