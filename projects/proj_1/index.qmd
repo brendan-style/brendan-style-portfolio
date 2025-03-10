@@ -75,8 +75,43 @@ In order to measure the correlation of draft success on team success, I took a t
 
 As you can see, there certainly is a correlation there, but not quite as high as initially expected, with a moderate Pearson correlation coefficient of just 0.30. This makes some sense when considering that players are not solely acquired from the draft, NFL organizations can also acquire players through free agency or via trading, but still a lower positive relation than what was expected.
 
-After seeing these results, I thought that my initial process might have been unfairly punishing teams that accumulated more late round picks, a strategy that is overall good for team building, but greatly reduces the team's average draft pick value. In order to get around this, I decided to run a similar test to the last, but this time only use a teams top 5 picks from each draft, so that teams won't be punished for having more selections. Here were the results of that comparison:
+After seeing these results, I thought that my initial process might have been unfairly punishing teams that accumulated more late round picks, a strategy that is overall good for team building, but greatly reduces the team's average draft pick value. In order to get around this, I decided to run a similar test to the last, but this time only use a team's top 5 picks from each draft, so that a team wouldn't be punished for having more selections. Here were the results of that comparison:
 
 ![](top5_win_rate.png)
 
-Ultimately, there wasn't much of a change in correlation with this comparison, with this graph having a Pearson CC of 0.36, a marginal upgrade over the previous. 
+Ultimately, there wasn't much of a change in correlation with this comparison, with this graph having a Pearson R-squared of 0.36, a marginal upgrade over the previous. Despite the draft being the easiest and most common venue by which NFL team's aquire players, there is nothing but a moderate correlation between their drafting success and on the field success.
+
+## More Impactful: Late Round Success or Early Round Failure?
+
+While researching the success of the draft on overall success, I came across an interesting discovery: The correlation between rounds 4-12 success and winning percentage was actually higher than the correlation between rounds 1-3 drafting success and winning percentage. This was surprising for a number of reasons; Not only do high round picks often become much more impactful players than later round picks(32.9% of all players drafted 1-3 become at least Above Average, as oppose to just under 10% for players drafted 4-12), but most teams also take extra care to select the most talented player available in the early rounds, whereas later rounds often see teams "reach" for players that fill a position of need. In order to investigate this further, I decided to create a pair of new dummy variables:
+
+#### __Steal__
+
+A "steal" is defined as a player whose value exceeds that of their expectations as defined by their draft position. To quantify it, we have used our dummy variables from earlier to come up with this definition:
+
+- "Great" in round 2 or later
+- "Good" in round 3 or later
+- "Above Average" in round 4 or later
+- "Average" in round 5 or later
+
+#### __Whiff__
+
+A “whiff” is the antithesis of a steal, being a player whose value falls short of their expectations, specifically:
+
+- "Average" in round 1
+- "Below Average" in round 2
+- "Bad" in round 3
+
+With these new variables, we can compare the occurrence of these variables with the teams winning percentage to see which has a larger impact on a team's success.
+
+#### First, we have impact of Whiffs on success:
+
+![](whiffs_per_draft.png)
+
+#### Then we have Steals on success:
+
+![](steals_per_draft.png)
+
+As you can see from the whiffs graph, there is virtually no correlation between missing on early-round picks and games won. The r-squared value, which would be expected to have a negative relationship, actually shows a slight *positive* relationship of 0.07, so we can confidently say that missing on early round picks has little to no impact on success. While the steals graph may not look that much better, there is a far higher correlation of 0.41.
+
+This test firmly states that finding solid but not spectacular players in later rounds helps winning more so than drafting mediocre or bad players with valuable early round picks hurts it. These results reinforce the idea that many football analysts have come around to in recent years: The notion that trading higher value picks away for more chance to select players with less valuable picks, as more selections gives you a greater chance to find a "diamond in the rough", so to speak. In a world where many believe that predicting which college players will be good NFL players is far harder than most give it credit for, quantity of picks can be just as, if not **more** valuable than quality of picks.
