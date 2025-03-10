@@ -33,17 +33,17 @@ All told this dataset comes in at well over 10,000 observations, and provides mu
 
 Since this research is attempting to overall career value as the main metric, it would be unfair to incorperate recent draft classes, since they haven't had enough time to accrue a high enough overall career value. I picked the cutoff point as 2014, since, at the time, that meant that every player in the dataset had been drafted at least 10 seasons ago, which gave players enough time to rack up AV(approximate Value), which is Pro Football Reference's take on WAR, or Wins Above Replacement, commonly seen in baseball. It is by no means perfect, but in a game like football where discerning a player's lone contribution to the team is tricky to do, it is the best metric we have at our disposal. This left us with 9,647 players left to analyze.
 
-It should also be noted that, for most of this analysis, I only included players who actually played a snap if the NFL. This removed almost 3000 more players from the dataset, leaving us with just over 6,500 obervations remaining.
+It should also be noted that, for most of this analysis, I only included players who actually played a snap in the NFL. This removed almost 3000 more players from the dataset, leaving us with just over 6,500 obervations remaining.
 
 ### Standardizing wAV
 
-As previously mentioned, I will be using PFR's Weighted Approximate Value(wAV) metric to determine draft pick success. However, there are issues with this metric, and chief among them is the fact that not all positions accrue value at the same rate. For example, if a Center has a particularly good year, they will probably be worth somewhere around 16 AV. However, that number is routinely passed by 4-6 QB's every year. Because of this, I decided to standardize every player's wAV realitve to their position. In doing this, we achieve what can be considered to be a more fair way of evaluating players across different positions. Here's an example of how it works:
+As previously mentioned, I will be using PFR's Weighted Approximate Value (wAV) metric to determine draft pick success. However, there are issues with this metric, and chief among them is the fact that not all positions accrue value at the same rate. For example, if a Center has an All-Pro caliber year, they will probably be worth somewhere around 16 AV. However, that number is routinely passed by 4-6 QB's every year. Because of this, I decided to standardize every player's wAV realative to their position. In doing this, we achieve what can be considered to be a more fair way of evaluating players across different positions. Here's an example of how it works:
 
 *Player X plays at a position where the average wAV for a player's career was 5, and the standard deviation is 2. If player X's wAV for his career is 9, then his standardized wAV would be 2.0, since his wAV is 4 higher than the average, which is 2 standard deviaitons.*
 
-For a real world example, Peyton Manning, who plays QB, and Zach Thomas, who plays LB, have a dispairty of over 60 wAV between their career totals(176 vs 115). Using just that stat, you would think that Manning was far and beyond the better player, but according to their position-weighted standardized values, they were of equal relative value, both being rated at 3.67 standard deviations above their positional average. This means that Manning was of similar value to QB’s as Thomas was to LB’s.
+For a real world example, Peyton Manning (QB) and Zach Thomas (LB) had a dispairty of over 60 wAV between their career totals(176 vs 115). Using just that stat, you would think that Manning was far and beyond the better player, but according to their position-weighted standardized values, they were of equal relative value, both being rated at 3.67 standard deviations above their positional average. This means that Manning was of similar value to QB’s as Thomas was to LB’s.
 
-Now, this still isn't a perfect measurement of a player's value. The main issue is that this metric tends to *undervalue* QB's as opposed to overvaluing. This is because QB's and other positions like TE that have a smaller pool of players to draw from, so outlier careers, such as Manning or Kelce, can significantly influence the overall mean for the position group. This explains why Rod Woodson, who was certainly one of the best DB's to ever play, is rated as far and beyond the most valuable player in NFL history by this new metric; he was a great player who had a long career, and did so at a position that sees more players take snaps than any other, meaning the positional mean is very low. For the entire sample, there wer 341 drafted QB's who took a snap, as opposed to 400 drafted DB's that took a snap... **in the 80's**.
+Now, this still isn't a perfect measurement of a player's value. The main issue is that this metric tends to *undervalue* QB's as opposed to overvaluing. This is because QB's and other positions like TE that have a smaller pool of players to draw from, so outlier careers, such as Manning or Kelce, can significantly influence the overall mean for the position group. This explains why Rod Woodson, who was certainly one of the best DB's to ever play, is rated as far and beyond the most valuable player in NFL history by this new metric; he was a great player who had a long career, and did so at a position that sees more players take snaps than any other, meaning the positional mean is very low. For the entire sample, there were 341 drafted QB's who took a snap in the NFL, as opposed to 400 snap-taking DB's... **in the 80's alone**.
 
 ### Dummy Variables
 
@@ -52,19 +52,31 @@ Now that we have the position-agnostic swAV, or Standardized Weighted Approximat
 ![](norm_wav_totals.png)
 
 
-Because of this, if we want to create these dummy variables, we will have to do so based on our perception of average roster construction, which isn't an exact science. nonetheless, here are the groupings we came up with:
+Because of this, if we want to create these dummy variables, we will have to do so based on our perception of average roster construction, which isn't an exact science. Nonetheless, here are the groupings we came up with:
 
-- Bad: swAV <= -0.70
-- Below Average: -0.70 < swAV <= -0.20
-- Average: -0.20 < swAV <= 0.70
-- Above Average: 0.70 < swAV <= 1.50
-- Good: 1.5 < swAV <= 2.5
-- Great: swAV > 2.5
+- Bad: less than -0.70
+- Below Average: -0.70 to -0.20
+- Average: -0.20 to 0.70
+- Above Average: 0.70 to 1.50
+- Good: 1.5 to 2.5
+- Great: over 2.5
 
-These partitions created this distribution, which we believe to be a fair assesment of the average NFL roster:
+These partitions created this distribution, which we believe to be a fair assessment of the average NFL roster:
 
 ![](dummy_breakdown.png)
 
 Now that we have our new variables, we can finally dive into the analysis.
 
 ## Impact of Draft Success on Winning
+
+In order to measure the correlation of draft success on team success, I took a team's total winning percentage for a given decade(1980's up to 2010's) and compared it to that team's average value for a draft pick over that same time, and these were the results:
+
+![](draft_to_win_rate.png)
+
+As you can see, there certainly is a correlation there, but not quite as high as initially expected, with a moderate Pearson correlation coefficient of just 0.30. This makes some sense when considering that players are not solely acquired from the draft, NFL organizations can also acquire players through free agency or via trading, but still a lower positive relation than what was expected.
+
+After seeing these results, I thought that my initial process might have been unfairly punishing teams that accumulated more late round picks, a strategy that is overall good for team building, but greatly reduces the team's average draft pick value. In order to get around this, I decided to run a similar test to the last, but this time only use a teams top 5 picks from each draft, so that teams won't be punished for having more selections. Here were the results of that comparison:
+
+![](top5_win_rate.png)
+
+Ultimately, there wasn't much of a change in correlation with this comparison, with this graph having a Pearson CC of 0.36, a marginal upgrade over the previous. 
