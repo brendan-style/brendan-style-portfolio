@@ -8,11 +8,11 @@ website:
     # background: "#1c4982"
     pinned: true
     left:
-      - text: Blog
+      - text: Blog(FOR CLASS)
         href: blog-listing.qmd
       - text: Projects
         href: projects.qmd
-      - text: Python Data Analysis
+      - text: Python Data Analysis(FOR CLASS)
         menu:
           - text: Pandas Basics
             href: pandas_basics.ipynb
