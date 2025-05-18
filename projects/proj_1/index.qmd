@@ -1,5 +1,5 @@
 ---
-title: "NFL Draft Trends Analyzed and Visualized(Work In Progress)"
+title: "NFL Draft Trends Analyzed and Visualized"
 author: "Brendan Style"
 date: 2025-02-25
 image: "draft_logo.png"
@@ -115,3 +115,43 @@ With these new variables, we can compare the occurrence of these variables with 
 As you can see from the whiffs graph, there is virtually no correlation between missing on early-round picks and games won. The r-squared value, which would be expected to have a negative relationship, actually shows a slight *positive* relationship of 0.07, so we can confidently say that missing on early round picks has little to no impact on success. While the steals graph may not look that much better, there is a far higher correlation of 0.41.
 
 This test firmly states that finding solid but not spectacular players in later rounds helps winning more so than drafting mediocre or bad players with valuable early round picks hurts it. These results reinforce the idea that many football analysts have come around to in recent years: The notion that trading higher value picks away for more chance to select players with less valuable picks, as more selections gives you a greater chance to find a "diamond in the rough", so to speak. In a world where many believe that predicting which college players will be good NFL players is far harder than most give it credit for, quantity of picks can be just as, if not **more** valuable than quality of picks.
+
+## Impact of Current Draft Success on Future Draft Success
+
+Despite every team having equal resources and access to film and scouting on college players, there is a prevailing theory among fans that certain teams(such as the Eagles in recent years) have an edge over every other organization when it comes to the draft, always pick up players for less than they're worth, and always maintain success as a cause of it. While this certainly can be true in smaller sample sizes, most teams over longer periods of time will regress to the mean. Over this sample size, there are only 3 teams that don't have an average pick value between 0.1 and -0.1: The Ravens and Browns, who rank first and last respectively, and the Steelers, who rank second highest. Both the Browns and Ravens both have fewer total picks than most teams in the sample, since they were both expansion franchises, and the Steelers are largely being carried by drafting the aforementioned Rod Woodson, who breaks the swAV scale with a massive 5.75. The other 29 NFL organizations are all within 0.1 to -0.08 swAV on their average pick... on a scale from -2 to 5.75. For reference, here's what the difference looks like on a scale from -1 to 1:
+
+![](adv_per_team.png)
+
+Because of this, I was expecting to find essentially no correlation between draft success in one 5 year period and success in the next 5 year period. However, I was surprised to actually find a slight *negative* correlation of -0.11. This seems strange at first, until you remember that a good draft is at least partially expected to have a positive impact on the team's winning percentage, as we proved earlier, and that increased winning percentage leads directly to lower-value draft picks. The small absolute value of the r-squared value indicates that the draft is still random for the most part, but the slight lean towards negative can be explained by the way the draft order is determined.
+
+![](draft_over_time.png)
+
+## Changes in Draft Strategy
+
+Finally, I want to cover changes in the overall gameplan of NFL offenses and defenses, and how that has been reflected in the draft.
+
+#### **RB vs. WR**
+
+For most of the history of the NFL, the running back, the catalyst of the run game, was considered the most important part of the offenses, since only the most experimental of offenses threw the ball even 40% of the time. On the other hand, wide receivers, despite taking up more spots on the field, were seen as secondary pieces. That relationship continued that way mostly unchanged until a shift in offensive strategy took place sometime in the 80's and really got going around the mid 90's. Suddenly, wide receivers were seen as critical pieces of a team's offense, and running backs were greatly diminished in value.
+
+![](rbwr_1.png)
+
+![](rbwr_2.png)
+
+As a result, running backs, who were drafted significantly more than wide receivers from 1980-94, suddenly fell out of favor, and saw a steep 37% decline in draft frequency, whereas wide receivers were drafted 15% more often in the last 20 years compared to the previous 15
+
+#### **LB vs. DB**
+
+Essentially the WR vs. RB of defense, linebackers were seen as crucial to a team's gameplan of stopping the run, while defensive backs were needed to halt the opposing wide receivers. Once again, linebackers were seen as more valuable due to the presence of the run game being more prevalent, and once again, the shift in strategy in the mid 90's forced the NFL to change how they valued these players.
+
+Now, you will notice that, even in the first sample, defensive backs were still drafted more than linebackers, but that is because the blanket term of "defensive back" includes both corners **and** safeties, which combined take up 4-5 positions on the defense at any given time.
+
+![](lbdb_1.png)
+
+![](lbdb_2.png)
+
+As the potency of opposing passing attacks increased, the NFL was forced to go after more and more DB's in an effort to keep up, and linebackers were mostly left behind. Whereas DB's saw an impressive 17% jump in draft frequency(after already being the most drafted position), LB's saw their frequency fall by 22%.
+
+
+
+#### That is all I have to share on this topic. This was a fun way to test my skills on Data Viz applications like Power BI, and I hope you enjoyed reading.
