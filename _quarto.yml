@@ -8,16 +8,8 @@ website:
     # background: "#1c4982"
     pinned: true
     left:
-      - text: Blog(FOR CLASS)
-        href: blog-listing.qmd
-      - text: Projects
+      - text: Project Blogs
         href: projects.qmd
-      - text: Python Data Analysis(FOR CLASS)
-        menu:
-          - text: Pandas Basics
-            href: pandas_basics.ipynb
-          - text: Seaborn Basics
-            href: seaborn_basics.ipynb
             
   page-footer: 
     center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025"
