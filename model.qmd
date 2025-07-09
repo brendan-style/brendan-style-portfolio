@@ -15,13 +15,13 @@ Some things to note: <br>
 - Players season long stats will be updated every Thursday
 - Hitters facing pitchers with insufficient data will be left off the list
 
-Here is the list for today, enjoy!
-git 
+Here is the top 50 for ratings today, enjoy!
+
 
 ```{r,echo =FALSE,message= FALSE, warning=FALSE}
 library(dplyr)
 library(readxl)
-data <- read.csv("C:/Users/brend/Desktop/projects/homerun/daily_lineups.csv")
+data <- read.csv("C:/Users/brend/Desktop/Danl-320/brendan-style.github.io/daily_lineups.csv")
 data <- select(data, 'player','pitcher','away_team','home_team','rating',
                'FanDuel','DraftKings')
 data <- data %>% arrange(desc(rating))
