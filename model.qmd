@@ -16,7 +16,7 @@ Some things to note: <br>
 - Hitters facing pitchers with insufficient data will be left off the list
 
 Here is the list for today, enjoy!
-
+git 
 
 ```{r,echo =FALSE,message= FALSE, warning=FALSE}
 library(dplyr)
