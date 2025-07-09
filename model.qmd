@@ -1,0 +1,29 @@
+---
+title: "Home Run Betting Model"
+date: 2025-07-09
+Author: Brendan Style
+---
+
+This will be a publishing of my Home Run predictor model that I created for my
+Data Analytics Capstone during my senior year of college. The model will, if given
+information about a hitter's matchup, produce a rating. Eventually, these ratings
+will be associated with a predicted percentage chance, and thus have predicted odds,
+but currently these odds will not be present, as I do not yet have enough data to predict
+those. In it's place we will have the odds assigned by FanDuel and DraftKings. 
+Some things to note: <br>
+
+- Players season long stats will be updated every Thursday
+- Hitters facing pitchers with insufficient data will be left off the list
+
+Here is the list for today, enjoy!
+
+
+```{r,echo =FALSE,message= FALSE, warning=FALSE}
+library(dplyr)
+library(readxl)
+data <- read.csv("C:/Users/brend/Desktop/projects/homerun/daily_lineups.csv")
+data <- select(data, 'player','pitcher','away_team','home_team','rating',
+               'FanDuel','DraftKings')
+data <- data %>% arrange(desc(rating))
+knitr::kable(head(data, 50), row.names = FALSE)
+```
