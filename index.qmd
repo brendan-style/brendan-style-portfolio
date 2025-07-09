@@ -18,24 +18,21 @@ about:
       href: https://github.com/brendan-style
     - icon: file-earmark-pdf
       text: Resumé
-      href: 25_style_resume.pdf
+      href: BrendanStyle_resume.pdf
       target: _blank
     - icon: mailbox
       text: Email
-      href: mailto:bjs100@geneseo.edu
+      href: mailto:brendanstyle1@gmail.com
 
 ---
 
 
-Brendan Style majors in Data Analytics at SUNY Geneseo. While at school, Brendan also spends his time competing as a member of the Geneseo Track and Field Team.
+Brendan Style is a recent graduate from SUNY Geneseo, with a degree in Data Analytics. While at school, Brendan also spent his time competing as a member of the Geneseo Track and Field Team.
 
 ## Education
 
 State University of New York at Geneseo | Geneseo, NY <br>
 B.S. in Data Analytics | Aug 2021 - May 2025 <br>
 
-## Experience
-
-SUNY Geneseo | Data Analytics Tutor | August 2024 - Current
 
 
