@@ -10,6 +10,8 @@ website:
     left:
       - text: Project Blogs
         href: projects.qmd
+      -text: Home Run model
+        href: model.qmd
             
   page-footer: 
     center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025"
