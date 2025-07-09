@@ -10,7 +10,7 @@ website:
     left:
       - text: Project Blogs
         href: projects.qmd
-      -text: Home Run model
+      - text: Home Run Model
         href: model.qmd
             
   page-footer: 
