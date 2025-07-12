@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-07-09">
+<meta name="dcterms.date" content="2025-07-12">
 
 <title>Home Run Betting Model – Brendan Style</title>
 <style>
@@ -127,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 9, 2025</p>
+      <p class="date">July 12, 2025</p>
     </div>
   </div>
   
@@ -139,29 +139,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This will be a publishing of my Home Run predictor model that I created for my Data Analytics Capstone during my senior year of college. The model will, if given information about a hitter’s matchup, produce a rating. Eventually, these ratings will be associated with a predicted percentage chance, and thus have predicted odds, but currently these odds will not be present, as I do not yet have enough data to predict those. In it’s place we will have the odds assigned by FanDuel and DraftKings. Some things to note: <br></p>
+<p>This will be a publishing of my Home Run predictor model that I created for my Data Analytics Capstone during my senior year of college. The model will, if given information about a hitter’s matchup, produce a rating. These ratings have been reversed engineered to create predicted odds for hitting a home run. Using these, I will be publishing players every day that carry with them a combination of both good home run capability, as well as good percieved value.</p>
+<section id="columns" class="level3">
+<h3 class="anchored" data-anchor-id="columns">Columns</h3>
+<ul>
+<li>Pred_odds: Based on the model and data, their expected betting odds for hitting a home run</li>
+<li>Diff: The difference between my predicted odds and the listed sportsbook odds, higher = more percieved value</li>
+<li>Sportsbook: The sportsbook that features the highest (least likely) odds for the listed player</li>
+</ul>
+</section>
+<section id="some-things-to-note" class="level3">
+<h3 class="anchored" data-anchor-id="some-things-to-note">Some things to note</h3>
 <ul>
 <li>Players season long stats will be updated every Thursday</li>
 <li>Hitters facing pitchers with insufficient data will be left off the list</li>
+<li>Lineups/rosters are usually pulled early in the day, so some players published may not be in the starting lineups come game time</li>
 </ul>
-<section id="coming-soon" class="level2">
-<h2 class="anchored" data-anchor-id="coming-soon">Coming Soon</h2>
+</section>
+<section id="coming-soon" class="level3">
+<h3 class="anchored" data-anchor-id="coming-soon">Coming Soon</h3>
 <ul>
 <li>Weather Factors</li>
 <li>Stadium factors based on Pulled-FB rate</li>
 </ul>
-<p>Here is the top 50 for ratings today, enjoy!</p>
+<p>Here are the picks for today, we will be tracking the profit of these picks as the remainder of the season goes along. Enjoy!</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 24%">
 <col style="width: 19%">
+<col style="width: 21%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -169,461 +181,65 @@ ul.task-list li input[type="checkbox"] {
 <th style="text-align: left;">pitcher</th>
 <th style="text-align: left;">away_team</th>
 <th style="text-align: left;">home_team</th>
-<th style="text-align: right;">rating</th>
-<th style="text-align: right;">FanDuel</th>
-<th style="text-align: right;">DraftKings</th>
+<th style="text-align: right;">pred_odds</th>
+<th style="text-align: right;">diff</th>
+<th style="text-align: left;">book</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Aaron Judge</td>
-<td style="text-align: left;">Chris Flexen</td>
-<td style="text-align: left;">CHC</td>
-<td style="text-align: left;">NYY</td>
-<td style="text-align: right;">9.21</td>
-<td style="text-align: right;">118</td>
-<td style="text-align: right;">155</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Oneil Cruz</td>
-<td style="text-align: left;">Joe Ryan</td>
-<td style="text-align: left;">PIT</td>
-<td style="text-align: left;">MIN</td>
-<td style="text-align: right;">8.94</td>
-<td style="text-align: right;">340</td>
-<td style="text-align: right;">320</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Corey Seager</td>
-<td style="text-align: left;">Lance McCullers</td>
-<td style="text-align: left;">TEX</td>
-<td style="text-align: left;">HOU</td>
-<td style="text-align: right;">8.87</td>
-<td style="text-align: right;">330</td>
-<td style="text-align: right;">390</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Elly De La Cruz</td>
-<td style="text-align: left;">German Marquez</td>
-<td style="text-align: left;">COL</td>
-<td style="text-align: left;">CIN</td>
-<td style="text-align: right;">8.74</td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;">265</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ketel Marte</td>
-<td style="text-align: left;">Tyler Anderson</td>
-<td style="text-align: left;">ARI</td>
-<td style="text-align: left;">LAA</td>
-<td style="text-align: right;">8.58</td>
-<td style="text-align: right;">240</td>
-<td style="text-align: right;">215</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Nick Kurtz</td>
-<td style="text-align: left;">Max Scherzer</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">8.23</td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;">255</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">James Wood</td>
-<td style="text-align: left;">Quinn Priester</td>
-<td style="text-align: left;">WSH</td>
-<td style="text-align: left;">MIL</td>
-<td style="text-align: right;">8.18</td>
-<td style="text-align: right;">450</td>
-<td style="text-align: right;">450</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Will Benson</td>
-<td style="text-align: left;">German Marquez</td>
-<td style="text-align: left;">COL</td>
-<td style="text-align: left;">CIN</td>
-<td style="text-align: right;">8.11</td>
-<td style="text-align: right;">310</td>
-<td style="text-align: right;">290</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Eugenio Suarez</td>
-<td style="text-align: left;">Tyler Anderson</td>
-<td style="text-align: left;">ARI</td>
-<td style="text-align: left;">LAA</td>
-<td style="text-align: right;">8.08</td>
-<td style="text-align: right;">285</td>
-<td style="text-align: right;">255</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Corbin Carroll</td>
-<td style="text-align: left;">Tyler Anderson</td>
-<td style="text-align: left;">ARI</td>
-<td style="text-align: left;">LAA</td>
-<td style="text-align: right;">8.06</td>
-<td style="text-align: right;">300</td>
-<td style="text-align: right;">265</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Shohei Ohtani</td>
-<td style="text-align: left;">Logan Webb</td>
-<td style="text-align: left;">LAD</td>
-<td style="text-align: left;">SF</td>
-<td style="text-align: right;">7.60</td>
-<td style="text-align: right;">390</td>
-<td style="text-align: right;">330</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Jesus Sanchez</td>
-<td style="text-align: left;">Dean Kremer</td>
-<td style="text-align: left;">MIA</td>
-<td style="text-align: left;">BAL</td>
-<td style="text-align: right;">7.58</td>
-<td style="text-align: right;">400</td>
-<td style="text-align: right;">370</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Randal Grichuk</td>
-<td style="text-align: left;">Tyler Anderson</td>
-<td style="text-align: left;">ARI</td>
-<td style="text-align: left;">LAA</td>
-<td style="text-align: right;">7.57</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">265</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Juan Soto</td>
-<td style="text-align: left;">Michael Wacha</td>
-<td style="text-align: left;">NYM</td>
-<td style="text-align: left;">KC</td>
-<td style="text-align: right;">7.44</td>
-<td style="text-align: right;">340</td>
-<td style="text-align: right;">310</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Kyle Stowers</td>
-<td style="text-align: left;">Dean Kremer</td>
-<td style="text-align: left;">MIA</td>
-<td style="text-align: left;">BAL</td>
-<td style="text-align: right;">7.43</td>
-<td style="text-align: right;">340</td>
-<td style="text-align: right;">350</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Seiya Suzuki</td>
-<td style="text-align: left;">Carlos Rodon</td>
-<td style="text-align: left;">CHC</td>
-<td style="text-align: left;">NYY</td>
-<td style="text-align: right;">7.29</td>
-<td style="text-align: right;">420</td>
-<td style="text-align: right;">400</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Brent Rooker</td>
-<td style="text-align: left;">Max Scherzer</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">7.15</td>
-<td style="text-align: right;">300</td>
-<td style="text-align: right;">300</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hunter Goodman</td>
-<td style="text-align: left;">Chase Burns</td>
-<td style="text-align: left;">COL</td>
-<td style="text-align: left;">CIN</td>
-<td style="text-align: right;">7.10</td>
-<td style="text-align: right;">280</td>
-<td style="text-align: right;">280</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ryan McMahon</td>
-<td style="text-align: left;">Chase Burns</td>
-<td style="text-align: left;">COL</td>
-<td style="text-align: left;">CIN</td>
-<td style="text-align: right;">7.07</td>
-<td style="text-align: right;">450</td>
-<td style="text-align: right;">450</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Jackson Holliday</td>
-<td style="text-align: left;">Edward Cabrera</td>
-<td style="text-align: left;">MIA</td>
-<td style="text-align: left;">BAL</td>
-<td style="text-align: right;">7.04</td>
-<td style="text-align: right;">500</td>
-<td style="text-align: right;">475</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Michael Toglia</td>
-<td style="text-align: left;">Chase Burns</td>
-<td style="text-align: left;">COL</td>
-<td style="text-align: left;">CIN</td>
-<td style="text-align: right;">7.01</td>
-<td style="text-align: right;">440</td>
-<td style="text-align: right;">360</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mickey Moniak</td>
-<td style="text-align: left;">Chase Burns</td>
-<td style="text-align: left;">COL</td>
-<td style="text-align: left;">CIN</td>
-<td style="text-align: right;">6.84</td>
-<td style="text-align: right;">350</td>
-<td style="text-align: right;">400</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Manny Machado</td>
-<td style="text-align: left;">Ranger Suarez</td>
-<td style="text-align: left;">PHI</td>
-<td style="text-align: left;">SD</td>
-<td style="text-align: right;">6.80</td>
-<td style="text-align: right;">370</td>
-<td style="text-align: right;">340</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Gunnar Henderson</td>
-<td style="text-align: left;">Edward Cabrera</td>
-<td style="text-align: left;">MIA</td>
-<td style="text-align: left;">BAL</td>
-<td style="text-align: right;">6.79</td>
-<td style="text-align: right;">420</td>
-<td style="text-align: right;">360</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Daniel Schneemann</td>
-<td style="text-align: left;">Shane Smith</td>
-<td style="text-align: left;">CLE</td>
-<td style="text-align: left;">CWS</td>
-<td style="text-align: right;">6.78</td>
-<td style="text-align: right;">520</td>
-<td style="text-align: right;">450</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mike Trout</td>
-<td style="text-align: left;">Ryne Nelson</td>
-<td style="text-align: left;">ARI</td>
-<td style="text-align: left;">LAA</td>
-<td style="text-align: right;">6.78</td>
-<td style="text-align: right;">220</td>
-<td style="text-align: right;">225</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Jazz Chisholm</td>
-<td style="text-align: left;">Chris Flexen</td>
-<td style="text-align: left;">CHC</td>
-<td style="text-align: left;">NYY</td>
-<td style="text-align: right;">6.76</td>
-<td style="text-align: right;">340</td>
-<td style="text-align: right;">320</td>
+<td style="text-align: left;">Ha-Seong Kim</td>
+<td style="text-align: left;">Garrett Crochet</td>
+<td style="text-align: left;">TB</td>
+<td style="text-align: left;">BOS</td>
+<td style="text-align: right;">443</td>
+<td style="text-align: right;">557</td>
+<td style="text-align: left;">FanDuel</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Adolis Garcia</td>
-<td style="text-align: left;">Lance McCullers</td>
+<td style="text-align: left;">Framber Valdez</td>
 <td style="text-align: left;">TEX</td>
 <td style="text-align: left;">HOU</td>
-<td style="text-align: right;">6.71</td>
-<td style="text-align: right;">440</td>
-<td style="text-align: right;">425</td>
+<td style="text-align: right;">456</td>
+<td style="text-align: right;">294</td>
+<td style="text-align: left;">FanDuel</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Dansby Swanson</td>
-<td style="text-align: left;">Carlos Rodon</td>
+<td style="text-align: left;">Max Fried</td>
 <td style="text-align: left;">CHC</td>
 <td style="text-align: left;">NYY</td>
-<td style="text-align: right;">6.56</td>
-<td style="text-align: right;">440</td>
-<td style="text-align: right;">500</td>
+<td style="text-align: right;">449</td>
+<td style="text-align: right;">251</td>
+<td style="text-align: left;">DraftKings</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Joey Loperfido</td>
-<td style="text-align: left;">Luis Severino</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">6.55</td>
-<td style="text-align: right;">630</td>
-<td style="text-align: right;">600</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Cal Raleigh</td>
-<td style="text-align: left;">Tarik Skubal</td>
-<td style="text-align: left;">SEA</td>
-<td style="text-align: left;">DET</td>
-<td style="text-align: right;">6.53</td>
-<td style="text-align: right;">390</td>
-<td style="text-align: right;">450</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Colton Cowser</td>
-<td style="text-align: left;">Edward Cabrera</td>
-<td style="text-align: left;">MIA</td>
-<td style="text-align: left;">BAL</td>
-<td style="text-align: right;">6.52</td>
-<td style="text-align: right;">450</td>
-<td style="text-align: right;">400</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pete Alonso</td>
-<td style="text-align: left;">Michael Wacha</td>
-<td style="text-align: left;">NYM</td>
-<td style="text-align: left;">KC</td>
-<td style="text-align: right;">6.52</td>
-<td style="text-align: right;">310</td>
-<td style="text-align: right;">260</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Kyle Tucker</td>
-<td style="text-align: left;">Carlos Rodon</td>
-<td style="text-align: left;">CHC</td>
-<td style="text-align: left;">NYY</td>
-<td style="text-align: right;">6.44</td>
-<td style="text-align: right;">340</td>
-<td style="text-align: right;">300</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Lawrence Butler</td>
-<td style="text-align: left;">Max Scherzer</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">6.44</td>
-<td style="text-align: right;">340</td>
-<td style="text-align: right;">300</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Christian Walker</td>
-<td style="text-align: left;">Jack Leiter</td>
-<td style="text-align: left;">TEX</td>
-<td style="text-align: left;">HOU</td>
-<td style="text-align: right;">6.43</td>
-<td style="text-align: right;">450</td>
-<td style="text-align: right;">320</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Zach Neto</td>
-<td style="text-align: left;">Ryne Nelson</td>
+<td style="text-align: left;">James McCann</td>
+<td style="text-align: left;">Yusei Kikuchi</td>
 <td style="text-align: left;">ARI</td>
 <td style="text-align: left;">LAA</td>
-<td style="text-align: right;">6.43</td>
-<td style="text-align: right;">360</td>
-<td style="text-align: right;">350</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Taylor Ward</td>
-<td style="text-align: left;">Ryne Nelson</td>
-<td style="text-align: left;">ARI</td>
-<td style="text-align: left;">LAA</td>
-<td style="text-align: right;">6.43</td>
-<td style="text-align: right;">400</td>
-<td style="text-align: right;">370</td>
+<td style="text-align: right;">441</td>
+<td style="text-align: right;">239</td>
+<td style="text-align: left;">FanDuel</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Jake Burger</td>
-<td style="text-align: left;">Lance McCullers</td>
-<td style="text-align: left;">TEX</td>
-<td style="text-align: left;">HOU</td>
-<td style="text-align: right;">6.38</td>
-<td style="text-align: right;">480</td>
-<td style="text-align: right;">400</td>
+<td style="text-align: left;">Luis Garcia</td>
+<td style="text-align: left;">Brandon Woodruff</td>
+<td style="text-align: left;">WSH</td>
+<td style="text-align: left;">MIL</td>
+<td style="text-align: right;">352</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: left;">FanDuel</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">George Springer</td>
-<td style="text-align: left;">Luis Severino</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">6.36</td>
-<td style="text-align: right;">360</td>
-<td style="text-align: right;">330</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Riley Greene</td>
-<td style="text-align: left;">Luis Castillo</td>
-<td style="text-align: left;">SEA</td>
-<td style="text-align: left;">DET</td>
-<td style="text-align: right;">6.35</td>
-<td style="text-align: right;">350</td>
-<td style="text-align: right;">370</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Vladimir Guerrero</td>
-<td style="text-align: left;">Luis Severino</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">6.35</td>
-<td style="text-align: right;">350</td>
-<td style="text-align: right;">300</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pete Crow-Armstrong</td>
-<td style="text-align: left;">Carlos Rodon</td>
-<td style="text-align: left;">CHC</td>
-<td style="text-align: left;">NYY</td>
-<td style="text-align: right;">6.34</td>
-<td style="text-align: right;">420</td>
-<td style="text-align: right;">370</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Tyler Soderstrom</td>
-<td style="text-align: left;">Max Scherzer</td>
-<td style="text-align: left;">TOR</td>
-<td style="text-align: left;">ATH</td>
-<td style="text-align: right;">6.31</td>
-<td style="text-align: right;">400</td>
-<td style="text-align: right;">310</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Matt Wallner</td>
-<td style="text-align: left;">Paul Skenes</td>
-<td style="text-align: left;">PIT</td>
-<td style="text-align: left;">MIN</td>
-<td style="text-align: right;">6.28</td>
-<td style="text-align: right;">500</td>
-<td style="text-align: right;">450</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wyatt Langford</td>
-<td style="text-align: left;">Lance McCullers</td>
-<td style="text-align: left;">TEX</td>
-<td style="text-align: left;">HOU</td>
-<td style="text-align: right;">6.26</td>
-<td style="text-align: right;">500</td>
-<td style="text-align: right;">500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Evan Carter</td>
-<td style="text-align: left;">Lance McCullers</td>
-<td style="text-align: left;">TEX</td>
-<td style="text-align: left;">HOU</td>
-<td style="text-align: right;">6.25</td>
-<td style="text-align: right;">750</td>
-<td style="text-align: right;">900</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Luis Robert</td>
-<td style="text-align: left;">Logan Allen</td>
-<td style="text-align: left;">CLE</td>
-<td style="text-align: left;">CWS</td>
-<td style="text-align: right;">6.22</td>
-<td style="text-align: right;">420</td>
-<td style="text-align: right;">450</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Colt Keith</td>
-<td style="text-align: left;">Luis Castillo</td>
-<td style="text-align: left;">SEA</td>
-<td style="text-align: left;">DET</td>
-<td style="text-align: right;">6.22</td>
-<td style="text-align: right;">540</td>
-<td style="text-align: right;">400</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wilyer Abreu</td>
-<td style="text-align: left;">Joe Boyle</td>
+<td style="text-align: left;">Yandy Diaz</td>
+<td style="text-align: left;">Garrett Crochet</td>
 <td style="text-align: left;">TB</td>
 <td style="text-align: left;">BOS</td>
-<td style="text-align: right;">6.17</td>
-<td style="text-align: right;">450</td>
-<td style="text-align: right;">450</td>
+<td style="text-align: right;">395</td>
+<td style="text-align: right;">205</td>
+<td style="text-align: left;">DraftKings</td>
 </tr>
 </tbody>
 </table>

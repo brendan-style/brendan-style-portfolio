@@ -7,16 +7,23 @@ Author: Brendan Style
 This will be a publishing of my Home Run predictor model that I created for my
 Data Analytics Capstone during my senior year of college. The model will, if given
 information about a hitter's matchup, produce a rating. These ratings
-carry with them a predicted percentage chance, and thus have predicted odds.
-The "diff" category shows the difference in odds between my calculations and the
-associated sportsbook. The higher the better, and I will be publishing the players
-that have both the best odds to hit a home run, as well as the most percieved 
-value by my model <br>
+have been reversed engineered to create predicted odds for hitting a home run. Using
+these, I will be publishing players every day that carry with them a combination
+of both good home run capability, as well as good percieved value.
 
-Some things to note: <br>
+### Columns
+
+- Pred_odds: Based on the model and data, their expected betting odds for hitting a home run
+- Diff: The difference between my predicted odds and the listed sportsbook odds, higher = more percieved value
+- Sportsbook: The sportsbook that features the highest (least likely) odds for the listed player
+
+
+### Some things to note
 
 - Players season long stats will be updated every Thursday
 - Hitters facing pitchers with insufficient data will be left off the list
+- Lineups/rosters are usually pulled early in the day, so some players published may
+not be in the starting lineups come game time
 
 ### Coming Soon
 - Weather Factors
@@ -32,7 +39,7 @@ library(readxl)
 data <- read.csv("C:/Users/brend/Desktop/DANL-320/brendan-style.github.io/daily_lineups.csv")
 data <- data[data$pick > 0, ]
 data$book <- ifelse(data$FanDuel > data$DraftKings, "FanDuel", "DraftKings")
-data <- select(data, 'player','pitcher','away_team','home_team','pred_odds',
-               'pred_odds','diff','book')
+data <- select(data, 'player','pitcher','away_team','home_team','pred_odds','diff','book')
 data <- data %>% arrange(desc(diff))
+knitr::kable(head(data, 50), row.names = FALSE)
 ```
