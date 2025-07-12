@@ -1,6 +1,6 @@
 ---
 title: "Home Run Betting Model"
-date: 2025-07-11
+date: 2025-07-12
 Author: Brendan Style
 ---
 
@@ -22,7 +22,8 @@ Some things to note: <br>
 - Weather Factors
 - Stadium factors based on Pulled-FB rate
 
-Here is the top 50 for ratings today, enjoy!
+Here are the picks for today, we will be tracking the profit of these picks as
+the remainder of the season goes along. Enjoy!
 
 
 ```{r,echo =FALSE,message= FALSE, warning=FALSE}
