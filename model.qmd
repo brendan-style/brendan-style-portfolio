@@ -13,7 +13,7 @@ of both good home run capability, as well as good percieved value.
 
 ### Columns
 
-- Pred_odds: Based on the model and data, their expected betting odds for hitting a home run
+- Pred_odds: Based on the model and data, their predicted betting odds for hitting a home run
 - Diff: The difference between my predicted odds and the listed sportsbook odds, higher = more percieved value
 - Sportsbook: The sportsbook that features the highest (least likely) odds for the listed player
 
