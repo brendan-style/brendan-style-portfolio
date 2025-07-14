@@ -34,7 +34,7 @@ the remainder of the season goes along. Enjoy!
 
 
 Today is the Home Run Derby, and while my model certainly isn't equipped to handle that kind of
-Environment, it expects it to be very close! The difference between the winner and
+environment, it expects it to be very close! The difference between the winner and
 last place is just over 4 percentage points. While I can't post odds, My model
 had Jazz Chisholm around +650 to win, whereas other sportsbooks are listing him
 around +1000 and higher. My advice is to bet on Jazz!
