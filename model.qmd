@@ -9,13 +9,13 @@ Data Analytics Capstone during my senior year of college. The model will, if giv
 information about a hitter's matchup, produce a rating. These ratings
 have been reversed engineered to create predicted odds for hitting a home run. Using
 these, I will be publishing players every day that carry with them a combination
-of both good home run capability, as well as good percieved value.
+of both good home run capability, as well as good perceived value.
 
 ### Columns
 
 - Pred_odds: Based on the model and data, their predicted betting odds for hitting a home run
 - Diff: The difference between my predicted odds and the listed sportsbook odds, higher = more percieved value
-- Sportsbook: The sportsbook that features the highest (least likely) odds for the listed player
+- Sportsbook: The sportsbook that features the higher (less likely) odds for the listed player
 
 
 ### Some things to note
@@ -32,8 +32,13 @@ not be in the starting lineups come game time
 Here are the picks for today, we will be tracking the profit of these picks as
 the remainder of the season goes along. Enjoy!
 
-Today is the Home Run Derby, and while my model certainly isn't equipped to handle that kind of
-Environment, it expects it to be very close! The difference between the winner and
-last place is just over 4 percentage points. While I can't post odds, My model
-had Jazz Chisholm around +650 to win, whereas other sportsbooks are listing him
-around +1000 and higher. My advice is to bet on Jazz!
+```{r, echo =FALSE,message= FALSE, warning=FALSE}
+library(dplyr)
+library(readxl)
+data <- read.csv("C:/Users/brend/Desktop/DANL-320/brendan-style.github.io/daily_lineups.csv")
+data <- data[data$pick > 0, ]
+data$book <- ifelse(data$FanDuel > data$DraftKings, "FanDuel", "DraftKings")
+data <- select(data, 'player','pitcher','away_team','home_team','pred_odds','diff','book')
+data <- data %>% arrange(desc(diff))
+knitr::kable(head(data, 50), row.names = FALSE)
+```
