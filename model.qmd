@@ -1,6 +1,6 @@
 ---
 title: "Home Run Betting Model"
-date: 2025-07-13
+date: 2025-07-18
 Author: Brendan Style
 ---
 
