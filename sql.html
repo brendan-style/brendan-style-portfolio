@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Brendan Style">
-<meta name="dcterms.date" content="2025-02-17">
+<meta name="dcterms.date" content="2026-02-12">
 
-<title>PySpark Basics – Brendan Style</title>
+<title>Creating an SQL Database through Python – Brendan Style</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2fa0555fe88427c29efa1b60aaf9e62d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-6d7e7b9b3dbd114c66b233ded7072392.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-72aaf87dae9e70b0aa03719c05e7256e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-28f772f46e247e7dab87bb265ec5ec48.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2fa0555fe88427c29efa1b60aaf9e62d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6d7e7b9b3dbd114c66b233ded7072392.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-72aaf87dae9e70b0aa03719c05e7256e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-28f772f46e247e7dab87bb265ec5ec48.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,17 +70,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Brendan Style</span>
     </a>
   </div>
@@ -92,15 +91,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"> 
+    <a class="nav-link" href="./projects.html"> 
 <span class="menu-text">Project Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../mlm.html"> 
+    <a class="nav-link" href="./mlm.html"> 
 <span class="menu-text">Python ML Model</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../sql.html"> 
+    <a class="nav-link active" href="./sql.html" aria-current="page"> 
 <span class="menu-text">SQL Database + Data Viz</span></a>
   </li>  
 </ul>
@@ -112,65 +111,41 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">PySpark Basics</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">spark</div>
-                <div class="quarto-category">python</div>
-                <div class="quarto-category">learning</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Brendan Style </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">February 17, 2025</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Creating an SQL Database through Python</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 12, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
-<p>This is a blog post explaining some of the basics of Apache Hadoop, Apache Spark, and PySpark that we have learned so far in class.</p>
-<section id="apache-hadoop" class="level3">
-<h3 class="anchored" data-anchor-id="apache-hadoop">Apache Hadoop</h3>
-<p>Apache Hadoop was created explicitly to help analysts deal with storing large datasets(usually exceeding 1gb). The primary way it does this is by breaking up the data into blocks and storing those blocks across different servers. This allows for both faster run times, by minimizing data movement through MapReduce, as well as minimizing errors, since, even if one of the blocks fails, the rest can still be altered successfully. The main drawback of Hadoop is that it cannot process events happening in real time, such the fluctuation of stock prices.</p>
-</section>
-<section id="apache-spark" class="level3">
-<h3 class="anchored" data-anchor-id="apache-spark">Apache Spark</h3>
-<p>Apache Spark deals more with the data analysis side of the datasets. It accomplishes these queries of large datasets by utilizing a structure of clusters that able to potentially take big applications and divide them into smaller tasks that take overall less computing power. Though this is a very powerful tool for creating queries, a shortcoming of Spark is a lack of a personal storage system, which is why many will use it in tandem with the storage capabilities of Hadoop, since Spark’s cluster-based method of applying queries was designed for Hadoop’s block storage.</p>
-</section>
-<section id="pyspark" class="level3">
-<h3 class="anchored" data-anchor-id="pyspark">PySpark</h3>
-<p>PySpark is a Python library that allows the user to run a number of Apache Spark functions on Python. The storage methods oh a pyspark dataframe are similar to what we discussed earlier, with different blocks of data being stored on multiple different machines, which allows for loading datasets and performing queries that may be beyond the capabilities of one device. It optimizes query speed by not actually performing the query until an action is called that makes it necessary, a process referred to as “lazy evaluation”. Another feature of pyspark is the ability to recovery the data if one of these blocks/nodes of data fails at any point.</p>
+</header>
 
 
-</section>
+<p>As a part of my database management class while in school, I was tasked with creating and maintaining an SQL database of my choice. Being a big sports fan, I decided to make a database consisting of information about all NFL players from that most recent season.</p>
+
+
 
 </main> <!-- /main -->
 <script type="text/javascript" src="links.js"></script>

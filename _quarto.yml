@@ -12,6 +12,8 @@ website:
         href: projects.qmd
       - text: Python ML Model
         href: mlm.qmd
+      - text: SQL Database + Data Viz
+        href: sql.qmd
             
   page-footer: 
     center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025"

@@ -1,0 +1,9 @@
+---
+title: "Creating an SQL Database through Python"
+date: '02-12-2026'
+---
+
+As a part of my database management class while in school, I was tasked with
+creating and maintaining an SQL database of my choice. Being a big sports fan,
+I decided to make a database consisting of information about all NFL players 
+from that most recent season.
