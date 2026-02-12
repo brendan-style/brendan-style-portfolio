@@ -10,9 +10,6 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/brendan-style-2139ab260/
-    - icon: instagram
-      text: Instagram
-      href: https://instagram.com
     - icon: github
       text: GitHub
       href: https://github.com/brendan-style
