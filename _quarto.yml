@@ -8,10 +8,12 @@ website:
     # background: "#1c4982"
     pinned: true
     left:
-      - text: Project Blogs
-        href: projects.qmd
       - text: Python ML Model
-        href: mlm.qmd
+        menu:
+          - text: Readme Overview 
+            href: mlm.qmd
+          - text: Data Visualization
+            href: https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views
       - text: SQL Database + Data Viz
         href: sql.qmd
             

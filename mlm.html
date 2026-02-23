@@ -89,14 +89,21 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">Project Blogs</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-ml-model" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python ML Model</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python-ml-model">    
+        <li>
+    <a class="dropdown-item" href="./mlm.html">
+ <span class="dropdown-text">Readme Overview</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./mlm.html" aria-current="page"> 
-<span class="menu-text">Python ML Model</span></a>
+        <li>
+    <a class="dropdown-item" href="https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views">
+ <span class="dropdown-text">Data Visualization</span></a>
   </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./sql.html"> 
 <span class="menu-text">SQL Database + Data Viz</span></a>
@@ -136,9 +143,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="using-ml-to-find-value-in-hr-betting-markets" class="level1">
-<h1>Using ML to Find Value in HR Betting Markets</h1>
-<p>Over the past few years, the market for sports betting has skyrocketed, from around $13b wagered in 2019 to $113b wagered in 2023. One of the more popular bets that a sportsbooks will receive is wagers on home run props, and due to the relative rarity of home runs, these types of bets usually end up making a lot of money for them. As a project to tackle in my free time, I thought it would fun to try and create an algorithm using Python and Machine-Learning Techniques to find value in this betting markets.</p>
+<p>Over the past few years, the market for sports betting has skyrocketed, from around $13b wagered in 2019 to $113b wagered in 2023. One of the more popular bets that a sportsbooks will receive is wagers on home run props, and due to the relative rarity of home runs, these types of bets usually end up making a lot of money for them. As a project to tackle in my free time, I thought it would fun to try and create an algorithm using Python and Machine-Learning techniques to find value in these betting markets.</p>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The data for this project was obtained using the Python library PyBaseball, which I used to obtain data on over 6.5 million pitches from 2021-2025. I then used mainly the Pandas and NumPy libraries to transform these datasets and get the stats I needed. For the stats I collected, I mainly used “Statcast” stats, so-called because they first became available in 2015 with the inception of Statcast. These stats include things like average exit velocity, xwOBACON, barrel rate, etc. Since these stats contain very little context regarding the players batted ball distribution and plate discipline, I also included some non-Statcast data, such as groundball to flyball ratio, line drive rate, swing rate, chase rate, and whiff rate.</p>
@@ -163,32 +168,22 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="model-results" class="level2">
 <h2 class="anchored" data-anchor-id="model-results">Model Results</h2>
-<p>After predicting our own odds for 85k observations across the 2023-2025 seasons, I split them into train and test sets and found the most ideal blend of sportsbook vs model weighting, the proper amount of “advantage” the model saw in the bet, and the proper threshold. I tracked the total bet numbers and ROI for the training set here:</p>
+<p>After predicting our own odds for 85k observations across the 2023-2025 seasons, I split them into train and test sets and found the most ideal blend of sportsbook vs model weighting, the proper amount of “advantage” the model saw in the bet, and the proper threshold. Here are the results for the test data set:</p>
 <section id="unders" class="level4">
 <h4 class="anchored" data-anchor-id="unders">Unders</h4>
-<p>339 Bets, 2.1% profit</p>
+<p>307 Bets, 3.1% profit</p>
 </section>
 <section id="overs" class="level4">
 <h4 class="anchored" data-anchor-id="overs">Overs:</h4>
-<p>197 Bets, 11.9% Profit</p>
-<p>Though the unders bets are dealing with some pretty small margins, a profit is still a profit. I then took my test data set and ran the numbers using the same parameters:</p>
-</section>
-<section id="unders-1" class="level4">
-<h4 class="anchored" data-anchor-id="unders-1">Unders</h4>
-<p>520 Bets, 3.7% profit</p>
-</section>
-<section id="overs-1" class="level4">
-<h4 class="anchored" data-anchor-id="overs-1">Overs:</h4>
-<p>314 Bets, 7.1% Profit</p>
+<p>318 Bets, 5.2% Profit</p>
 <p><img src="./img/profit_plot.png" class="img-fluid"></p>
-<p>Very promising! Overall, the test set had 834 bets across its 51k observations, and produced an ROI just south of 5%. Prorated for a full season, this would be somewhere in the range of 550-600 total bets, and at a 4.9% ROI, a projected profit of 30 units! For reference the “unit” is whatever your average bet size is. so, if you bet $10 on every single bet for a full season, you would expect to make $300 overall. To double check reliability, I ran the numbers on a per-year basis for both unders and overs. Both were successful for 2 out of the 3 years in the sample, and in both cases, the year that did not match the success had the small sample.</p>
+<p>Very promising! Overall, the test set had 625 bets across its 35k observations, and produced an ROI of over 4%. It should be noted that the training data actually produced a worse result, overall posting a 3.1% ROI across 946 bets, so we might expect future results to be somewhere in between the two outcomes. Accounting for this, if we move forward with an estimate of 3.5% profit, prorated at around 675 bets per season, the expected return would be around 23-24 units. For reference the “unit” is whatever your average bet size is. so, if you bet $10 on every single bet for a full season, you would expect to make $230-240 overall. To double check reliability, I ran the numbers on a per-year basis for both unders and overs. Both were successful for 2 out of the 3 years in the sample, and in both cases, the year that did not match the success had the smallest sample.</p>
 </section>
 <section id="future-work" class="level3">
 <h3 class="anchored" data-anchor-id="future-work">Future Work</h3>
 <p>Though these results are highly encouraging, I believe I have a lot more to work on. While I believe my method for determining a batter’s “power rating” is of sound process, I cannot say the same for pitchers. As it currently stands, the features for pitchers contain stats that correlate with giving up home runs, and stats that are sticky year-over-year, but these two groups are mutually exclusive. In a future 2.0 version, I would have to spend some time to create a model similar to many Stuff+ models you may see on the internet, but just simply for home runs. Outside of that, things like weather/time of year and pulled fly-ball rate will also have to be added, as those have more recently come to my attention as stats that can have a significant impact on home runs. For now, I believe this is very encouraging, but can still improve in some big ways</p>
 
 
-</section>
 </section>
 </section>
 

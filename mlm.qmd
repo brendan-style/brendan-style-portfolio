@@ -4,9 +4,7 @@ Author: Brendan Style
 Date: 02-12-2026
 ---
 
-# Using ML to Find Value in HR Betting Markets
-
-Over the past few years, the market for sports betting has skyrocketed, from around $13b wagered in 2019 to $113b wagered in 2023. One of the more popular bets that a sportsbooks will receive is wagers on home run props, and due to the relative rarity of home runs, these types of bets usually end up making a lot of money for them. As a project to tackle in my free time, I thought it would fun to try and create an algorithm using Python and Machine-Learning Techniques to find value in this betting markets.
+Over the past few years, the market for sports betting has skyrocketed, from around $13b wagered in 2019 to $113b wagered in 2023. One of the more popular bets that a sportsbooks will receive is wagers on home run props, and due to the relative rarity of home runs, these types of bets usually end up making a lot of money for them. As a project to tackle in my free time, I thought it would fun to try and create an algorithm using Python and Machine-Learning techniques to find value in these betting markets.
 
 ## Data
 
@@ -34,26 +32,17 @@ After getting these ratings for each player, I then put the ratings through a se
 
 ## Model Results
 
-After predicting our own odds for 85k observations across the 2023-2025 seasons, I split them into train and test sets and found the most ideal blend of sportsbook vs model weighting, the proper amount of "advantage" the model saw in the bet, and the proper threshold. I tracked the total bet numbers and ROI for the training set here:
+After predicting our own odds for 85k observations across the 2023-2025 seasons, I split them into train and test sets and found the most ideal blend of sportsbook vs model weighting, the proper amount of "advantage" the model saw in the bet, and the proper threshold. Here are the results for the test data set:
 
 #### Unders
-339 Bets, 2.1% profit
+307 Bets, 3.1% profit
 
 #### Overs:
-197 Bets, 11.9% Profit
-
-Though the unders bets are dealing with some pretty small margins, a profit is still a profit. I then took my test data set and ran the numbers using the same parameters:
-
-#### Unders
-520 Bets, 3.7% profit
-
-#### Overs:
-314 Bets, 7.1% Profit
+318 Bets, 5.2% Profit
 
 ![](./img/profit_plot.png)
 
-Very promising! Overall, the test set had 834 bets across its 51k observations, and produced an ROI just south of 5%. Prorated for a full season, this would be somewhere in the range of 550-600 total bets, and at a 4.9% ROI, a projected profit of 30 units! For reference the "unit" is whatever your average bet size is. so, if you bet $10 on every single bet for a full season, you would expect to make $300 overall. To double check reliability, I ran the numbers on a per-year basis for both unders and overs. Both were successful for 2 out of the 3 years in the sample, and in both cases, the year that did not match the success had the small sample. 
-
+Very promising! Overall, the test set had 625 bets across its 35k observations, and produced an ROI of over 4%. It should be noted that the training data actually produced a worse result, overall posting a 3.1% ROI across 946 bets, so we might expect future results to be somewhere in between the two outcomes. Accounting for this, if we move forward with an estimate of 3.5% profit, prorated at around 675 bets per season, the expected return would be around 23-24 units. For reference the "unit" is whatever your average bet size is. so, if you bet $10 on every single bet for a full season, you would expect to make $230-240 overall. To double check reliability, I ran the numbers on a per-year basis for both unders and overs. Both were successful for 2 out of the 3 years in the sample, and in both cases, the year that did not match the success had the smallest sample.
 
 ### Future Work
 
