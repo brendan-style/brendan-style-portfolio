@@ -16,6 +16,8 @@ website:
             href: https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views
       - text: SQL Database + Data Viz
         href: sql.qmd
+      - text: Dashboard testing
+        href: hr_plotting.qmd
             
   page-footer: 
     center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025"

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Brendan Style</title>
+<title>hr_plotting – Brendan Style</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2fa0555fe88427c29efa1b60aaf9e62d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6d7e7b9b3dbd114c66b233ded7072392.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -108,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">SQL Database + Data Viz</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./hr_plotting.html"> 
+    <a class="nav-link active" href="./hr_plotting.html" aria-current="page"> 
 <span class="menu-text">Dashboard testing</span></a>
   </li>  
 </ul>
@@ -125,47 +126,41 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="img/just_face_headshot.png" class="about-image
-  rounded " style="width: 20em;">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Brendan Style</h1>
+<h1 class="title">hr_plotting</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
+
 </header>
-    <div class="about-links">
-  <a href="https://www.linkedin.com/in/brendan-style-2139ab260/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/brendan-style" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="/BrendanStyle_resume.pdf" class="about-link" rel="" target="_blank">
-    <i class="bi bi-file-earmark-pdf"></i>
-     <span class="about-link-text">Resumé</span>
-  </a>
-  <a href="mailto:brendanstyle1@gmail.com" class="about-link" rel="" target="">
-    <i class="bi bi-mailbox"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>Brendan Style is a recent graduate from SUNY Geneseo, with a degree in Data Analytics. Currently, he is employed as an Accounting Clerk with The Diocese of Rockville Center.</p>
-<section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
-<p>State University of New York at Geneseo | Geneseo, NY <br> B.S. in Data Analytics | Aug 2021 - May 2025 <br></p>
+
+
+<section id="page-1" class="level1">
+<h1>Page 1</h1>
+<section id="row-width-50" class="level2">
+<h2 class="anchored" data-anchor-id="row-width-50">Row {width = “50%”}</h2>
+<p>’’‘{python} import numpy as np import matplotlib.pyplot as plt import pandas as pd final_ratings_test = pd.read_csv(’v2_test_ratings.csv’) df_sorted = final_ratings_test.sort_values(‘date’).copy() df_sorted = df_sorted.groupby(‘date’).agg(profit=(‘profit’,‘sum’),over_picks=(‘over_pick’,‘sum’),under_picks=(‘under_pick’,‘sum’)).reset_index() # Calculate cumulative profit over time df_sorted[‘cumulative_profit’] = df_sorted[‘profit’].cumsum() df_sorted[‘cumulative_profit’] = df_sorted[‘cumulative_profit’]/10 plt.figure(figsize=(12, 6)) #window_size = 3 #df_sorted[‘smoothed_profit’] = df_sorted[‘cumulative_profit’].rolling(window=window_size, center=True).mean() plt.plot(df_sorted[‘date’], df_sorted[‘cumulative_profit’], linewidth=3, color=‘steelblue’) plt.title(‘2023-25 Cumulative Profit For Test Data’, fontsize=16, fontweight=‘bold’) plt.xlabel(‘Date’, fontsize=12) plt.ylabel(‘Units’, fontsize=12) #plt.ylim(bottom=0) plt.grid(True, alpha=0.3)</p>
+<p>plt.xticks(plt.xticks()[0][::21]) plt.xticks(rotation=45) plt.tight_layout()</p>
+<p>plt.axhline(y=0, color=‘red’, linestyle=‘–’, alpha=0.7, label=‘Break-even’) plt.legend() plt.text(0.05, 0.85, ‘Test Profit: 4.3%’, transform=plt.gca().transAxes, fontsize=14, fontweight=‘bold’, verticalalignment=‘top’, bbox=dict(boxstyle=‘square’, facecolor=‘lightblue’, alpha=0.8)) plt.text(0.05, 0.75, ‘Total Bets: 625’, transform=plt.gca().transAxes, fontsize=14, fontweight=‘bold’, verticalalignment=‘top’, bbox=dict(boxstyle=‘square’, facecolor=‘lightblue’, alpha=0.8))</p>
+<hr>
 
 
 </section>
-</main></div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script type="text/javascript" src="links.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -331,6 +326,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

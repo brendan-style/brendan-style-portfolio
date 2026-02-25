@@ -1,0 +1,17 @@
+---
+title: "hr_plotting"
+format: dashboard
+---
+
+# Page 1
+
+## Row {width = "50%"}
+
+```{python}
+import pandas as pd
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+df_sorted = final_ratings_test.sort_values('date').copy()
+df_sorted = df_sorted.groupby('date').agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
+print(df_sorted)
+```
+---

@@ -1,0 +1,54 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"hr_plotting\"\n",
+        "format: dashboard\n",
+        "---\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "# Page 1\n",
+        "\n",
+        "## Row {width = \"50%\"}\n"
+      ],
+      "id": "52c6edf5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "final_ratings_test = pd.read_csv('v2_test_ratings.csv')\n",
+        "df_sorted = final_ratings_test.sort_values('date').copy()\n",
+        "df_sorted = df_sorted.groupby('date').agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()\n",
+        "print(df_sorted)"
+      ],
+      "id": "3deded5d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---"
+      ],
+      "id": "ec46a26f"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\brend\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
