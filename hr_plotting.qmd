@@ -7,40 +7,37 @@ execute:
 
 # Page 1
 
-## Row  {width="50%"}
+## Row
 
 ```{python}
+#| title: Profit Margin by Team
 import pandas as pd
 from itables import show
 final_ratings_test = pd.read_csv('v2_test_ratings.csv')
 df_sorted = final_ratings_test.sort_values('date').copy()
-df_sorted = df_sorted.groupby(['player_name','batterid']).agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
-df_sorted = df_sorted.sort_values(by='profit',ascending=False)
-df_sorted['total_picks'] = df_sorted.over_picks + df_sorted.under_picks
-df_sorted = df_sorted[['player_name','total_picks','profit']]
-df_sorted = df_sorted.query('total_picks>1')
-show(df_sorted,searching=False,ordering=True,showIndex=False)
+df_sorted = df_sorted.groupby('team').agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
+df_sorted['Total Picks'] = df_sorted.over_picks + df_sorted.under_picks
+df_sorted['ROI'] = df_sorted.profit/(df_sorted['Total Picks']*10)
+df_sorted.ROI = round((df_sorted.ROI*100),1)
+df_sorted = df_sorted.sort_values(by='ROI',ascending=False)
+df_sorted = df_sorted[['team','ROI','Total Picks']]
+show(df_sorted,searching=False,ordering=True,showIndex=False,info=False)
 ```
 
-```         
-{python}
+```{python}
+#| title: Profit Margin By Edge Bin (Overs)
 import pandas as pd
 import plotly.graph_objects as go
 final_ratings_test = pd.read_csv('v2_test_ratings.csv')
-final_ratings_test.over_diff = final_ratings_test.over_diff.clip(lower=0)
-final_ratings_test.under_diff = final_ratings_test.under_diff.clip(lower=0)
-final_ratings_test['diff'] = final_ratings_test.under_diff+final_ratings_test.over_diff
-final_ratings_test['diff_bin'] = pd.cut(final_ratings_test['diff'], bins=10)
-df_sorted = final_ratings_test.groupby('diff_bin').agg(profit=('profit','sum')).reset_index()
-df_sorted['diff_bin'] = df_sorted['diff_bin'].astype(str)
+final_ratings_test = final_ratings_test.query('over_pick == 1')
+final_ratings_test['over%'] = final_ratings_test.apply(lambda row: 'Over 5.5% Edge' if row['over_diff'] >= .055 else 'Under 5.5% Edge', axis = 1)
+df_sorted = final_ratings_test.groupby('over%').agg(profit=('profit','sum'),picks=('over_pick','sum')).reset_index()
+df_sorted['roi'] = round((df_sorted.profit/df_sorted.picks*10),1)
 fig = go.Figure()
 
 fig.add_trace(go.Bar(
-    x=df_sorted['diff_bin'],
-    y=df_sorted['profit'],
-    marker_color='steelblue',
-    marker_line_color='white',
-    marker_line_width=1
+    x=df_sorted['over%'],
+    y=df_sorted['roi']
 ))
 ```
 
@@ -55,7 +52,7 @@ df_sorted = final_ratings_test.sort_values('date').copy()
 df_sorted['date'] = df_sorted['date'].astype(str)
 df_sorted = df_sorted.groupby('date').agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
 df_sorted['cumulative_profit'] = df_sorted['profit'].cumsum()
-df_sorted['cumulative_profit'] = df_sorted['cumulative_profit']/10
+df_sorted['cumulative_profit']= df_sorted['cumulative_profit']/10
 
 fig = go.Figure()
 

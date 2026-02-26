@@ -20,7 +20,7 @@ website:
         href: hr_plotting.qmd
             
   page-footer: 
-    center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025"
+    center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026"
 
 format:
   html:
