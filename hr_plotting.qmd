@@ -1,17 +1,70 @@
 ---
 title: "hr_plotting"
 format: dashboard
+execute:
+  echo: false
 ---
 
 # Page 1
 
-## Row {width = "50%"}
+## Row  {width="50%"}
 
 ```{python}
 import pandas as pd
+from itables import show
 final_ratings_test = pd.read_csv('v2_test_ratings.csv')
 df_sorted = final_ratings_test.sort_values('date').copy()
-df_sorted = df_sorted.groupby('date').agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
-print(df_sorted)
+df_sorted = df_sorted.groupby(['player_name','batterid']).agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
+df_sorted = df_sorted.sort_values(by='profit',ascending=False)
+df_sorted['total_picks'] = df_sorted.over_picks + df_sorted.under_picks
+df_sorted = df_sorted[['player_name','total_picks','profit']]
+df_sorted = df_sorted.query('total_picks>1')
+show(df_sorted,searching=False,ordering=True,showIndex=False)
 ```
----
+
+```         
+{python}
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+final_ratings_test.over_diff = final_ratings_test.over_diff.clip(lower=0)
+final_ratings_test.under_diff = final_ratings_test.under_diff.clip(lower=0)
+final_ratings_test['diff'] = final_ratings_test.under_diff+final_ratings_test.over_diff
+final_ratings_test['diff_bin'] = pd.cut(final_ratings_test['diff'], bins=10)
+df_sorted = final_ratings_test.groupby('diff_bin').agg(profit=('profit','sum')).reset_index()
+df_sorted['diff_bin'] = df_sorted['diff_bin'].astype(str)
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    x=df_sorted['diff_bin'],
+    y=df_sorted['profit'],
+    marker_color='steelblue',
+    marker_line_color='white',
+    marker_line_width=1
+))
+```
+
+## Row
+
+```{python}
+#| title: Cumulative Units of Profit for Test Data
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+df_sorted = final_ratings_test.sort_values('date').copy()
+df_sorted['date'] = df_sorted['date'].astype(str)
+df_sorted = df_sorted.groupby('date').agg(profit=('profit','sum'),over_picks=('over_pick','sum'),under_picks=('under_pick','sum')).reset_index()
+df_sorted['cumulative_profit'] = df_sorted['profit'].cumsum()
+df_sorted['cumulative_profit'] = df_sorted['cumulative_profit']/10
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+    x=df_sorted['date'],
+    y=df_sorted['cumulative_profit'],
+    mode='lines',
+    line=dict(color='steelblue', width=3)
+)).update_layout(
+    xaxis=dict(type='category', tickangle=45, nticks=10)
+)
+```
