@@ -1,11 +1,11 @@
 ---
-title: "hr_plotting"
+title: "Betting Dashboard"
 format: dashboard
 execute:
   echo: false
 ---
 
-# Page 1
+# Overview
 
 ## Row
 
@@ -25,23 +25,23 @@ show(df_sorted,searching=False,ordering=True,showIndex=False,info=False)
 ```
 
 ```{python}
-#| title: Profit Margin By Edge Bin (Overs)
+#| title: Profit Margin By Bet Type
 import pandas as pd
 import plotly.graph_objects as go
 final_ratings_test = pd.read_csv('v2_test_ratings.csv')
-final_ratings_test = final_ratings_test.query('over_pick == 1')
-final_ratings_test['over%'] = final_ratings_test.apply(lambda row: 'Over 5.5% Edge' if row['over_diff'] >= .055 else 'Under 5.5% Edge', axis = 1)
-df_sorted = final_ratings_test.groupby('over%').agg(profit=('profit','sum'),picks=('over_pick','sum')).reset_index()
-df_sorted['roi'] = round((df_sorted.profit/df_sorted.picks*10),1)
+final_ratings_test = final_ratings_test.query('over_pick != 0 or under_pick != 0')
+final_ratings_test['type'] = final_ratings_test.apply(lambda row: 'Over' if row['over_pick'] ==1 else 'Under', axis = 1)
+df_sorted = final_ratings_test.groupby('type').agg(profit=('profit','sum'),opicks=('over_pick','sum'),upicks=('under_pick','sum')).reset_index()
+df_sorted['roi'] = round((df_sorted.profit/(df_sorted.opicks+df_sorted.upicks)*10),1)
 fig = go.Figure()
 
 fig.add_trace(go.Bar(
-    x=df_sorted['over%'],
+    x=df_sorted['type'],
     y=df_sorted['roi']
-))
+)).update_layout(yaxis_title="ROI")
 ```
 
-## Row
+## Row 
 
 ```{python}
 #| title: Cumulative Units of Profit for Test Data
@@ -61,7 +61,30 @@ fig.add_trace(go.Scatter(
     y=df_sorted['cumulative_profit'],
     mode='lines',
     line=dict(color='steelblue', width=3)
-)).update_layout(
+)).update_layout(yaxis_title="Units",
     xaxis=dict(type='category', tickangle=45, nticks=10)
 )
 ```
+
+# OversUnders
+
+## Row
+
+```{python}
+#| title: Profit Margin By Edge Bin (Overs)
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+final_ratings_test = final_ratings_test.query('over_pick == 1')
+final_ratings_test['over%'] = final_ratings_test.apply(lambda row: 'Over 5.5% Edge' if row['over_diff'] >= .055 else 'Under 5.5% Edge', axis = 1)
+df_sorted = final_ratings_test.groupby('over%').agg(profit=('profit','sum'),picks=('over_pick','sum')).reset_index()
+df_sorted['roi'] = round((df_sorted.profit/df_sorted.picks*10),1)
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    x=df_sorted['over%'],
+    y=df_sorted['roi']
+)).update_layout(yaxis_title="ROI")
+```
+
+# 

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.6.42" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>hr_plotting – Brendan Style</title>
+<title>Betting Dashboard – Brendan Style</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +22,32 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="site_libs/quarto-dashboard/stickythead.js"></script>
+<script src="site_libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="site_libs/quarto-dashboard/components.js"></script>
+<link href="site_libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -52,58 +75,41 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" data-relocate-top="true"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 </head>
 
-<body class="quarto-dashboard">
-
-<header id="quarto-dashboard-header">
-<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
-  <div class="navbar-container container-fluid">
-    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>    
+<body class="quarto-dashboard nav-fixed dashboard-fill fullcontent">
 
 
-    <div class="navbar-brand-container">       
-
-      <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">hr_plotting</a></div>
-        
-        
-      </div>
-    </div>
-</div>
-</nav>
-</header>
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="/index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Brendan Style</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-  aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation"
-  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-ml-model" role="link" data-bs-toggle="dropdown" aria-expanded="false" >
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-ml-model" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Python ML Model</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-python-ml-model">    
         <li>
-    <a class="dropdown-item" href="/mlm.html">
+    <a class="dropdown-item" href="./mlm.html">
  <span class="dropdown-text">Readme Overview</span></a>
   </li>  
         <li>
@@ -113,11 +119,11 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/sql.html"> 
+    <a class="nav-link" href="./sql.html"> 
 <span class="menu-text">SQL Database + Data Viz</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/hr_plotting.html"> 
+    <a class="nav-link active" href="./hr_plotting.html" aria-current="page"> 
 <span class="menu-text">Dashboard testing</span></a>
   </li>  
 </ul>
@@ -126,139 +132,130 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-</header>
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Betting Dashboard</a></div>
+        
+        
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-overview" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#overview" data-scrolling="false" href="#overview" aria-controls="overview" aria-selected="true"><span class="nav-link-text">Overview</span></a></li><li class="nav-item" role="presentation"><a id="tab-oversunders" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#oversunders" data-scrolling="false" href="#oversunders" aria-controls="oversunders" aria-selected="false"><span class="nav-link-text">OversUnders</span></a></li><li class="nav-item" role="presentation"><a id="tab-section" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#section" data-scrolling="false" href="#section" aria-controls="section" aria-selected="false"><span class="nav-link-text"></span></a></li></ul></div></div>
+</nav>
+</header></header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">
 <!-- sidebar -->
 <!-- margin-sidebar -->
 <!-- main -->
 
-<div class="rows" data-layout="fill">
-<div id="page-1" class="dashboard-page" data-title="Page 1" data-orientation="rows">
-<div class="rows">
-<div class="columns">
-<div class="card cell" data-title="Profit Margin by Team">
-<div class="card-header">
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div id="overview" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-overview">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Profit Margin by Team" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
 Profit Margin by Team
-</div>
-<div class="card-body">
-<div class="cell-output cell-output-display">
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_df459aac_d218_4cfe_be57_454fb651d702"><tbody><tr>
+<table id="itables_73cf8eae_dd20_4324_8c93_a57e10d147d2"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
-    <a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
-        <path d="M100,400H500V357H100Z" />
-        <path d="M100,300H400V257H100Z" />
-        <path d="M0,200H400V157H0Z" />
-        <path d="M100,100H500V57H100Z" />
-        <path d="M100,350H500V307H100Z" />
-        <path d="M100,250H400V207H100Z" />
-        <path d="M0,150H400V107H0Z" />
-        <path d="M100,50H500V7H100Z" />
+        <path d="M100,400H500V357H100Z"></path>
+        <path d="M100,300H400V257H100Z"></path>
+        <path d="M0,200H400V157H0Z"></path>
+        <path d="M100,100H500V57H100Z"></path>
+        <path d="M100,350H500V307H100Z"></path>
+        <path d="M100,250H400V207H100Z"></path>
+        <path d="M0,150H400V107H0Z"></path>
+        <path d="M100,50H500V7H100Z"></path>
     </g>
     <g style="fill:#1a1366;stroke:#1a1366;">
    <rect x="100" y="7" width="400" height="43">
-    <animate
-      attributeName="width"
-      values="0;400;0"
-      dur="5s"
-      repeatCount="indefinite" />
-      <animate
-      attributeName="x"
-      values="100;100;500"
-      dur="5s"
-      repeatCount="indefinite" />
+    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
   </rect>
         <rect x="0" y="107" width="400" height="43">
-    <animate
-      attributeName="width"
-      values="0;400;0"
-      dur="3.5s"
-      repeatCount="indefinite" />
-    <animate
-      attributeName="x"
-      values="0;0;400"
-      dur="3.5s"
-      repeatCount="indefinite" />
+    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
   </rect>
         <rect x="100" y="207" width="300" height="43">
-    <animate
-      attributeName="width"
-      values="0;300;0"
-      dur="3s"
-      repeatCount="indefinite" />
-    <animate
-      attributeName="x"
-      values="100;100;400"
-      dur="3s"
-      repeatCount="indefinite" />
+    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
+    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
   </rect>
         <rect x="100" y="307" width="400" height="43">
-    <animate
-      attributeName="width"
-      values="0;400;0"
-      dur="4s"
-      repeatCount="indefinite" />
-      <animate
-      attributeName="x"
-      values="100;100;500"
-      dur="4s"
-      repeatCount="indefinite" />
+    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
+      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
   </rect>
         <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
             <g transform="translate(45 50) rotate(-45)">
-                <circle r="33" cx="0" cy="0" />
-                <rect x="-8" y="32" width="16" height="30" />
+                <circle r="33" cx="0" cy="0"></circle>
+                <rect x="-8" y="32" width="16" height="30"></rect>
             </g>
 
             <g transform="translate(450 152)">
-                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20" />
-                <rect x="-15" y="-40" width="60" height="60" />
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
+                <rect x="-15" y="-40" width="60" height="60"></rect>
             </g>
 
             <g transform="translate(50 352)">
-                <polygon points="-35,-5 0,-40 35,-5" />
-                <polygon points="-35,10 0,45 35,10" />
+                <polygon points="-35,-5 0,-40 35,-5"></polygon>
+                <polygon points="-35,10 0,45 35,10"></polygon>
             </g>
 
             <g transform="translate(75 250)">
-                <polyline points="-30,30 -60,0 -30,-30" />
-                <polyline points="0,30 -30,0 0,-30" />
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
             </g>
 
             <g transform="translate(425 250) rotate(180)">
-                <polyline points="-30,30 -60,0 -30,-30" />
-                <polyline points="0,30 -30,0 0,-30" />
+                <polyline points="-30,30 -60,0 -30,-30"></polyline>
+                <polyline points="0,30 -30,0 0,-30"></polyline>
             </g>
         </g>
     </g>
 </svg>
 </a>
     Loading ITables v2.7.0 from the internet...
-    (need <a href=https://mwouts.github.io/itables/troubleshooting.html>help</a>?)</td>
+    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
     </tr></tbody></table>
 <link href="https://www.unpkg.com/dt_for_itables@2.5.0/dt_bundle.css" rel="stylesheet">
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_df459aac_d218_4cfe_be57_454fb651d702:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_73cf8eae_dd20_4324_8c93_a57e10d147d2:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"searching": false, "ordering": true, "info": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "buttons": [], "keys": true, "paging": false, "autoWidth": false, "lengthChange": false, "order": [], "responsive": true, "classes": ["display", "nowrap", "compact"], "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "dom": "fiBrtlp", "language": {"info": "Showing _TOTAL_ entries"}, "text_in_header_can_be_selected": true, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>team</th>\n      <th>ROI</th>\n      <th>Total Picks</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Nationals\", [\"103.3\", 29], 12], [\"Rays\", [\"103.0\", 28], 12], [\"Pirates\", [\"62.9\", 27], 18], [\"Orioles\", [\"49.3\", 26], 33], [\"Reds\", [\"44.3\", 25], 23], [\"Yankees\", [\"39.3\", 24], 29], [\"Dodgers\", [\"36.6\", 23], 28], [\"Giants\", [\"36.6\", 23], 19], [\"Guardians\", [\"29.1\", 22], 12], [\"Braves\", [\"15.7\", 21], 25], [\"Twins\", [\"14.4\", 20], 23], [\"Diamondbacks\", [\"14.3\", 19], 16], [\"Brewers\", [\"2.6\", 18], 22], [\"Padres\", [\"0.9\", 17], 18], [\"Cubs\", [\"-1.5\", 16], 24], [\"Athletics\", [\"-9.2\", 15], 15], [\"Phillies\", [\"-12.6\", 14], 22], [\"Mets\", [\"-16.6\", 13], 22], [\"White Sox\", [\"-18.9\", 12], 16], [\"Astros\", [\"-19.2\", 11], 21], [\"Marlins\", [\"-22.4\", 10], 12], [\"Rangers\", [\"-23.5\", 9], 28], [\"Red Sox\", [\"-24.1\", 8], 25], [\"Royals\", [\"-25.3\", 7], 23], [\"Rockies\", [\"-26.9\", 6], 20], [\"Mariners\", [\"-29.2\", 5], 17], [\"Blue Jays\", [\"-29.9\", 4], 22], [\"Angels\", [\"-31.8\", 3], 42], [\"Tigers\", [\"-37.3\", 2], 21], [\"Cardinals\", [\"-75.6\", 1], 5]]", "columnDefs": [{"targets": [1], "render": "\n                        function (data, type, row, meta) {\n                            return type === 'sort' ? data[1] : data[0];\n                        }\n                    "}], "keys_to_be_evaluated": [["columnDefs", 0, "render"]]};
+        let dt_args = {"searching": false, "ordering": true, "info": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "order": [], "autoWidth": false, "paging": false, "buttons": [], "responsive": true, "keys": true, "lengthChange": false, "style": {"table-layout": "auto", "width": "auto", "margin": "auto", "caption-side": "bottom"}, "dom": "fiBrtlp", "classes": ["display", "nowrap", "compact"], "language": {"info": "Showing _TOTAL_ entries"}, "text_in_header_can_be_selected": true, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>team</th>\n      <th>ROI</th>\n      <th>Total Picks</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"Nationals\", [\"103.3\", 29], 12], [\"Rays\", [\"103.0\", 28], 12], [\"Pirates\", [\"62.9\", 27], 18], [\"Orioles\", [\"49.3\", 26], 33], [\"Reds\", [\"44.3\", 25], 23], [\"Yankees\", [\"39.3\", 24], 29], [\"Dodgers\", [\"36.6\", 23], 28], [\"Giants\", [\"36.6\", 23], 19], [\"Guardians\", [\"29.1\", 22], 12], [\"Braves\", [\"15.7\", 21], 25], [\"Twins\", [\"14.4\", 20], 23], [\"Diamondbacks\", [\"14.3\", 19], 16], [\"Brewers\", [\"2.6\", 18], 22], [\"Padres\", [\"0.9\", 17], 18], [\"Cubs\", [\"-1.5\", 16], 24], [\"Athletics\", [\"-9.2\", 15], 15], [\"Phillies\", [\"-12.6\", 14], 22], [\"Mets\", [\"-16.6\", 13], 22], [\"White Sox\", [\"-18.9\", 12], 16], [\"Astros\", [\"-19.2\", 11], 21], [\"Marlins\", [\"-22.4\", 10], 12], [\"Rangers\", [\"-23.5\", 9], 28], [\"Red Sox\", [\"-24.1\", 8], 25], [\"Royals\", [\"-25.3\", 7], 23], [\"Rockies\", [\"-26.9\", 6], 20], [\"Mariners\", [\"-29.2\", 5], 17], [\"Blue Jays\", [\"-29.9\", 4], 22], [\"Angels\", [\"-31.8\", 3], 42], [\"Tigers\", [\"-37.3\", 2], 21], [\"Cardinals\", [\"-75.6\", 1], 5]]", "columnDefs": [{"targets": [1], "render": "\n                        function (data, type, row, meta) {\n                            return type === 'sort' ? data[1] : data[0];\n                        }\n                    "}], "keys_to_be_evaluated": [["columnDefs", 0, "render"]]};
         new ITable(table, dt_args);
     });
 </script>
 </div>
 </div>
-</div><div class="card cell" data-title="Profit Margin By Edge Bin (Overs)">
-<div class="card-header">
-Profit Margin By Edge Bin (Overs)
-</div>
-<div class="card-body">
-<div class="cell-output cell-output-display">
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell html-fill-item html-fill-container bslib-card" data-title="Profit Margin By Bet Type" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Profit Margin By Bet Type
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
         <script type="text/javascript">
         window.PlotlyConfig = {MathJaxConfig: 'local'};
         if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
@@ -4147,10 +4144,10 @@ return Plotly;
 }));</script>
         
 </div>
-<div class="cell-output cell-output-display">
-<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="74246eb3-ea8d-4615-b36a-ca6ac7a8e0dc" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("74246eb3-ea8d-4615-b36a-ca6ac7a8e0dc")) {                    Plotly.newPlot(                        "74246eb3-ea8d-4615-b36a-ca6ac7a8e0dc",                        [{"x":["Over 5.5% Edge","Under 5.5% Edge"],"y":{"dtype":"f8","bdata":"mpmZmZkZN0CamZmZmZkNQA=="},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}}},                        {"responsive": true}                    ).then(function(){
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="6c019ae2-4528-4ccb-89df-b4e4f7b0eea5" class="plotly-graph-div html-fill-item html-fill-container" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("6c019ae2-4528-4ccb-89df-b4e4f7b0eea5")) {                    Plotly.newPlot(                        "6c019ae2-4528-4ccb-89df-b4e4f7b0eea5",                        [{"x":["Over","Under"],"y":{"dtype":"f8","bdata":"MzMzMzMzFUCamZmZmZkJQA=="},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"yaxis":{"title":{"text":"ROI"}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('74246eb3-ea8d-4615-b36a-ca6ac7a8e0dc');
+var gd = document.getElementById('6c019ae2-4528-4ccb-89df-b4e4f7b0eea5');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -4175,18 +4172,24 @@ if (outputEl) {{
                         })                };            </script>        </div>
 </div>
 </div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div>
-<div class="columns">
-<div class="card cell" data-title="Cumulative Units of Profit for Test Data">
-<div class="card-header">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Cumulative Units of Profit for Test Data" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
 Cumulative Units of Profit for Test Data
-</div>
-<div class="card-body">
-<div class="cell-output cell-output-display">
-<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="9daf89df-1806-49f6-b2dc-1d44394af608" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("9daf89df-1806-49f6-b2dc-1d44394af608")) {                    Plotly.newPlot(                        "9daf89df-1806-49f6-b2dc-1d44394af608",                        [{"line":{"color":"steelblue","width":3},"mode":"lines","x":["2023-04-26","2023-04-27","2023-04-28","2023-04-29","2023-04-30","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-06","2023-05-07","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-13","2023-05-14","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-20","2023-05-21","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-27","2023-05-28","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-03","2023-06-04","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-10","2023-06-11","2023-06-12","2023-06-13","2023-06-14","2023-06-17","2023-06-18","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-24","2023-06-25","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-01","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-08","2023-07-09","2023-07-14","2023-07-15","2023-07-16","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-22","2023-07-23","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-29","2023-07-30","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-05","2023-08-06","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-12","2023-08-13","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-19","2023-08-20","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25","2023-08-26","2023-08-27","2023-08-28","2023-08-29","2023-08-30","2023-08-31","2023-09-01","2023-09-02","2023-09-03","2023-09-04","2023-09-05","2023-09-06","2023-09-07","2023-09-08","2023-09-09","2023-09-10","2023-09-11","2023-09-12","2023-09-13","2023-09-14","2023-09-15","2023-09-16","2023-09-17","2023-09-18","2023-09-19","2023-09-20","2023-09-21","2023-09-22","2023-09-23","2023-09-24","2023-09-25","2023-09-26","2023-09-27","2023-09-28","2023-09-29","2023-09-30","2024-04-01","2024-04-02","2024-04-03","2024-04-04","2024-04-05","2024-04-06","2024-04-07","2024-04-08","2024-04-09","2024-04-10","2024-04-14","2024-04-15","2024-04-16","2024-04-17","2024-04-18","2024-04-19","2024-04-20","2024-04-21","2024-04-22","2024-04-23","2024-04-24","2024-04-25","2024-04-26","2024-04-27","2024-04-28","2024-04-29","2024-04-30","2024-05-01","2024-05-02","2024-05-03","2024-05-04","2024-05-05","2024-05-06","2024-05-07","2024-05-08","2024-05-09","2024-05-10","2024-05-11","2024-05-12","2024-05-13","2024-05-14","2024-05-15","2024-05-16","2024-05-17","2024-05-18","2024-05-19","2024-05-20","2024-05-21","2024-05-22","2024-05-23","2024-05-24","2024-05-25","2024-05-26","2024-05-27","2024-05-28","2024-05-29","2024-05-30","2024-05-31","2024-06-01","2024-06-02","2024-06-03","2024-06-04","2024-06-05","2024-06-06","2024-06-07","2024-06-08","2024-06-09","2024-06-10","2024-06-11","2024-06-12","2024-06-13","2024-06-14","2024-06-15","2024-06-16","2024-06-17","2024-06-18","2024-06-19","2024-06-20","2024-06-21","2024-06-22","2024-06-23","2024-06-24","2024-06-25","2024-06-26","2024-06-27","2024-06-28","2024-06-29","2024-06-30","2024-07-01","2024-07-02","2024-07-03","2024-07-04","2024-07-05","2024-07-06","2024-07-07","2024-07-08","2024-07-09","2024-07-10","2024-07-11","2024-07-12","2024-07-13","2024-07-14","2024-07-19","2024-07-20","2024-07-21","2024-07-22","2024-07-23","2024-07-24","2024-07-25","2024-07-26","2024-07-27","2024-07-28","2024-07-29","2024-07-30","2024-07-31","2024-08-01","2024-08-02","2024-08-03","2024-08-04","2024-08-05","2024-08-06","2024-08-07","2024-08-08","2024-08-09","2024-08-10","2024-08-11","2024-08-12","2024-08-13","2024-08-14","2024-08-15","2024-08-16","2024-08-17","2024-08-18","2024-08-19","2024-08-20","2024-08-21","2024-08-22","2024-08-23","2024-08-24","2024-08-26","2024-08-27","2024-08-28","2024-08-29","2024-08-30","2024-08-31","2024-09-01","2024-09-02","2024-09-03","2024-09-04","2024-09-05","2024-09-06","2024-09-07","2024-09-08","2024-09-09","2024-09-10","2024-09-11","2024-09-12","2024-09-13","2024-09-14","2024-09-15","2024-09-16","2024-09-17","2024-09-18","2024-09-19","2024-09-20","2024-09-21","2024-09-22","2024-09-23","2024-09-24","2024-09-25","2024-09-26","2024-09-27","2024-09-28","2024-09-29","2025-04-01","2025-04-02","2025-04-03","2025-04-26","2025-04-28","2025-04-29","2025-04-30","2025-05-01","2025-05-02","2025-05-03","2025-05-04","2025-05-05","2025-05-06","2025-05-07","2025-05-08","2025-05-09","2025-05-10","2025-05-11","2025-05-12","2025-05-13","2025-05-14","2025-05-15","2025-05-16","2025-05-17","2025-05-18","2025-05-19","2025-05-20","2025-05-21","2025-05-22","2025-05-23","2025-05-24","2025-05-25","2025-05-26","2025-05-27","2025-05-28","2025-05-29","2025-05-30","2025-05-31","2025-06-01","2025-06-02","2025-06-03","2025-06-04","2025-06-05","2025-06-06","2025-06-07","2025-06-08","2025-06-09","2025-06-10","2025-06-11","2025-06-12","2025-06-13","2025-06-14","2025-06-15","2025-06-16","2025-06-17","2025-06-18","2025-06-19","2025-06-20","2025-06-21","2025-06-22","2025-06-23","2025-06-24","2025-06-25","2025-06-26","2025-06-27","2025-06-28","2025-06-29","2025-06-30","2025-07-01","2025-07-02","2025-07-03","2025-07-04","2025-07-05","2025-07-06","2025-07-07","2025-07-08","2025-07-09","2025-07-10","2025-07-11","2025-07-12","2025-07-13","2025-07-18","2025-07-19","2025-07-20","2025-07-21","2025-07-22","2025-07-23","2025-07-24","2025-07-25","2025-07-26","2025-07-27","2025-07-28","2025-07-29","2025-07-30","2025-07-31","2025-08-01","2025-08-02","2025-08-03","2025-08-04","2025-08-05","2025-08-06","2025-08-07","2025-08-08","2025-08-09","2025-08-10","2025-08-11","2025-08-12","2025-08-13","2025-08-14","2025-08-15","2025-08-16","2025-08-17","2025-08-18","2025-08-19","2025-08-20","2025-08-21","2025-08-22","2025-08-23","2025-08-24","2025-08-25","2025-08-26","2025-08-27","2025-08-28","2025-08-29","2025-08-30","2025-08-31","2025-09-01","2025-09-02","2025-09-03","2025-09-04","2025-09-05","2025-09-06","2025-09-07","2025-09-08","2025-09-09","2025-09-10","2025-09-11","2025-09-12","2025-09-13","2025-09-14","2025-09-15","2025-09-16","2025-09-17","2025-09-18","2025-09-19","2025-09-20","2025-09-21","2025-09-23","2025-09-24","2025-09-25","2025-09-26","2025-09-27","2025-09-28"],"y":{"dtype":"f8","bdata":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgPwAAAAAAAOA\u002fAAAAAAAA4D8AAAAAAADgPwAAAAAAAOA\u002fAAAAAAAA4D8AAAAAAADgP7gehetRuOo\u002fuB6F61G46j+aqfHSTWJgP5qp8dJNYmA\u002fmqnx0k1iYD+aqfHSTWJgP5qp8dJNYmA\u002fmqnx0k1iYD81XrpJDAIQQDVeukkMAhBAarx0kxgECEBqvHSTGAQAQNN46SYxCPA\u002fWg4tsp3v779aDi2yne\u002fnv1oOLbKd7+e\u002fWg4tsp3v579aDi2yne\u002fnv1oOLbKd7+e\u002fsxxaZDvf37+WQ4ts5\u002fsLwMuhRbbz\u002fRnAy6FFtvP9GcAtXI\u002fC9Sjgvy1cj8L1KOC\u002fLVyPwvUo4L8L16NwPQoEwAvXo3A9CgzAy6FFtvN9EMDLoUW2830UwObQItv5PiDA5tAi2\u002fk+IsDm0CLb+T4iwObQItv5PiPA5tAi2\u002fk+I8Dm0CLb+T4lwObQItv5PiXA5tAi2\u002fm+JMDm0CLb+b4mwObQItv5vijAWmQ730\u002fNJ8BaZDvfT80nwFpkO99PzSnAWmQ730\u002fNK8BaZDvfT80twPLSTWIQuDDASOF6FK7HKsBI4XoUrscqwNNNYhBYeSzA6iYxCKw8MMDTTWIQWPkvwNNNYhBY+S\u002fA001iEFj5L8DqJjEIrPwywOomMQis\u002fDPA6iYxCKz8N8DqJjEIrPw4wOomMQis\u002fDjA6iYxCKz8N8DqJjEIrPw3wOomMQis\u002fDfA6iYxCKz8N8DqJjEIrPw4wOomMQis\u002fDnArkfhehTOOcACK4cW2Q43wAIrhxbZDjfAAiuHFtkOOcAzMzMzM3M1wIPAyqFFdjPAg8DKoUV2M8CDwMqhRXYzwIPAyqFFdjPAg8DKoUV2NcCDwMqhRXY1wIPAyqFFdjbAg8DKoUU2OMCDwMqhRTY5wIPAyqFFNjnAg8DKoUU2O8A730+Nl843wDvfT42XzjfAO99PjZfON8AW2c73U6MuwIts5\u002fupUTDAi2zn+6lRMMCLbOf7qVEwwIts5\u002fupUTLAi2zn+6lRM8BGtvP91BgzwEa28\u002f3UGDPAZTvfT42XMMBlO99PjZcxwGU730+NlzTAlRgEVg4tJMCVGARWDi0kwJUYBFYOLSbAlRgEVg4tJsALrBxaZLsewB4v3SQGAR7AHi\u002fdJAYBHsAIVg4tsh0dwAhWDi2yHR3ACFYOLbIdHMAIVg4tsh0cwAQrhxbZDiDABCuHFtkOIsAEK4cW2Q4mwHm+nxovHSfAeb6fGi8dJ8B5vp8aLx0pwHm+nxovHSnAer6fGi+dKsB6vp8aL50swHq+nxovnS7Ayks3iUGgI8DKSzeJQaAjwMpLN4lBoCPAhekmMQisDsCF6SYxCKwOwMJ0kxgEVhPA9qfGSzeJFsD2p8ZLN4kewPtT46WbRCPA+1PjpZtEI8D7U+Olm0QnwPtT46WbRCfA+1PjpZtEJ8Bw5\u002fup8VIowHDn+6nxUijAcOf7qfFSKMBw5\u002fup8VIswHDn+6nxUizAcOf7qfFSLsBw5\u002fup8VIuwMx2vp8a7yjAusQgsHJo\u002f7+6xCCwcmj\u002fv11iEFg5tAfAZuomMQiszL9m6iYxCKzMv82syHa+n5o\u002fM69yaJHtzD8zr3Joke3MP5pXObTIdt4\u002f6Nr5fmq87D+ukxgEVg7lv3q5SQwCK8c\u002flqscWmQ71z8Aw\u002fUoXI\u002favwCG61G4HsW\u002fk70gsHJokT+TvSCwcmiRP5O9ILByaJE\u002fk70gsHJokT+TvSCwcmiRPxP6fmq8dO+\u002fE\u002fp+arx0779eMQisHFrov68YBFYOLfi\u002frxgEVg4t9L+vGARWDi30v1gMAiuHFgLA+0+Nl24S9b+cO99PjZfmv9Dl0CLb+d6\u002fS7gehetRFEBike18PzUVQHhqvHSTGBdA1iQGgZXDF0A130+Nl24YQBPZzvdTYyxAE9nO91NjLECeRbbz\u002fVQtQJ5FtvP9VCtAnkW28\u002f1UK0AFrBxaZLsrQAWsHFpkuylAaxKDwMohKEBIN4lBYOUoQEg3iUFg5ShASDeJQWBlKUBIN4lBYGUpQEg3iUFgZSlASDeJQWBlKUBIN4lBYGUpQEg3iUFg5SlASDeJQWDlJkC+9Shcj0InQL71KFyPQiVASmIQWDm0JUBKYhBYObQjQEpiEFg5tCFA1c73U+MlIkDVzvdT4yUiQMXMzMzMzB5AxczMzMzMHkDFzMzMzMweQMXMzMzMzBxAxczMzMzMEEDFzMzMzMwQQMXMzMzMzBBAskkMAiuHEUCySQwCK4cRQLJJDAIrhxFAskkMAiuHEUBlkxgEVg4LQGWTGARWDgtAYrx0kxiEFEAviUFg5VARQC+JQWDlUBFAkG4Sg8BKH0CQbhKDwEobQH7rUbgeBRhAgkFg5dCiGkBuvp8aL10bQFq6SQwCqydAWrpJDAKrJUBaukkMAqsjQNB46SYxCCBARjeJQWDlIECNbhKDwModQI1uEoPAyhlAjW4Sg8BKGUCNbhKDwEoVQCNcj8L1KCRAI1yPwvWoJEAjXI\u002fC9agkQCNcj8L1qCRAEwRWDi3yJEATBFYOLfIiQGfn+6nx0iZAZ+f7qfHSJEDOzvdT46UZQMpPjZduEgVApUkMAiuHBkBqEoPAyiEgQNMkBoGVQxxA0yQGgZVDHEDTJAaBlUMZQNMkBoGVQxVA0yQGgZVDFUCmSQwCK4cCQBqyne+nxglAGrKd76fGCUAQrkfhetQiQH4W2c73Ux9AfhbZzvdTG0B+FtnO91MXQH4W2c73UxtA7\u002f3UeOmmJkDv\u002fdR46aYmQDrfT42XTjZAOt9PjZdONkA630+Nl041QOpRuB6FSzpA6lG4HoVLOkDqUbgehYs5QOpRuB6FizpA6lG4HoWLOEDqUbgehYs4QHs\u002fNV66iTxAez81XrqJPEATrkfherQ7QBOuR+F6tDlAE65H4Xq0OEATrkfherQ3QBOuR+F6tDdApZvEILCyPUAqhxbZztdAQCqHFtnOl0BAKocW2c4XQECjcD0K15NAQKNwPQrXk0BAo3A9CteTQECjcD0K1xNAQEbhehSuJz9ARuF6FK4nPkBG4XoUric9QEbhehSuJz1ARuF6FK4nPEBG4XoUric5QEbhehSuZzxARuF6FK5nPEDSTWIQWFk8QBgEVg4tkjxAGARWDi2SOUA2iUFg5RA8QDaJQWDlEDxANolBYOUQPEA2iUFg5RA6QHJoke18PzlAcmiR7Xx\u002fOUByaJHtfP85QHJoke18\u002fzhAcmiR7Xz\u002fNUByaJHtfP81QHJoke18\u002fzVAtx6F61E4NUC3HoXrUTg0QLcehetRODRAtx6F61E4NEC3HoXrUTgyQLcehetRODFAtx6F61E4M0C3HoXrUTgzQLcehetRODFAtx6F61E4MUD91HjpJnEwQP3UeOkmcTBA+qnx0k3iLkCFFtnO99MvQIUW2c730y1AhRbZzvfTK0AQg8DKoUUsQJ4aL90kZjJAnhov3SRmMkCCwMqhRfYyQILAyqFF9jJA8v3UeOnmM0DAyqFFthM6QDAIrBxaRDpAdr6fGi99OkB2vp8aL305QHa+nxovfTlAdr6fGi99OUB2vp8aL705QHa+nxov\u002fTdAdr6fGi\u002f9N0B2vp8aL\u002f03QOf7qfHSbThA5\u002fup8dJtOEDn+6nx0m04QOf7qfHSbTdA5\u002fup8dKtNkDn+6nx0q02QOf7qfHSrTZA5\u002fup8dKtNEDn+6nx0u0zQHJoke18XzRAcmiR7XxfM0CbxCCwcogzQJvEILByCDNAm8QgsHIIMkCbxCCwcggyQOF6FK5HQTJA4XoUrkdBMkDhehSuR4EyQCYxCKwcOjNAJjEIrBx6M0AmMQisHHoyQCYxCKwcejJAJjEIrBx6MkAmMQisHHoyQCYxCKwcujJAjZduEoMgM0CNl24SgyAzQI2XbhKDIDNAgsDKoUVWNkCCwMqhRVY1QPP91HjphjVA8\u002f3UeOmGNUDz\u002fdR46YY1QPP91HjpxjVAJjEIrBz6NUBiEFg5tGg0QGIQWDm0aDRAp8ZLN4mhNECnxks3iaE0QKfGSzeJoTRA2vl+arwUNUAgsHJokU00QFc5tMh2XjVAVzm0yHaeNEBXObTIdp40QIps5\u002fup0TRAfD81XrppNUDC9Shcj6I0QML1KFyPojNAB6wcWmTbM0BCi2zn+wk0QEKLbOf7CTRAQots5\u002fsJM0BCi2zn+wkzQGvn+6nxMjlAa+f7qfGyOUBr5\u002fup8fI5QGvn+6nx8jhAnhov3SQmOED2U+Olm6Q7QD0K16Nw3TtAPQrXo3DdO0A9CtejcN06QKabxCCwMkFAyHa+nxpPQEDIdr6fGk9AQJDtfD81nj1AkO18PzWeO0CQ7Xw\u002fNZ47QJDtfD813jtAkO18PzUeOECQ7Xw\u002fNV44QNajcD0KlzVAG1pkO98PMkCCwMqhRbYwQLXz\u002fdR46TBAauf7qfHSL0C18\u002f3UeCkwQLXz\u002fdR4KTBA03jpJjGoNECqHFpkOx84QGaR7Xw\u002fNTxAZpHtfD81O0Bmke18PzU5QGaR7Xw\u002fNThAZpHtfD81OECaxCCwcmg4QL2fGi\u002fdBDhAULgehevRPUCWbhKDwAo+QN0kBoGVQz5ArkfhehQuPkCuR+F6FC4+QK5H4XoULj1ArkfhehRuPEDiehSuR6E7QOJ6FK5HoTtAUrgehevRO0BSuB6F69E7QFK4HoXrETxAUrgehesROUCPwvUoXG84QI\u002fC9ShcbzhAj8L1KFxvOECPwvUoXG83QGDl0CLbGTZAYOXQItsZNkBg5dAi2xk1QGDl0CLbGTVAtMh2vp8aNkBoke18P\u002fU2QGiR7Xw\u002f9TZA1qNwPQpXN0DWo3A9Clc2QI2XbhKDwDZAjZduEoMANkA2iUFg5dA2QML1KFyPQjdATWIQWDm0NkBNYhBYObQ0QE1iEFg5tDRATWIQWDm0M0C7dJMYBBYxQHJoke18vzBASjeJQWDlLUCwne+nxksuQLCd76fGyy5AsJ3vp8bLLkDIdr6fGg81QMh2vp8aTzVAQWDl0CK7NUBBYOXQIjs1QEFg5dAiOzVA4qWbxCAQNkAoXI\u002fC9Ug2QBOuR+F6dDpAg+tRuB6lOkA="},"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"type":"category","tickangle":45,"nticks":10}},                        {"responsive": true}                    ).then(function(){
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="b787b4c9-f314-44fd-aa77-fca45a1e4589" class="plotly-graph-div html-fill-item html-fill-container" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("b787b4c9-f314-44fd-aa77-fca45a1e4589")) {                    Plotly.newPlot(                        "b787b4c9-f314-44fd-aa77-fca45a1e4589",                        [{"line":{"color":"steelblue","width":3},"mode":"lines","x":["2023-04-26","2023-04-27","2023-04-28","2023-04-29","2023-04-30","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-06","2023-05-07","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-13","2023-05-14","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-20","2023-05-21","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-27","2023-05-28","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-03","2023-06-04","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-10","2023-06-11","2023-06-12","2023-06-13","2023-06-14","2023-06-17","2023-06-18","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-24","2023-06-25","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-01","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-08","2023-07-09","2023-07-14","2023-07-15","2023-07-16","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-22","2023-07-23","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-29","2023-07-30","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-05","2023-08-06","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-12","2023-08-13","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-19","2023-08-20","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25","2023-08-26","2023-08-27","2023-08-28","2023-08-29","2023-08-30","2023-08-31","2023-09-01","2023-09-02","2023-09-03","2023-09-04","2023-09-05","2023-09-06","2023-09-07","2023-09-08","2023-09-09","2023-09-10","2023-09-11","2023-09-12","2023-09-13","2023-09-14","2023-09-15","2023-09-16","2023-09-17","2023-09-18","2023-09-19","2023-09-20","2023-09-21","2023-09-22","2023-09-23","2023-09-24","2023-09-25","2023-09-26","2023-09-27","2023-09-28","2023-09-29","2023-09-30","2024-04-01","2024-04-02","2024-04-03","2024-04-04","2024-04-05","2024-04-06","2024-04-07","2024-04-08","2024-04-09","2024-04-10","2024-04-14","2024-04-15","2024-04-16","2024-04-17","2024-04-18","2024-04-19","2024-04-20","2024-04-21","2024-04-22","2024-04-23","2024-04-24","2024-04-25","2024-04-26","2024-04-27","2024-04-28","2024-04-29","2024-04-30","2024-05-01","2024-05-02","2024-05-03","2024-05-04","2024-05-05","2024-05-06","2024-05-07","2024-05-08","2024-05-09","2024-05-10","2024-05-11","2024-05-12","2024-05-13","2024-05-14","2024-05-15","2024-05-16","2024-05-17","2024-05-18","2024-05-19","2024-05-20","2024-05-21","2024-05-22","2024-05-23","2024-05-24","2024-05-25","2024-05-26","2024-05-27","2024-05-28","2024-05-29","2024-05-30","2024-05-31","2024-06-01","2024-06-02","2024-06-03","2024-06-04","2024-06-05","2024-06-06","2024-06-07","2024-06-08","2024-06-09","2024-06-10","2024-06-11","2024-06-12","2024-06-13","2024-06-14","2024-06-15","2024-06-16","2024-06-17","2024-06-18","2024-06-19","2024-06-20","2024-06-21","2024-06-22","2024-06-23","2024-06-24","2024-06-25","2024-06-26","2024-06-27","2024-06-28","2024-06-29","2024-06-30","2024-07-01","2024-07-02","2024-07-03","2024-07-04","2024-07-05","2024-07-06","2024-07-07","2024-07-08","2024-07-09","2024-07-10","2024-07-11","2024-07-12","2024-07-13","2024-07-14","2024-07-19","2024-07-20","2024-07-21","2024-07-22","2024-07-23","2024-07-24","2024-07-25","2024-07-26","2024-07-27","2024-07-28","2024-07-29","2024-07-30","2024-07-31","2024-08-01","2024-08-02","2024-08-03","2024-08-04","2024-08-05","2024-08-06","2024-08-07","2024-08-08","2024-08-09","2024-08-10","2024-08-11","2024-08-12","2024-08-13","2024-08-14","2024-08-15","2024-08-16","2024-08-17","2024-08-18","2024-08-19","2024-08-20","2024-08-21","2024-08-22","2024-08-23","2024-08-24","2024-08-26","2024-08-27","2024-08-28","2024-08-29","2024-08-30","2024-08-31","2024-09-01","2024-09-02","2024-09-03","2024-09-04","2024-09-05","2024-09-06","2024-09-07","2024-09-08","2024-09-09","2024-09-10","2024-09-11","2024-09-12","2024-09-13","2024-09-14","2024-09-15","2024-09-16","2024-09-17","2024-09-18","2024-09-19","2024-09-20","2024-09-21","2024-09-22","2024-09-23","2024-09-24","2024-09-25","2024-09-26","2024-09-27","2024-09-28","2024-09-29","2025-04-01","2025-04-02","2025-04-03","2025-04-26","2025-04-28","2025-04-29","2025-04-30","2025-05-01","2025-05-02","2025-05-03","2025-05-04","2025-05-05","2025-05-06","2025-05-07","2025-05-08","2025-05-09","2025-05-10","2025-05-11","2025-05-12","2025-05-13","2025-05-14","2025-05-15","2025-05-16","2025-05-17","2025-05-18","2025-05-19","2025-05-20","2025-05-21","2025-05-22","2025-05-23","2025-05-24","2025-05-25","2025-05-26","2025-05-27","2025-05-28","2025-05-29","2025-05-30","2025-05-31","2025-06-01","2025-06-02","2025-06-03","2025-06-04","2025-06-05","2025-06-06","2025-06-07","2025-06-08","2025-06-09","2025-06-10","2025-06-11","2025-06-12","2025-06-13","2025-06-14","2025-06-15","2025-06-16","2025-06-17","2025-06-18","2025-06-19","2025-06-20","2025-06-21","2025-06-22","2025-06-23","2025-06-24","2025-06-25","2025-06-26","2025-06-27","2025-06-28","2025-06-29","2025-06-30","2025-07-01","2025-07-02","2025-07-03","2025-07-04","2025-07-05","2025-07-06","2025-07-07","2025-07-08","2025-07-09","2025-07-10","2025-07-11","2025-07-12","2025-07-13","2025-07-18","2025-07-19","2025-07-20","2025-07-21","2025-07-22","2025-07-23","2025-07-24","2025-07-25","2025-07-26","2025-07-27","2025-07-28","2025-07-29","2025-07-30","2025-07-31","2025-08-01","2025-08-02","2025-08-03","2025-08-04","2025-08-05","2025-08-06","2025-08-07","2025-08-08","2025-08-09","2025-08-10","2025-08-11","2025-08-12","2025-08-13","2025-08-14","2025-08-15","2025-08-16","2025-08-17","2025-08-18","2025-08-19","2025-08-20","2025-08-21","2025-08-22","2025-08-23","2025-08-24","2025-08-25","2025-08-26","2025-08-27","2025-08-28","2025-08-29","2025-08-30","2025-08-31","2025-09-01","2025-09-02","2025-09-03","2025-09-04","2025-09-05","2025-09-06","2025-09-07","2025-09-08","2025-09-09","2025-09-10","2025-09-11","2025-09-12","2025-09-13","2025-09-14","2025-09-15","2025-09-16","2025-09-17","2025-09-18","2025-09-19","2025-09-20","2025-09-21","2025-09-23","2025-09-24","2025-09-25","2025-09-26","2025-09-27","2025-09-28"],"y":{"dtype":"f8","bdata":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgPwAAAAAAAOA\u002fAAAAAAAA4D8AAAAAAADgPwAAAAAAAOA\u002fAAAAAAAA4D8AAAAAAADgP7gehetRuOo\u002fuB6F61G46j+aqfHSTWJgP5qp8dJNYmA\u002fmqnx0k1iYD+aqfHSTWJgP5qp8dJNYmA\u002fmqnx0k1iYD81XrpJDAIQQDVeukkMAhBAarx0kxgECEBqvHSTGAQAQNN46SYxCPA\u002fWg4tsp3v779aDi2yne\u002fnv1oOLbKd7+e\u002fWg4tsp3v579aDi2yne\u002fnv1oOLbKd7+e\u002fsxxaZDvf37+WQ4ts5\u002fsLwMuhRbbz\u002fRnAy6FFtvP9GcAtXI\u002fC9Sjgvy1cj8L1KOC\u002fLVyPwvUo4L8L16NwPQoEwAvXo3A9CgzAy6FFtvN9EMDLoUW2830UwObQItv5PiDA5tAi2\u002fk+IsDm0CLb+T4iwObQItv5PiPA5tAi2\u002fk+I8Dm0CLb+T4lwObQItv5PiXA5tAi2\u002fm+JMDm0CLb+b4mwObQItv5vijAWmQ730\u002fNJ8BaZDvfT80nwFpkO99PzSnAWmQ730\u002fNK8BaZDvfT80twPLSTWIQuDDASOF6FK7HKsBI4XoUrscqwNNNYhBYeSzA6iYxCKw8MMDTTWIQWPkvwNNNYhBY+S\u002fA001iEFj5L8DqJjEIrPwywOomMQis\u002fDPA6iYxCKz8N8DqJjEIrPw4wOomMQis\u002fDjA6iYxCKz8N8DqJjEIrPw3wOomMQis\u002fDfA6iYxCKz8N8DqJjEIrPw4wOomMQis\u002fDnArkfhehTOOcACK4cW2Q43wAIrhxbZDjfAAiuHFtkOOcAzMzMzM3M1wIPAyqFFdjPAg8DKoUV2M8CDwMqhRXYzwIPAyqFFdjPAg8DKoUV2NcCDwMqhRXY1wIPAyqFFdjbAg8DKoUU2OMCDwMqhRTY5wIPAyqFFNjnAg8DKoUU2O8A730+Nl843wDvfT42XzjfAO99PjZfON8AW2c73U6MuwIts5\u002fupUTDAi2zn+6lRMMCLbOf7qVEwwIts5\u002fupUTLAi2zn+6lRM8BGtvP91BgzwEa28\u002f3UGDPAZTvfT42XMMBlO99PjZcxwGU730+NlzTAlRgEVg4tJMCVGARWDi0kwJUYBFYOLSbAlRgEVg4tJsALrBxaZLsewB4v3SQGAR7AHi\u002fdJAYBHsAIVg4tsh0dwAhWDi2yHR3ACFYOLbIdHMAIVg4tsh0cwAQrhxbZDiDABCuHFtkOIsAEK4cW2Q4mwHm+nxovHSfAeb6fGi8dJ8B5vp8aLx0pwHm+nxovHSnAer6fGi+dKsB6vp8aL50swHq+nxovnS7Ayks3iUGgI8DKSzeJQaAjwMpLN4lBoCPAhekmMQisDsCF6SYxCKwOwMJ0kxgEVhPA9qfGSzeJFsD2p8ZLN4kewPtT46WbRCPA+1PjpZtEI8D7U+Olm0QnwPtT46WbRCfA+1PjpZtEJ8Bw5\u002fup8VIowHDn+6nxUijAcOf7qfFSKMBw5\u002fup8VIswHDn+6nxUizAcOf7qfFSLsBw5\u002fup8VIuwMx2vp8a7yjAusQgsHJo\u002f7+6xCCwcmj\u002fv11iEFg5tAfAZuomMQiszL9m6iYxCKzMv82syHa+n5o\u002fM69yaJHtzD8zr3Joke3MP5pXObTIdt4\u002f6Nr5fmq87D+ukxgEVg7lv3q5SQwCK8c\u002flqscWmQ71z8Aw\u002fUoXI\u002favwCG61G4HsW\u002fk70gsHJokT+TvSCwcmiRP5O9ILByaJE\u002fk70gsHJokT+TvSCwcmiRPxP6fmq8dO+\u002fE\u002fp+arx0779eMQisHFrov68YBFYOLfi\u002frxgEVg4t9L+vGARWDi30v1gMAiuHFgLA+0+Nl24S9b+cO99PjZfmv9Dl0CLb+d6\u002fS7gehetRFEBike18PzUVQHhqvHSTGBdA1iQGgZXDF0A130+Nl24YQBPZzvdTYyxAE9nO91NjLECeRbbz\u002fVQtQJ5FtvP9VCtAnkW28\u002f1UK0AFrBxaZLsrQAWsHFpkuylAaxKDwMohKEBIN4lBYOUoQEg3iUFg5ShASDeJQWBlKUBIN4lBYGUpQEg3iUFgZSlASDeJQWBlKUBIN4lBYGUpQEg3iUFg5SlASDeJQWDlJkC+9Shcj0InQL71KFyPQiVASmIQWDm0JUBKYhBYObQjQEpiEFg5tCFA1c73U+MlIkDVzvdT4yUiQMXMzMzMzB5AxczMzMzMHkDFzMzMzMweQMXMzMzMzBxAxczMzMzMEEDFzMzMzMwQQMXMzMzMzBBAskkMAiuHEUCySQwCK4cRQLJJDAIrhxFAskkMAiuHEUBlkxgEVg4LQGWTGARWDgtAYrx0kxiEFEAviUFg5VARQC+JQWDlUBFAkG4Sg8BKH0CQbhKDwEobQH7rUbgeBRhAgkFg5dCiGkBuvp8aL10bQFq6SQwCqydAWrpJDAKrJUBaukkMAqsjQNB46SYxCCBARjeJQWDlIECNbhKDwModQI1uEoPAyhlAjW4Sg8BKGUCNbhKDwEoVQCNcj8L1KCRAI1yPwvWoJEAjXI\u002fC9agkQCNcj8L1qCRAEwRWDi3yJEATBFYOLfIiQGfn+6nx0iZAZ+f7qfHSJEDOzvdT46UZQMpPjZduEgVApUkMAiuHBkBqEoPAyiEgQNMkBoGVQxxA0yQGgZVDHEDTJAaBlUMZQNMkBoGVQxVA0yQGgZVDFUCmSQwCK4cCQBqyne+nxglAGrKd76fGCUAQrkfhetQiQH4W2c73Ux9AfhbZzvdTG0B+FtnO91MXQH4W2c73UxtA7\u002f3UeOmmJkDv\u002fdR46aYmQDrfT42XTjZAOt9PjZdONkA630+Nl041QOpRuB6FSzpA6lG4HoVLOkDqUbgehYs5QOpRuB6FizpA6lG4HoWLOEDqUbgehYs4QHs\u002fNV66iTxAez81XrqJPEATrkfherQ7QBOuR+F6tDlAE65H4Xq0OEATrkfherQ3QBOuR+F6tDdApZvEILCyPUAqhxbZztdAQCqHFtnOl0BAKocW2c4XQECjcD0K15NAQKNwPQrXk0BAo3A9CteTQECjcD0K1xNAQEbhehSuJz9ARuF6FK4nPkBG4XoUric9QEbhehSuJz1ARuF6FK4nPEBG4XoUric5QEbhehSuZzxARuF6FK5nPEDSTWIQWFk8QBgEVg4tkjxAGARWDi2SOUA2iUFg5RA8QDaJQWDlEDxANolBYOUQPEA2iUFg5RA6QHJoke18PzlAcmiR7Xx\u002fOUByaJHtfP85QHJoke18\u002fzhAcmiR7Xz\u002fNUByaJHtfP81QHJoke18\u002fzVAtx6F61E4NUC3HoXrUTg0QLcehetRODRAtx6F61E4NEC3HoXrUTgyQLcehetRODFAtx6F61E4M0C3HoXrUTgzQLcehetRODFAtx6F61E4MUD91HjpJnEwQP3UeOkmcTBA+qnx0k3iLkCFFtnO99MvQIUW2c730y1AhRbZzvfTK0AQg8DKoUUsQJ4aL90kZjJAnhov3SRmMkCCwMqhRfYyQILAyqFF9jJA8v3UeOnmM0DAyqFFthM6QDAIrBxaRDpAdr6fGi99OkB2vp8aL305QHa+nxovfTlAdr6fGi99OUB2vp8aL705QHa+nxov\u002fTdAdr6fGi\u002f9N0B2vp8aL\u002f03QOf7qfHSbThA5\u002fup8dJtOEDn+6nx0m04QOf7qfHSbTdA5\u002fup8dKtNkDn+6nx0q02QOf7qfHSrTZA5\u002fup8dKtNEDn+6nx0u0zQHJoke18XzRAcmiR7XxfM0CbxCCwcogzQJvEILByCDNAm8QgsHIIMkCbxCCwcggyQOF6FK5HQTJA4XoUrkdBMkDhehSuR4EyQCYxCKwcOjNAJjEIrBx6M0AmMQisHHoyQCYxCKwcejJAJjEIrBx6MkAmMQisHHoyQCYxCKwcujJAjZduEoMgM0CNl24SgyAzQI2XbhKDIDNAgsDKoUVWNkCCwMqhRVY1QPP91HjphjVA8\u002f3UeOmGNUDz\u002fdR46YY1QPP91HjpxjVAJjEIrBz6NUBiEFg5tGg0QGIQWDm0aDRAp8ZLN4mhNECnxks3iaE0QKfGSzeJoTRA2vl+arwUNUAgsHJokU00QFc5tMh2XjVAVzm0yHaeNEBXObTIdp40QIps5\u002fup0TRAfD81XrppNUDC9Shcj6I0QML1KFyPojNAB6wcWmTbM0BCi2zn+wk0QEKLbOf7CTRAQots5\u002fsJM0BCi2zn+wkzQGvn+6nxMjlAa+f7qfGyOUBr5\u002fup8fI5QGvn+6nx8jhAnhov3SQmOED2U+Olm6Q7QD0K16Nw3TtAPQrXo3DdO0A9CtejcN06QKabxCCwMkFAyHa+nxpPQEDIdr6fGk9AQJDtfD81nj1AkO18PzWeO0CQ7Xw\u002fNZ47QJDtfD813jtAkO18PzUeOECQ7Xw\u002fNV44QNajcD0KlzVAG1pkO98PMkCCwMqhRbYwQLXz\u002fdR46TBAauf7qfHSL0C18\u002f3UeCkwQLXz\u002fdR4KTBA03jpJjGoNECqHFpkOx84QGaR7Xw\u002fNTxAZpHtfD81O0Bmke18PzU5QGaR7Xw\u002fNThAZpHtfD81OECaxCCwcmg4QL2fGi\u002fdBDhAULgehevRPUCWbhKDwAo+QN0kBoGVQz5ArkfhehQuPkCuR+F6FC4+QK5H4XoULj1ArkfhehRuPEDiehSuR6E7QOJ6FK5HoTtAUrgehevRO0BSuB6F69E7QFK4HoXrETxAUrgehesROUCPwvUoXG84QI\u002fC9ShcbzhAj8L1KFxvOECPwvUoXG83QGDl0CLbGTZAYOXQItsZNkBg5dAi2xk1QGDl0CLbGTVAtMh2vp8aNkBoke18P\u002fU2QGiR7Xw\u002f9TZA1qNwPQpXN0DWo3A9Clc2QI2XbhKDwDZAjZduEoMANkA2iUFg5dA2QML1KFyPQjdATWIQWDm0NkBNYhBYObQ0QE1iEFg5tDRATWIQWDm0M0C7dJMYBBYxQHJoke18vzBASjeJQWDlLUCwne+nxksuQLCd76fGyy5AsJ3vp8bLLkDIdr6fGg81QMh2vp8aTzVAQWDl0CK7NUBBYOXQIjs1QEFg5dAiOzVA4qWbxCAQNkAoXI\u002fC9Ug2QBOuR+F6dDpAg+tRuB6lOkA="},"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"type":"category","tickangle":45,"nticks":10},"yaxis":{"title":{"text":"Units"}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('9daf89df-1806-49f6-b2dc-1d44394af608');
+var gd = document.getElementById('b787b4c9-f314-44fd-aa77-fca45a1e4589');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -4211,23 +4214,74 @@ if (outputEl) {{
                         })                };            </script>        </div>
 </div>
 </div>
-</div><div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">Brendan Style</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">Brendan Style</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6UHl0aG9uIE1MIE1vZGVs">Python ML Model</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6UmVhZG1lIE92ZXJ2aWV3">Readme Overview</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L21sbS5odG1s">/mlm.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6RGF0YSBWaXN1YWxpemF0aW9u">Data Visualization</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6aHR0cHM6Ly91cy1lYXN0LTEub25saW5lLnRhYmxlYXUuY29tLyMvc2l0ZS9icmVuZGFuc3R5bGUxLWY5NjRiNGJmMzYvd29ya2Jvb2tzLzQwODI0NTkvdmlld3M=">https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U1FMIERhdGFiYXNlICsgRGF0YSBWaXo=">SQL Database + Data Viz</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3NxbC5odG1s">/sql.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6RGFzaGJvYXJkIHRlc3Rpbmc=">Dashboard testing</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2hyX3Bsb3R0aW5nLmh0bWw=">/hr_plotting.html</span></p>
-<div class="hidden quarto-markdown-envelope-contents" data-render-id="Zm9vdGVyLWNlbnRlcg==">
-<p>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026</p>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
 </div>
-</div><div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">hr_plotting – Brendan Style</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">hr_plotting – Brendan Style</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">hr_plotting – Brendan Style</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Brendan Style</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw=="></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj"></span></p>
-</div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+</div>
+</div>
+<div id="oversunders" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-oversunders">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Profit Margin By Edge Bin (Overs)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Profit Margin By Edge Bin (Overs)
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="3c99c298-eff6-45d9-8564-d7e38665baa7" class="plotly-graph-div html-fill-item html-fill-container" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("3c99c298-eff6-45d9-8564-d7e38665baa7")) {                    Plotly.newPlot(                        "3c99c298-eff6-45d9-8564-d7e38665baa7",                        [{"x":["Over 5.5% Edge","Under 5.5% Edge"],"y":{"dtype":"f8","bdata":"mpmZmZkZN0CamZmZmZkNQA=="},"type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"yaxis":{"title":{"text":"ROI"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('3c99c298-eff6-45d9-8564-d7e38665baa7');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="section" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-section">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: ; grid-auto-columns: minmax(0, 1fr);">
+
+
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
 
 </div>
 </div>
 </div>
 </div>
-</div>
 
 
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -4795,8 +4849,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-      <div class='footer-contents'>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026</div>  
-    </div>
+<p>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
@@ -4811,6 +4865,7 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
 }); 
 </script>
   
-</body>
 
-</html>
+
+
+</body></html>
