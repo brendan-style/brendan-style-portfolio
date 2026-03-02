@@ -35,10 +35,10 @@ After getting these ratings for each player, I then put the ratings through a se
 After predicting our own odds for 85k observations across the 2023-2025 seasons, I split them into train and test sets and found the most ideal blend of sportsbook vs model weighting, the proper amount of "advantage" the model saw in the bet, and the proper threshold. Here are the results for the test data set:
 
 #### Unders
-307 Bets, 3.1% profit
+307 Bets, 3.2% profit
 
 #### Overs:
-318 Bets, 5.2% Profit
+318 Bets, 5.3% Profit
 
 ![](./img/profit_plot.png)
 
