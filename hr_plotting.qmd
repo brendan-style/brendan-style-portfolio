@@ -41,7 +41,7 @@ fig.add_trace(go.Bar(
 )).update_layout(yaxis_title="ROI")
 ```
 
-## Row 
+## Row
 
 ```{python}
 #| title: Cumulative Units of Profit for Test Data
@@ -71,7 +71,60 @@ fig.add_trace(go.Scatter(
 ## Row
 
 ```{python}
-#| title: Profit Margin By Edge Bin (Overs)
+#| title: Profit By Stadium
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+final_ratings_test = final_ratings_test.query('over_pick == 1')
+df_sorted = final_ratings_test.groupby('home').agg(profit=('profit','sum'),picks=('over_pick','sum')).reset_index()
+df_sorted.profit = df_sorted.profit/10
+df_sorted = df_sorted.sort_values(by='profit',ascending=False)
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    x=df_sorted['home'],
+    y=df_sorted['profit']
+)).update_layout(yaxis_title="Profit (Units)").update_xaxes(tickangle=300)
+```
+
+```{python}
+#| title: Home Run Prediction Error By Rating Bin
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+final_ratings_test = final_ratings_test.reset_index(drop=True)
+final_ratings_test['Rating Bin'] = final_ratings_test.rating.round()
+for i in range(len(final_ratings_test)):
+  if final_ratings_test['Rating Bin'][i] >= 8:
+    final_ratings_test['Rating Bin'][i] = '8+'
+  else:
+    continue
+df_sorted = final_ratings_test.groupby('Rating Bin').agg(Sportsbook=('over','mean'),Model=('pred_over','mean'),Actual=('hr','mean')).reset_index()
+df_sorted['Rating Bin'] = df_sorted['Rating Bin'].astype(str) 
+fig = go.Figure(data=[go.Bar(name='Actual',x=df_sorted['Rating Bin'],y=df_sorted['Actual'], showlegend=False),go.Bar(name='Model',x=df_sorted['Rating Bin'],y=df_sorted['Model'], showlegend=False),go.Bar(name='Sportsbook',x=df_sorted['Rating Bin'],y=df_sorted['Sportsbook'], showlegend=False)]).update_layout(
+    barmode='group',
+    yaxis_title="Mean",
+    annotations=[
+        dict(x=0.02, y=1.08, xref='paper', yref='paper', showarrow=False,
+             text='<span style="color:#636EFA">■</span> Actual'),
+        dict(x=0.16, y=1.08, xref='paper', yref='paper', showarrow=False,
+             text='<span style="color:#EF553B">■</span> Model'),
+        dict(x=0.35, y=1.08, xref='paper', yref='paper', showarrow=False,
+             text='<span style="color:#00CC96">■</span> Sportsbook'),
+    ]
+)
+
+
+#.update_layout(legend=dict(
+#       orientation="h",yanchor="top",y=.99,xanchor="left",
+#      x=.01),margin=dict(t=40))
+fig.show()
+```
+
+## Row
+
+```{python}
+#| title: Profit Margin By Edge Bin
 import pandas as pd
 import plotly.graph_objects as go
 final_ratings_test = pd.read_csv('v2_test_ratings.csv')
@@ -83,8 +136,60 @@ fig = go.Figure()
 
 fig.add_trace(go.Bar(
     x=df_sorted['over%'],
-    y=df_sorted['roi']
+    y=df_sorted['roi'],width=[.3,.3]
 )).update_layout(yaxis_title="ROI")
+```
+
+```{python}
+#| title: Distribution of Bets By Rating Bin
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+final_ratings_test = final_ratings_test.query('over_pick == 1')
+final_ratings_test = final_ratings_test.reset_index(drop=True)
+final_ratings_test['Rating Bin'] = final_ratings_test.rating.round()
+for i in range(len(final_ratings_test)):
+  if final_ratings_test['Rating Bin'][i] >= 8:
+    final_ratings_test['Rating Bin'][i] = '8+'
+  else:
+    continue
+df_sorted = final_ratings_test.groupby('Rating Bin').agg(profit=('profit','sum'),picks=('over_pick','sum')).reset_index()
+df_sorted['roi'] = round((df_sorted.profit/df_sorted.picks*10),1)
+df_sorted.profit = df_sorted.profit/10
+fig = go.Figure(data=[go.Pie(
+    labels=df_sorted['Rating Bin'],
+    values=df_sorted.picks,
+    showlegend=False,
+    marker=dict(colors=['#F4845F', '#8338EC', '#06D6A0'])
+)]).update_layout(
+    annotations=[
+        dict(x=0.04, y=1.1, xref='paper', yref='paper', showarrow=False,
+             text='<span style="color:#F4845F">■</span> 6'),
+        dict(x=0.14, y=1.1, xref='paper', yref='paper', showarrow=False,
+             text='<span style="color:#8338EC">■</span> 7'),
+        dict(x=0.24, y=1.1, xref='paper', yref='paper', showarrow=False,
+             text='<span style="color:#06D6A0">■</span> 8+'),
+    ]
+)
+fig.show()
+```
+
+```{python}
+#| title: Profit By Rating Bin
+import pandas as pd
+import plotly.graph_objects as go
+final_ratings_test = pd.read_csv('v2_test_ratings.csv')
+final_ratings_test = final_ratings_test.query('over_pick == 1')
+final_ratings_test['Rating Bin'] = final_ratings_test.rating.round()
+df_sorted = final_ratings_test.groupby('Rating Bin').agg(profit=('profit','sum'),picks=('over_pick','sum')).reset_index()
+df_sorted['roi'] = round((df_sorted.profit/df_sorted.picks*10),1)
+df_sorted.profit = df_sorted.profit/10
+fig = go.Figure()
+
+fig.add_trace(go.Bar(
+    x=df_sorted['Rating Bin'],
+    y=df_sorted['profit'], marker_color='darkorange'
+)).update_layout(yaxis_title="Profit (Units)")
 ```
 
 # 
