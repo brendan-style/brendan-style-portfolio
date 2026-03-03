@@ -1,5 +1,5 @@
 ---
-title: "Prediciting Home Runs in MLB"
+title: "Python Machine Learning Blog"
 author: "Brendan Style"
 date: 2025-04-21
 image: "title_card.webp"
@@ -173,6 +173,10 @@ As can be discerned from the graph, this method produced the most desirable resu
 
 ## Real-World Applications/Conclusion
 
+Since finishing this project for school, I have made massive updates. The process
+of creating these ratings is still largely the same, but I have been able to turn
+this into a betting model with potential for a 4% return over 600+ bets a season.
+<!--
 Unfortunately, since this project deals solely with the world of sports, it is quite limited in terms of real world application. I truthfully don’t like to condone this in a paper that is aiming to be professional, but the only context in which I think you could use this information would be the realm of sports betting. Since the LASSO regression model works by loosely calculating a probability of a matchup resulting in a home run, those probabilities can be used to calculate a perceived “value” over a given sports book. For a quick example:
 
 - Player A is a hitter facing player B, a pitcher
@@ -186,7 +190,5 @@ Outside of betting, another thing that this could possibly be used for would be 
 
 Overall this project taught me a lot about the applications of machine learning models. Specifically, it taught me the importance of high-quality data when it comes to classification models, and it also taught me how to think outside the box and use machine learning models in ways I hadn’t really thought of before, such as creating projected HR ratings with the use of LASSO. Though my conclusion wasn’t a very traditional method of success, I think it showed enough promise that I can consider this whole project a valid use of my time. To wrap things up, I would just like the reiterate some of the shortcomings I touched on in my presentation:
 
-- These ratings do not include modifiers for either handedness splits or stadium factors. For context, most hitters usually perform better when facing a pitcher of the opposite hand (so a lefty hitter will hit better vs a right pitcher), and some stadiums have dimensions that allow more home runs to be hit. Though both of these likely would’ve played a minimal role in the outcomes, it is certainly worth mentioning
-- Perhaps the biggest shortcoming is the use of strictly prior-season data. Most high level projection systems and game simulation engines will use a combination of multiple seasons worth of data, including the current one. This is something that simply had to be cut for time constraints, but I certainly would factor it in if I continue to flesh out this project.
-- Another one of the largest shortcomings was the lack of ratings for any other pitcher besides the starters. These ratings only factor in pitchers that pitch around 60% of the game, called starters, but the pitchers that pitch afterwards, called relievers, were not. This would be tricky to do given the unpredictability of which reliever will pitch when, but it is still worth mentioning that these ratings aren’t emblematic of the entire game, which I originally set out to do.
 - Finally, while working on this project, bat-tracking data was released for MLB, But due to the timing, and the fact that it only exists for the 2023 and 2024 seasons, I was unable to include it as part of the analysis. Still, as indicated by the graph below, it is most certainly impactful on home run hitting capabilities
+-->

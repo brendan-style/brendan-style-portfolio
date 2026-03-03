@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-02-12">
+<meta name="dcterms.date" content="2026-03-02">
 
 <title>Creating an SQL Database through Python – Brendan Style</title>
 <style>
@@ -90,6 +90,10 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Project Blogs</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-ml-model" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Python ML Model</span>
@@ -100,14 +104,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Readme Overview</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./hr_plotting.html">
+ <span class="dropdown-text">Quarto Dashboard</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views">
- <span class="dropdown-text">Data Visualization</span></a>
+ <span class="dropdown-text">Tableau Dashboard</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link active" href="./sql.html" aria-current="page"> 
-<span class="menu-text">SQL Database + Data Viz</span></a>
+<span class="menu-text">SQL Database</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -138,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2026</p>
+      <p class="date">March 2, 2026</p>
     </div>
   </div>
   
@@ -150,9 +158,67 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>As a part of my database management class while in school, I was tasked with creating and maintaining an SQL database of my choice. Being a big sports fan, I decided to make a database consisting of information about all NFL players from that most recent season.</p>
+<p>As a part of my Database Management class while in school, I was tasked with creating and maintaining an SQL database of my choice. Being a big sports fan, I decided to make a database consisting of information about all NFL players who recorded a stat in 2023, that most recent season. This is a breakdown of the process behind its creation, as well as some example queries</p>
+<section id="tables-normalization" class="level1">
+<h1>Tables + Normalization</h1>
+<p>Even just for one season’s worth of players, there is a tremendous amount of data to include, particularly with play-by-play data. The pbp dataset I pulled from nfl_data_py is far more wide than long, as it was designed for every play to be contained within one row. That means anything that can happen on a play gets its own column, resulting in a dataset with 397 columns, at least 30% of which will be null values on any given play. Knowing I wouldn’t be able to capture every aspect of a play while following Normal Forms, I settled on 17 columns that tell you enough about the play to satisfy all but the most scrupulous of football fans. The key to it all are the columns “Stat” and “Amount”. Using these 2 columns I can tell you just about everything that happened on a play.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>Play ID 1 involves QB ID 7 completing a pass to WR ID 33 for 14 yards</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>PLAY_ID</th>
+<th>PLAYER_ID</th>
+<th>STAT_TYPE</th>
+<th>AMOUNT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>7</td>
+<td>completion</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>7</td>
+<td>attempt</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>7</td>
+<td>pass_yards</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>33</td>
+<td>target</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>33</td>
+<td>catch</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>33</td>
+<td>rec_yards</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>For the sake of not making a massive table, I limited it to basic stats, but the “Stat” column would also include things like expected points added (EPA), time to throw, and air yards. This process allows us to take what would’ve been 10+ columns on one row and limit it to 4 while limiting null values and still conveying much of the same story.</p>
+<p>The rest</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script type="text/javascript" src="links.js"></script>
@@ -724,7 +790,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025</p>
+<p>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

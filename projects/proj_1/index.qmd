@@ -1,5 +1,5 @@
 ---
-title: "NFL Draft Trends Analyzed and Visualized"
+title: "NFL Draft Data Viz Blog"
 author: "Brendan Style"
 date: 2024-04-21
 image: "draft_logo.png"

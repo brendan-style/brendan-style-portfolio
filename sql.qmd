@@ -1,6 +1,6 @@
 ---
-title: "Creating an SQL Database through Python"
-date: '02-12-2026'
+title: "Creating an SQL Database through Python - In Progress"
+date: '03/02/2026'
 ---
 
 As a part of my Database Management class while in school, I was tasked with
@@ -9,7 +9,35 @@ I decided to make a database consisting of information about all NFL players who
 recorded a stat in 2023, that most recent season. This is a breakdown 
 of the process behind its creation, as well as some example queries
 
-## Tables + Normalization
+# Tables + Normalization
 
 Even just for one season's worth of players, there is a tremendous amount of data
-to include, 
+to include, particularly with play-by-play data. The pbp dataset I pulled from
+nfl_data_py is far more wide than long, as it was designed for every
+play to be contained within one row. That means anything that can happen 
+on a play gets its own column, resulting in a dataset with 397 columns, at least
+30% of which will be null values on any given play. Knowing I wouldn't be able
+to capture every aspect of a play while following Normal Forms, I settled on 17
+columns that tell you enough about the play to satisfy all but the most scrupulous
+of football fans. The key to it all are the columns "Stat" and "Amount". Using
+these 2 columns I can tell you just about everything that happened on a play.
+
+### Example
+Play ID 1 involves QB ID 7 completing a pass to WR ID 33 for 14 yards
+
+| PLAY_ID | PLAYER_ID | STAT_TYPE | AMOUNT|
+|---------|-----------|-----------|-------|
+| 1      | 7          | completion| 1     |
+| 1      | 7          | attempt   | 1     |
+| 1      | 7          | pass_yards| 7     |
+| 1      | 33         | target    | 1     |
+| 1      | 33         | catch     | 1     |
+| 1      | 33         | rec_yards | 7     |
+
+For the sake of not making a massive table, I limited it to basic stats, but the
+"Stat" column would also include things like expected points added (EPA), time to
+throw, and air yards. This process allows us to take what would've been 10+ columns
+on one row and limit it to 4 while limiting null values and still conveying much
+of the same story.
+
+The rest

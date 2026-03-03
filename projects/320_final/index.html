@@ -9,7 +9,7 @@
 <meta name="author" content="Brendan Style">
 <meta name="dcterms.date" content="2025-04-21">
 
-<title>Prediciting Home Runs in MLB – Brendan Style</title>
+<title>Python Machine Learning Blog – Brendan Style</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,6 +91,10 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Project Blogs</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-ml-model" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Python ML Model</span>
@@ -101,14 +105,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Readme Overview</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../hr_plotting.html">
+ <span class="dropdown-text">Quarto Dashboard</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views">
- <span class="dropdown-text">Data Visualization</span></a>
+ <span class="dropdown-text">Tableau Dashboard</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="../../sql.html"> 
-<span class="menu-text">SQL Database + Data Viz</span></a>
+<span class="menu-text">SQL Database</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -128,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prediciting Home Runs in MLB</h1>
+<h1 class="title">Python Machine Learning Blog</h1>
 </div>
 
 
@@ -301,22 +309,22 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="real-world-applicationsconclusion" class="level2">
 <h2 class="anchored" data-anchor-id="real-world-applicationsconclusion">Real-World Applications/Conclusion</h2>
-<p>Unfortunately, since this project deals solely with the world of sports, it is quite limited in terms of real world application. I truthfully don’t like to condone this in a paper that is aiming to be professional, but the only context in which I think you could use this information would be the realm of sports betting. Since the LASSO regression model works by loosely calculating a probability of a matchup resulting in a home run, those probabilities can be used to calculate a perceived “value” over a given sports book. For a quick example:</p>
-<ul>
-<li>Player A is a hitter facing player B, a pitcher</li>
-<li>The matchup rating for these players is 5.3, so we can assumes the odds of a home run being produced is a little over 20%</li>
-<li>The stated odds of this matchup resulting in a homerun is +500, which we can easily calculate to being ⅙ or a 16.7% chance</li>
-<li>Since the stated odds are lower than the projected odds based on the lasso formula, we could now consider it a “value” selection, where betting on this player to hit a home run would theoretically result in a positive EV given enough simulations of the event.</li>
-</ul>
-<p>Alongside working on this project, I actually did attempt something like this, albeit with “theoretical” money. Every day of the 2025 baseball season, I selected the 5 players with the greatest disparity between my calculated probability and their stated probabilities and bet 5 theoretical dollars on them. Doing this for a little over 3 weeks, I was actually able to make a hypothetical profit of 37%, so even though it was a small sample size, it would appear that this method has some potential.</p>
-<p>Outside of betting, another thing that this could possibly be used for would be as a basis for a full game projection system. Since we are attempting to predict the outcomes of matchups, we could extend this past homeruns and attempt to predict the probability of all sorts of events. T Using that, you could run enough simulations of these matchups that you could predict the 50th percentile outcome of any given game. While that in itself might not have any non-betting applications, it would be very fun to try, and maybe something I tackle in the future.</p>
-<p>Overall this project taught me a lot about the applications of machine learning models. Specifically, it taught me the importance of high-quality data when it comes to classification models, and it also taught me how to think outside the box and use machine learning models in ways I hadn’t really thought of before, such as creating projected HR ratings with the use of LASSO. Though my conclusion wasn’t a very traditional method of success, I think it showed enough promise that I can consider this whole project a valid use of my time. To wrap things up, I would just like the reiterate some of the shortcomings I touched on in my presentation:</p>
-<ul>
-<li>These ratings do not include modifiers for either handedness splits or stadium factors. For context, most hitters usually perform better when facing a pitcher of the opposite hand (so a lefty hitter will hit better vs a right pitcher), and some stadiums have dimensions that allow more home runs to be hit. Though both of these likely would’ve played a minimal role in the outcomes, it is certainly worth mentioning</li>
-<li>Perhaps the biggest shortcoming is the use of strictly prior-season data. Most high level projection systems and game simulation engines will use a combination of multiple seasons worth of data, including the current one. This is something that simply had to be cut for time constraints, but I certainly would factor it in if I continue to flesh out this project.</li>
-<li>Another one of the largest shortcomings was the lack of ratings for any other pitcher besides the starters. These ratings only factor in pitchers that pitch around 60% of the game, called starters, but the pitchers that pitch afterwards, called relievers, were not. This would be tricky to do given the unpredictability of which reliever will pitch when, but it is still worth mentioning that these ratings aren’t emblematic of the entire game, which I originally set out to do.</li>
-<li>Finally, while working on this project, bat-tracking data was released for MLB, But due to the timing, and the fact that it only exists for the 2023 and 2024 seasons, I was unable to include it as part of the analysis. Still, as indicated by the graph below, it is most certainly impactful on home run hitting capabilities</li>
-</ul>
+<p>Since finishing this project for school, I have made massive updates. The process of creating these ratings is still largely the same, but I have been able to turn this into a betting model with potential for a 4% return over 600+ bets a season. <!--
+Unfortunately, since this project deals solely with the world of sports, it is quite limited in terms of real world application. I truthfully don’t like to condone this in a paper that is aiming to be professional, but the only context in which I think you could use this information would be the realm of sports betting. Since the LASSO regression model works by loosely calculating a probability of a matchup resulting in a home run, those probabilities can be used to calculate a perceived “value” over a given sports book. For a quick example:
+
+- Player A is a hitter facing player B, a pitcher
+- The matchup rating for these players is 5.3, so we can assumes the odds of a home run being produced is a little over 20%
+- The stated odds of this matchup resulting in a homerun is +500, which we can easily calculate to being ⅙ or a 16.7% chance
+- Since the stated odds are lower than the projected odds based on the lasso formula, we could now consider it a “value” selection, where betting on this player to hit a home run would theoretically result in a positive EV given enough simulations of the event.
+
+Alongside working on this project, I actually did attempt something like this, albeit with “theoretical” money. Every day of the 2025 baseball season, I selected the 5 players with the greatest disparity between my calculated probability and their stated probabilities and bet 5 theoretical dollars on them. Doing this for a little over 3 weeks, I was actually able to make a hypothetical profit of 37%, so even though it was a small sample size, it would appear that this method has some potential.
+
+Outside of betting, another thing that this could possibly be used for would be as a basis for a full game projection system. Since we are attempting to predict the outcomes of matchups, we could extend this past homeruns and attempt to predict the probability of all sorts of events. T Using that, you could run enough simulations of these matchups that you could predict the 50th percentile outcome of any given game. While that in itself might not have any non-betting applications, it would be very fun to try, and maybe something I tackle in the future.
+
+Overall this project taught me a lot about the applications of machine learning models. Specifically, it taught me the importance of high-quality data when it comes to classification models, and it also taught me how to think outside the box and use machine learning models in ways I hadn’t really thought of before, such as creating projected HR ratings with the use of LASSO. Though my conclusion wasn’t a very traditional method of success, I think it showed enough promise that I can consider this whole project a valid use of my time. To wrap things up, I would just like the reiterate some of the shortcomings I touched on in my presentation:
+
+- Finally, while working on this project, bat-tracking data was released for MLB, But due to the timing, and the fact that it only exists for the 2023 and 2024 seasons, I was unable to include it as part of the analysis. Still, as indicated by the graph below, it is most certainly impactful on home run hitting capabilities
+--></p>
 
 
 </section>
@@ -891,7 +899,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2025</p>
+<p>Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026</p>
 </div>
     <div class="nav-footer-right">
       &nbsp;
