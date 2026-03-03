@@ -1,0 +1,141 @@
+---
+title: "Example Queries, Visualized"
+editor: visual
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+# Example 1
+
+## Sorted list of QB's with most air yards
+
+### The Input  
+
+```         
+SELECT players.first_name, players.last_name, 
+       SUM(pass_stats.amount) AS total_air_yards
+FROM pass_stats 
+JOIN players ON pass_stats.player_id = players.player_id
+WHERE stat_type = 'air_yards'
+GROUP BY players.player_id
+ORDER BY total_air_yards DESC
+```
+
+### The Result
+
+```{python}
+import sqlite3 as sq
+import pandas as pd
+from itables import show
+db = sq.connect('nfl_players.db')
+records=pd.read_sql("""
+    select players.first_name, players.last_name, sum(pass_stats.amount) as total_air_yards
+    from pass_stats join players ON pass_stats.player_id = players.player_id
+    where stat_type = "air_yards"
+    group by players.player_id
+    order by total_air_yards desc
+    """,db)
+show(records,searching=False,ordering=True,showIndex=False,info=False)
+```
+
+# Example 2
+
+## Average rushing YPA by number of box defenders
+
+### The Input
+
+```         
+SELECT round(avg(r.amount),1) as YPA,r.defenders_in_box as Box_Defenders
+FROM rush_stats r join players p ON p.player_id = r.player_id
+WHERE stat_type = "rushing_yards" and Box_Defenders is NOT NULL
+GROUP BY Box_Defenders
+```
+
+### The Result
+
+```{python}
+import pandas as pd
+import sqlite3 as sq
+import plotly.graph_objects as go
+db = sq.connect('nfl_players.db')
+records=pd.read_sql("""
+SELECT round(avg(r.amount),1) as YPA,r.defenders_in_box as Box_Defenders
+FROM rush_stats r join players p ON p.player_id = r.player_id
+where stat_type = "rushing_yards" and Box_Defenders is NOT NULL
+group by Box_Defenders
+    """,db)
+
+
+fig = go.Figure()
+
+fig.add_trace(go.Scatter(
+    x=records['Box_Defenders'],
+    y=records['YPA'],
+    mode='lines',
+    line=dict(color='steelblue', width=3)
+)).update_layout(xaxis_title="Box Defenders",yaxis_title="YPA")
+```
+
+# Example 3
+
+## Using a View to plot team's average offensive output
+
+### The Input
+
+#### View - "passing_epa_by_team"
+
+```         
+SELECT round(avg(ps.amount),3) as Pass_EPA, p.team as Team
+FROM pass_stats ps JOIN players p on p.player_id=ps.player_id
+WHERE stat_type = 'epa'
+GROUP BY p.team
+ORDER BY Pass_EPA desc
+```
+
+#### View - "rushing_epa_by_team"
+
+```         
+SELECT round(avg(r.amount),3) as Rush_EPA, p.team as Team
+FROM rush_stats r 
+JOIN players p ON p.player_id = r.player_id
+WHERE stat_type = "epa"
+GROUP BY p.team
+ORDER BY Rush_EPA Desc
+```
+
+#### Query
+
+```         
+SELECT p.Team, p.Pass_EPA, r.Rush_EPA
+FROM passing_epa_by_team p
+JOIN rushing_epa_by_team r ON p.Team = r.Team
+```
+
+### The Result
+
+```{python}
+import pandas as pd
+import sqlite3 as sq
+import matplotlib.pyplot as plt
+import numpy as np
+db = sq.connect('nfl_players.db')
+records=pd.read_sql("""
+    SELECT p.Team, p.Pass_EPA, r.Rush_EPA
+    FROM passing_epa_by_team p
+    JOIN rushing_epa_by_team r ON p.Team = r.Team
+    """,db)
+avg_pass = records['Pass_EPA'].mean()
+avg_rush = records['Rush_EPA'].mean()
+ax=records.plot.scatter(x="Pass_EPA",y="Rush_EPA")
+for i, txt in enumerate(records['Team']):
+    ax.annotate(txt, (records['Pass_EPA'].iloc[i], records['Rush_EPA'].iloc[i]), 
+            xytext=(5,5), textcoords='offset points')
+
+plt.axhline(y=avg_rush, color='r', linestyle='--')
+plt.axvline(x=avg_pass, color='r', linestyle='--')
+ax.text(0.02, 0.98, "--- League Average", transform=ax.transAxes, 
+        color='r', fontsize=20, verticalalignment='top');
+fig=plt.gcf().set_size_inches(20,10);
+```

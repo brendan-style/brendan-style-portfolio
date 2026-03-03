@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-02">
+<meta name="dcterms.date" content="2026-03-03">
 
 <title>Creating an SQL Database through Python – Brendan Style</title>
 <style>
@@ -113,10 +113,21 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="./sql.html" aria-current="page"> 
-<span class="menu-text">SQL Database</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sql-database" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">SQL Database</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sql-database">    
+        <li>
+    <a class="dropdown-item" href="./sql.html">
+ <span class="dropdown-text">Readme Overview</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./sql_plotting.html">
+ <span class="dropdown-text">Example Queries + Data Viz</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -146,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 2, 2026</p>
+      <p class="date">March 3, 2026</p>
     </div>
   </div>
   
@@ -195,17 +206,35 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>1</td>
+<td>7</td>
+<td>air_yards</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>7</td>
+<td>time_to_throw</td>
+<td>1.94</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>7</td>
+<td>epa</td>
+<td>.31</td>
+</tr>
+<tr class="odd">
+<td>1</td>
 <td>33</td>
 <td>target</td>
 <td>1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>1</td>
 <td>33</td>
 <td>catch</td>
 <td>1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>1</td>
 <td>33</td>
 <td>rec_yards</td>
@@ -213,8 +242,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>For the sake of not making a massive table, I limited it to basic stats, but the “Stat” column would also include things like expected points added (EPA), time to throw, and air yards. This process allows us to take what would’ve been 10+ columns on one row and limit it to 4 while limiting null values and still conveying much of the same story.</p>
-<p>The rest</p>
+<p>In the original dataframe, each on of these stat types would have been its own column, and there would also be a column for the QB’s ID and the receiver’s ID. By reconstructing the DF in this way, both null values and excess columns have been kept to a minimum.</p>
+<p>One last thing to note about the pbp table is that it has been split into 2, one for passing plays and one for running plays. This was done because, for all running plays, the defensive coverage is always a null value. Since I needed this for my passing plays, I split up the 2 and dropped those columns from the running plays table.</p>
+<p>The process for the rest of my tables was pretty straightforward. Most of the information was readily available on nfl_data_py, and putting them all into tables was just a matter of running a few queries and merges. I included tables for players, which contains info such as jersey number, rookie year, and team id. The “Draft” and “Measurements” table include data from that player’s draft info and combine performance, respectively. “Depth Chart” includes how many snaps each player played that week, and where that ranked them within their position group. “Salary” is the only table I couldn’t get from nfl_data_py, instead having to webscrape from Spotrac. That table includes a player’s salary for the 2023 season, broken down into their signing bonus, base salary, total cap hit, and dead cap if they were to be cut from the team. Finally, “Team” includes team name, city, winning percentage that season, and division. All tables are able to be merged onto one another through either the team_id column or the player_id column. Here is a screenshot of the database I put together with DBDiagram</p>
+<p><img src="rdb.png" class="img-fluid"></p>
 
 
 </section>

@@ -89,6 +89,10 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./projects.html"> 
+<span class="menu-text">Project Blogs</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-ml-model" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Python ML Model</span>
@@ -99,19 +103,30 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Readme Overview</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./hr_plotting.html">
+ <span class="dropdown-text">Quarto Dashboard</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views">
- <span class="dropdown-text">Data Visualization</span></a>
+ <span class="dropdown-text">Tableau Dashboard</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./sql.html"> 
-<span class="menu-text">SQL Database + Data Viz</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sql-database" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">SQL Database</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sql-database">    
+        <li>
+    <a class="dropdown-item" href="./sql.html">
+ <span class="dropdown-text">Readme Overview</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./hr_plotting.html"> 
-<span class="menu-text">Dashboard testing</span></a>
+        <li>
+    <a class="dropdown-item" href="./sql_plotting.html">
+ <span class="dropdown-text">Example Queries + Data Viz</span></a>
   </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -175,11 +190,11 @@ ul.task-list li input[type="checkbox"] {
 <p>After predicting our own odds for 85k observations across the 2023-2025 seasons, I split them into train and test sets and found the most ideal blend of sportsbook vs model weighting, the proper amount of “advantage” the model saw in the bet, and the proper threshold. Here are the results for the test data set:</p>
 <section id="unders" class="level4">
 <h4 class="anchored" data-anchor-id="unders">Unders</h4>
-<p>307 Bets, 3.1% profit</p>
+<p>307 Bets, 3.2% profit</p>
 </section>
 <section id="overs" class="level4">
 <h4 class="anchored" data-anchor-id="overs">Overs:</h4>
-<p>318 Bets, 5.2% Profit</p>
+<p>318 Bets, 5.3% Profit</p>
 <p><img src="./img/profit_plot.png" class="img-fluid"></p>
 <p>Very promising! Overall, the test set had 625 bets across its 35k observations, and produced an ROI of over 4%. It should be noted that the training data actually produced a worse result, overall posting a 3.1% ROI across 946 bets, so we might expect future results to be somewhere in between the two outcomes. Accounting for this, if we move forward with an estimate of 3.5% profit, prorated at around 675 bets per season, the expected return would be around 23-24 units. For reference the “unit” is whatever your average bet size is. so, if you bet $10 on every single bet for a full season, you would expect to make $230-240 overall. To double check reliability, I ran the numbers on a per-year basis for both unders and overs. Both were successful for 2 out of the 3 years in the sample, and in both cases, the year that did not match the success had the smallest sample.</p>
 </section>

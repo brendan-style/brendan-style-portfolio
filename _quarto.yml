@@ -19,7 +19,11 @@ website:
           - text: Tableau Dashboard
             href: https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views
       - text: SQL Database
-        href: sql.qmd
+        menu:
+          - text: Readme Overview 
+            href: sql.qmd
+          - text: Example Queries + Data Viz
+            href: sql_plotting.qmd
             
   page-footer: 
     center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026"
