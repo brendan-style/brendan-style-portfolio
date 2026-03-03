@@ -3,7 +3,13 @@ title: "Creating an SQL Database through Python"
 date: '02-12-2026'
 ---
 
-As a part of my database management class while in school, I was tasked with
+As a part of my Database Management class while in school, I was tasked with
 creating and maintaining an SQL database of my choice. Being a big sports fan,
-I decided to make a database consisting of information about all NFL players 
-from that most recent season.
+I decided to make a database consisting of information about all NFL players who
+recorded a stat in 2023, that most recent season. This is a breakdown 
+of the process behind its creation, as well as some example queries
+
+## Tables + Normalization
+
+Even just for one season's worth of players, there is a tremendous amount of data
+to include, 

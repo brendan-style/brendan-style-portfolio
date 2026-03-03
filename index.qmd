@@ -15,7 +15,7 @@ about:
       href: https://github.com/brendan-style
     - icon: file-earmark-pdf
       text: Resumé
-      href: BrendanStyle_resume.pdf
+      href: Brendan_Style_resume.pdf
       target: _blank
     - icon: mailbox
       text: Email
