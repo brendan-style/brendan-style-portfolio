@@ -11,7 +11,7 @@ execute:
 
 ## Sorted list of QB's with most air yards
 
-### The Input  
+### The Input
 
 ```         
 SELECT players.first_name, players.last_name, 

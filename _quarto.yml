@@ -8,12 +8,12 @@ website:
     # background: "#1c4982"
     pinned: true
     left:
-      - text: Project Blogs
-        href: projects.qmd
       - text: Python ML Model
         menu:
           - text: Readme Overview 
             href: mlm.qmd
+          - text: Process Blog
+            href: projects/320_final/index.qmd
           - text: Quarto Dashboard
             href: hr_plotting.qmd
           - text: Tableau Dashboard
@@ -24,6 +24,8 @@ website:
             href: sql.qmd
           - text: Example Queries + Data Viz
             href: sql_plotting.qmd
+      - text: NFL Draft Blog
+        href: projects/proj_1/index.qmd
             
   page-footer: 
     center: "Powered with GitHub, Quarto, and Jupyter Notebook<br>© Brendan Style, 2026"
