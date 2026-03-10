@@ -1,0 +1,24 @@
+---
+title: "Testing User Interactivity"
+resources:
+  - shinylive-sw.js
+---
+
+```{shinylive-python}
+#| standalone: true
+
+from shiny import ui, render, App
+
+app_ui = ui.page_fluid(
+    ui.input_numeric("num", "Enter a number:", value=1),
+    ui.output_text("result")
+)
+
+def server(input, output, session):
+    @output
+    @render.text
+    def result():
+        return f"{input.num()} squared = {input.num() ** 2}"
+
+app = App(app_ui, server)
+```
