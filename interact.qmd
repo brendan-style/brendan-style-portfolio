@@ -7,16 +7,20 @@ resources:
 ```{shinylive-python}
 #| standalone: true
 
-from shiny import ui, render, App
+from shiny import ui, render, App,reactive
 
 app_ui = ui.page_fluid(
     ui.input_text("name", "Batter Name:"),
-    ui.input_text("year", "Batter Year:"),
-    ui.output_text("result")
-    style="width: 400px; height: 200px; padding: 15px; border: 1px solid #ccc;"
+    ui.input_select("year", "Batter Year:", 
+        choices=["2023", "2024", "2025"]
+    ),
+    ui.input_action_button("submit", "Enter"),
+    ui.output_text("result"),
+    style="width: 400px; height: 500px; padding: 15px; border: 1px solid #ccc;"
 )
 
 def server(input, output, session):
+    @reactive.event(input.submit)
     @output
     @render.text
     def result():

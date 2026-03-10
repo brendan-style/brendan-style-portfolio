@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./interact.html" aria-current="page"> 
-<span class="menu-text">Interactive</span></a>
+<span class="menu-text">Interactive (Under Construction!)</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -180,15 +180,23 @@ ul.task-list li input[type="checkbox"] {
 #|   Please set `embed-resources: false` in your metadata.
 #| standalone: true
 
-from shiny import ui, render, App
+from shiny import ui, render, App,reactive
 
-app_ui = ui.page_fluid(
-    ui.input_text("name", "Batter Name:"),
-    ui.input_text("year", "Batter Year:"),
-    ui.output_text("result")
+app_ui = ui.div(
+    ui.page_fluid(
+        ui.input_text("name", "Batter Name:"),
+        ui.input_select("year", "Batter Year:", 
+            choices=["2023", "2024", "2025"]
+        ),
+        ui.input_action_button("submit", "Enter"),
+        ui.output_text("result"),
+    ),
+    style="width: 600px; height: 300px; padding: 15px; border: 1px solid #ccc;"
 )
 
+
 def server(input, output, session):
+    @reactive.event(input.submit)
     @output
     @render.text
     def result():
