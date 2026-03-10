@@ -10,15 +10,17 @@ resources:
 from shiny import ui, render, App
 
 app_ui = ui.page_fluid(
-    ui.input_numeric("num", "Enter a number:", value=1),
+    ui.input_text("name", "Batter Name:"),
+    ui.input_text("year", "Batter Year:"),
     ui.output_text("result")
+    style="width: 400px; height: 200px; padding: 15px; border: 1px solid #ccc;"
 )
 
 def server(input, output, session):
     @output
     @render.text
     def result():
-        return f"{input.num()} squared = {input.num() ** 2}"
+        return f"Hello, {input.name()} from {input.year()}!"
 
-app = App(app_ui, server)
+app = App(app_ui,server)
 ```

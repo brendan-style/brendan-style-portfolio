@@ -26,7 +26,7 @@ website:
             href: sql_plotting.qmd
       - text: NFL Draft Blog
         href: projects/proj_1/index.qmd
-      - text: Interactive
+      - text: Interactive (Under Construction!)
         href: interact.qmd
             
   page-footer: 
