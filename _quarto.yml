@@ -16,8 +16,8 @@ website:
             href: projects/320_final/index.qmd
           - text: Quarto Dashboard
             href: hr_plotting.qmd
-          - text: Tableau Dashboard
-            href: https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views
+             #text: Tableau Dashboard
+            #href: https://us-east-1.online.tableau.com/#/site/brendanstyle1-f964b4bf36/workbooks/4082459/views
       - text: SQL Database
         menu:
           - text: Readme Overview 
