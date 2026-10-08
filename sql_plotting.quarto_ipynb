@@ -32,7 +32,7 @@
         "\n",
         "### The Result\n"
       ],
-      "id": "0ec3d81e"
+      "id": "930e9056"
     },
     {
       "cell_type": "code",
@@ -51,7 +51,7 @@
         "    \"\"\",db)\n",
         "show(records,searching=False,ordering=True,showIndex=False,info=False)"
       ],
-      "id": "0198bdc8",
+      "id": "32a54204",
       "execution_count": null,
       "outputs": []
     },
@@ -74,7 +74,7 @@
         "\n",
         "### The Result\n"
       ],
-      "id": "b1abfcfa"
+      "id": "8c6cb06d"
     },
     {
       "cell_type": "code",
@@ -101,7 +101,7 @@
         "    line=dict(color='steelblue', width=3)\n",
         ")).update_layout(xaxis_title=\"Box Defenders\",yaxis_title=\"YPA\")"
       ],
-      "id": "5cf40ae2",
+      "id": "256027ac",
       "execution_count": null,
       "outputs": []
     },
@@ -146,7 +146,7 @@
         "\n",
         "### The Result\n"
       ],
-      "id": "26820714"
+      "id": "10745f39"
     },
     {
       "cell_type": "code",
@@ -175,7 +175,7 @@
         "        color='r', fontsize=20, verticalalignment='top');\n",
         "fig=plt.gcf().set_size_inches(20,10);"
       ],
-      "id": "b12d594c",
+      "id": "b03b8f19",
       "execution_count": null,
       "outputs": []
     }
